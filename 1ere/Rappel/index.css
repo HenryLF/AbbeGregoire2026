@@ -1,0 +1,33 @@
+@import url("@styles/cours.css");
+@import "../1ere.css";
+
+@page {
+  @top-center {
+    content: "Rappel Mathématiques";
+  }
+}
+
+@page landscape {
+  margin: 1cm 1.5cm;
+}
+
+/* Document-local utility classes used by index.tsx. */
+
+.border-box {
+  border: 2px solid black;
+  padding: 0.2mm 5mm;
+  margin: 0 5mm;
+}
+
+
+.block-box {
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+}
+
+ul {
+  margin: 0;
+}

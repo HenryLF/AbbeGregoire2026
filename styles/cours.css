@@ -1,0 +1,33 @@
+@import url("@styles/index.css");
+
+/* ---------------------------------------------------------------------------
+   Course-specific styles. Only the deltas from @styles/index.css live here.
+   --------------------------------------------------------------------------- */
+
+html,
+body {
+  --wsx--dotline--line-height: 1.8em;
+  --wsx--h2--fontsize: 16px;
+}
+
+.wsx--h2 {
+  border-left: 1mm solid var(--wsx--h2--color);
+  padding-left: 3mm;
+  margin-left: 3mm;
+}
+.wsx--h3 {
+  border-left: 1mm solid var(--wsx--h3--color);
+  padding-left: 3mm;
+  margin-left: 6mm;
+}
+
+.questions {
+  font-style: italic;
+}
+
+.borderbox {
+  border: 0.5mm solid black;
+  border-right: 1mm solid black;
+  border-bottom: 1mm solid black;
+  border-radius: 1mm;
+}

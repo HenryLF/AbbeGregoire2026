@@ -1,0 +1,13 @@
+@import url("@styles/activites.css");
+@import "../2nd.css";
+
+@page {
+  @top-center {
+    content: "Statistique à une variable - Activités";
+  }
+}
+
+.bordered-box {
+  border: 1px solid black;
+  padding: 1mm;
+}

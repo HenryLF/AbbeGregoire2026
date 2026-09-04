@@ -1,0 +1,14 @@
+@import url("@styles/cours.css");
+@import "../2nd.css";
+
+@page {
+  @top-center {
+    content: "Notion de Fonction";
+  }
+}
+
+html,
+body {
+  --wsx--blockbox--gap: 3mm;
+  --wsx--dotline--line-height: 2em;
+}

@@ -1,0 +1,21 @@
+
+@page {
+  @top-right {
+    content: "2026/2027 - 3ème PM SCIENCES";
+    font-size: 8px;
+  }
+}
+
+
+@page {
+  background-image: url("@assets/background/bg_sciences_right.png");
+}
+
+@page :left {
+  background-image: url("@assets/background/bg_sciences_left.png");
+}
+
+@page landscape {
+  size: A4 landscape;
+  background-image: url("@assets/background/bg_sciences_landscape.png");
+}

@@ -1,0 +1,49 @@
+.problem {
+  --color: #117769;
+  break-inside: avoid;
+  [class~="wsx--li"] {
+    font-style: italic;
+  }
+}
+
+.container {
+  border-left: 0.5mm solid var(--color);
+  border-bottom: 1mm solid var(--color);
+  border-radius: 1mm;
+  padding: 0mm 2mm 1mm;
+  margin: 2mm 0.5mm;
+}
+
+.header {
+  color: var(--color);
+  font-weight: bold;
+  border-bottom: 0.2mm solid var(--color);
+  margin: 0 1mm;
+  display: inline;
+}
+
+.details {
+  font-size: 8px;
+  font-style: italic;
+}
+
+.call {
+  counter-increment: call-counter;
+  width: 75%;
+  display: block;
+  margin: 0.5mm 0;
+  margin-left: auto;
+  & > * {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+
+.call_content {
+  font-weight: bold;
+  &::before {
+    content: "Appel n°" counter(call-counter) ":";
+    vertical-align: middle;
+    margin-right: 1mm;
+  }
+}

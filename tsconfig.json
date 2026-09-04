@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "types": [
+      "bun-types"
+    ],
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ],
+      "@assets": [
+        "./assets/index.ts"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@components": [
+        "./components/index.ts"
+      ],
+      "@components/*": [
+        "./components/*"
+      ]
+    }
+  }
+}

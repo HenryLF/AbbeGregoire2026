@@ -1,0 +1,39 @@
+.page {
+  --wsx--blockbox--gap: 5mm;
+
+  [class~="wsx--h1"] {
+    border: none;
+    font-size: 22;
+    text-align: center;
+    margin: 0;
+  }
+  [class~="wsx--h2"],
+  [class~="wsx--h1"] {
+    font-weight: bold;
+    &::before {
+      content: none;
+    }
+  }
+  [class~="wsx--h6"] {
+    margin: 0;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    &::before {
+      content: none;
+    }
+  }
+  [class~="wsx--list--ol"] {
+    --wsx--list--indent: 0;
+  }
+  [class~="wsx--ol--items"] {
+    font-weight: bold;
+  }
+  [class~="wsx--ul--items"] {
+    font-style: italic;
+    font-size: 10;
+  }
+  [class~="wsx--list--ul"] {
+    --wsx--list--indent: 5mm;
+  }
+}

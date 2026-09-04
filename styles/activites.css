@@ -1,0 +1,38 @@
+@import url("@styles/index.css");
+
+/* ---------------------------------------------------------------------------
+   Activity-specific styles. Only the deltas from @styles/index.css live here.
+   --------------------------------------------------------------------------- */
+
+@page {
+  margin: 1.5cm 1cm 1.5cm 8mm;
+}
+
+html,
+body {
+  --wsx--dotline--line-height: 0.8cm;
+  --wsx--h2--fontsize: 18px;
+}
+
+.question {
+  margin: 1mm 0;
+  font-style: italic;
+}
+
+.img-equation {
+  border: 0.1mm solid black;
+  border-right: 0.5mm solid black;
+  border-bottom: 0.5mm solid black;
+  padding: 1mm;
+
+  margin: 1mm auto;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  img {
+    display: inline;
+    height: var(--img-height);
+    margin: 0 1mm;
+  }
+}

@@ -1,0 +1,25 @@
+.important-equation {
+  display: table;
+
+  text-indent: 0;
+
+  border: 0.5mm solid #802000;
+  border-right: 1mm solid #802000;
+  border-bottom: 1mm solid #802000;
+  border-radius: 1mm;
+
+  padding: 1mm 2mm;
+
+  margin: 1mm auto;
+
+  & > .wsx--latex {
+    display: table-cell;
+    text-align: center;
+  }
+}
+
+.important-equation--inline {
+  display: inline-table;
+  margin: 0 1mm;
+  vertical-align: middle;
+}

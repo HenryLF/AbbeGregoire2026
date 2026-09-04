@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* WeasyPrint drops any rule whose selector list contains an unsupported item, which
+   kills Tailwind preflight's universal reset (it lists ::backdrop and
+   ::file-selector-button). Restate it with selectors WeasyPrint can parse so the PDF
+   gets the same reset as the browser. No-op in the browser — identical values. */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Common document styles.
+   Variant sheets (@styles/cours.css, @styles/activites.css) import this file
+   and only declare their deltas. Per-document index.css files import a variant
+   and declare page-specific content (@top-center, …).
+   --------------------------------------------------------------------------- */
+
+@page {
+  size: A4;
+  margin: 1.5cm 1cm;
+
+  background-image: url("@assets/background/bg_right.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  color: #888;
+  font-family: "Public Sans Variable", sans-serif;
+
+  @top-left {
+    content: "B. Zuber - LP Abbé Grégoire";
+    font-size: 8px;
+  }
+
+  @top-center {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  @top-right {
+    font-size: 8px;
+  }
+
+  @bottom-center {
+    content: counter(page) " / " counter(pages);
+    font-size: 9pt;
+    color: #888;
+  }
+}
+
+@page :left {
+  background-image: url("@assets/background/bg_left.png");
+}
+
+@page landscape {
+  size: A4 landscape;
+  background-image: url("@assets/background/bg_landscape.png");
+}
+
+html,
+body {
+  color: #0f172a;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+
+  font-family: "Public Sans Variable", sans-serif;
+  font-size: 12px;
+
+  --wsx--blockbox--gap: 2mm;
+  --wsx--stack--gap: 1mm;
+  --wsx--table--header-color: #e0e0e060;
+
+  /* Headings */
+  --wsx--h1--color: #19535f;
+  --wsx--h1--fontsize: 18px;
+  --wsx--h2--color: #999900;
+  --wsx--h3--color: #3e5222;
+  --wsx--h3--fontsize: 14px;
+}
+
+.wsx--h1 {
+  border-left: .8mm solid var(--wsx--h1--color);
+  padding-left: 3mm;
+}
+
+.wsx--h6 {
+  &::before {
+    content: "•";
+  }
+  font-weight: bold;
+  margin-left: 1cm;
+}
+
+.wsx--h1,
+.wsx--h2,
+.wsx--h3 {
+  font-weight: bold;
+  &::before {
+    margin-right: 5px;
+  }
+  &:has(+ :not(.wsx--h1, .wsx--h2, .wsx--h3, .wsx--h4, .wsx--h5, .wsx--h6)) {
+    margin-bottom: 3mm;
+  }
+}
+
+.wsx--h4,
+.wsx--h5,
+.wsx--h6 {
+  &::before {
+    margin-right: 5px;
+  }
+  margin: 1mm 0;
+  &:has(+ :not(.wsx--h1, .wsx--h2, .wsx--h3, .wsx--h4, .wsx--h5, .wsx--h6)) {
+    margin-bottom: 2mm;
+  }
+}
+
+p,
+.text {
+  margin: 1mm 0;
+  text-indent: 0.5cm;
+  text-align: justify;
+}
+
+.details {
+  font-size: 10px;
+  line-height: 0.8;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+strong {
+  font-weight: 600;
+  color: #802000;
+}
+
+em {
+  border-bottom: 1px solid black;
+  font-style: italic;
+}

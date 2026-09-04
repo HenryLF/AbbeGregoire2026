@@ -1,0 +1,13 @@
+@import url("@styles/activites.css");
+@import "../2nd.css";
+
+@page {
+  @top-center {
+    content: "Notion de Fonction - Activités";
+  }
+}
+
+html,
+body {
+  --wsx--dotline--line-height: 2em;
+}

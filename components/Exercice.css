@@ -1,0 +1,95 @@
+.exercice {
+  --color: #0b7a75;
+
+  .wsx--h2::before {
+    content: "Exercice " counter(--wsx--counter-h1, upper-roman) "."
+      counter(--wsx--counter-h2) " :";
+  }
+}
+
+.tp {
+  --color: #af8102;
+
+  .wsx--h2::before {
+    content: "Activité " counter(--wsx--counter-h1, upper-roman) "."
+      counter(--wsx--counter-h2) " :";
+  }
+}
+
+.problem {
+  --color: #808000;
+
+  .wsx--h2 {
+    counter-increment: none;
+  }
+
+  .wsx--h2::before {
+    content: "Problème:";
+  }
+
+}
+
+.exercice,
+.tp,
+.problem {
+  counter-reset: call-counter;
+  border-left: 0.25mm solid var(--color);
+  border-bottom: 0.5mm solid var(--color);
+  border-radius: 2mm;
+  padding-left: 2mm;
+  padding-bottom: 1mm;
+
+  margin-bottom: 5mm;
+  margin-left: 1mm;
+
+  --wsx--list--indent: 0.5cm;
+
+  .wsx--h2 {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    --h2-color: var(--color);
+    color: var(--color);
+    margin: 1mm 0;
+    border: none !important;
+
+    &::before {
+      border-bottom: 2px solid var(--color);
+      margin-right: 5px;
+    }
+  }
+
+  .wsx--ol--items {
+    margin-top: 1mm;
+    font-style: italic;
+  }
+}
+
+.subquestion {
+  --wsx--list--indent: 1cm;
+}
+
+.document {
+  padding: 2mm;
+
+  border: 0.1mm solid black;
+  border-right: 0.5mm solid black;
+  border-bottom: 0.5mm solid black;
+
+  border-radius: 0.1mm;
+  position: relative;
+  background-color: #b2c3eb98;
+}
+
+.options {
+  .wsx--li {
+    margin: 0;
+    font-style: normal;
+    font-weight: bold;
+    break-after: column;
+
+    & > * {
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+/* Droite graduée avec un intervalle mis en évidence.
+   Toutes les couleurs du composant sont définies ici. */
+
+.interval {
+    /* --- couleurs --- */
+    --axis-color: #000000;
+    --tick-color: #000000;
+    --label-color: #000000;
+    --bracket-color: #000000;
+    --highlight-color: #9dbfe4;
+    --highlight-edge: #e4edf8;
+
+    /* --- géométrie --- */
+    --pad-left: 6mm;
+    --pad-right: 10mm;
+    --axis-y: 11mm;
+    --axis-width: 0.8mm;
+    --tick-width: 0.5mm;
+    --tick-height: 5mm;
+    --arrow-length: 4mm;
+    --arrow-half: 2.4mm;
+    --bracket-width: 2.4mm;
+    --bracket-height: 9mm;
+    --bracket-stroke: 0.9mm;
+    --highlight-height: 7.5mm;
+    --label-size: 10pt;
+
+    /* display: block; */
+    padding-left: var(--pad-left);
+    padding-right: var(--pad-right);
+    margin: 2mm 0;
+}
+
+/* Repère : tout est positionné en pourcentage de cette boite. */
+.track {
+    position: relative;
+    height: calc(var(--axis-y) + 6mm);
+}
+
+/* La droite, débordant de part et d'autre de la zone graduée. */
+.axis {
+    z-index: 2;
+
+    position: absolute;
+    left: calc(0mm - var(--pad-left));
+    right: calc(0mm - var(--pad-right));
+    top: calc(var(--axis-y) - var(--axis-width) / 2);
+    height: var(--axis-width);
+    background-color: var(--axis-color);
+}
+
+/* Pointe de la flèche, à l'extrémité droite. */
+.arrow {
+    position: absolute;
+    z-index: 1;
+
+    left: calc(100% + var(--pad-right) - var(--arrow-length));
+    top: calc(var(--axis-y) - var(--arrow-half));
+    width: 0;
+    height: 0;
+    border-left: var(--arrow-length) solid var(--axis-color);
+    border-top: var(--arrow-half) solid transparent;
+    border-bottom: var(--arrow-half) solid transparent;
+}
+
+/* Graduation : barre verticale centrée sur la valeur. */
+.tick {
+    position: absolute;
+    top: calc(var(--axis-y) - var(--tick-height) / 2);
+    height: var(--tick-height);
+    width: 0;
+    margin-left: calc(0mm - var(--tick-width) / 2);
+    border-left: var(--tick-width) solid var(--tick-color);
+}
+
+.label {
+    position: absolute;
+    bottom: 120%;
+    left: 0;
+    transform: translateX(-50%);
+    margin-bottom: 1.2mm;
+    color: var(--label-color);
+    font-size: var(--label-size);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Zone coloriée de l'intervalle. */
+.highlight {
+    z-index: 0;
+    position: absolute;
+    top: calc(var(--axis-y) - var(--highlight-height) / 2);
+    height: var(--highlight-height);
+    background-image: linear-gradient(to right,
+            var(--highlight-edge),
+            var(--highlight-color));
+}
+
+/* Crochets. */
+.bracket {
+    position: absolute;
+    top: calc(var(--axis-y) - var(--bracket-height) / 2);
+    width: var(--bracket-width);
+    height: var(--bracket-height);
+    border: var(--bracket-stroke) solid var(--bracket-color);
+}
+
+/* Crochet « [ » : la barre verticale est à gauche. */
+.bracket_right {
+    border-right: none;
+    margin-left: calc(0mm - var(--bracket-stroke) / 2);
+}
+
+/* Crochet « ] » : la barre verticale est à droite. */
+.bracket_left {
+    border-left: none;
+    transform: translateX(-100%);
+    margin-left: calc(var(--bracket-stroke) / 2);
+}
+
+.caption {
+    text-align: center;
+    font-size: 10pt;
+    margin-top: 1mm;
+}

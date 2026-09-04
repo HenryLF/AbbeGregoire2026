@@ -1,0 +1,19 @@
+{
+  "name": "AbbeGregoire2026",
+  "scripts": {
+    "build": "weasyprint-tsx",
+    "build:all": "bash scripts/build-all.sh",
+    "build:assets": "bash scripts/update-assets-index.sh",
+    "build:svg": "bash scripts/svg-to-png.sh",
+    "dev": "weasyprint-tsx --watch"
+  },
+  "dependencies": {
+    "@weasyprint-tsx/build": "latest",
+    "@weasyprint-tsx/ui": "latest",
+    "preact": "^10.0.0",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}

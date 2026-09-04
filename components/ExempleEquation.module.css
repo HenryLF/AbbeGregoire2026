@@ -1,0 +1,17 @@
+.table {
+  width: 100%;
+  margin: 0.3cm 0 ;
+  table-layout: fixed;
+  break-inside: avoid;
+}
+
+.cell {
+  padding: 0.1cm 0.2cm;
+  &:not(:first-child) {
+    border-left: 1px solid grey;
+  }
+  vertical-align: top;
+  & > [class^="dotline"] {
+    width: 100%;
+  }
+}
