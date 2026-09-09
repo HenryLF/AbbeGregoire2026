@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ol {
+  [class~=".wsx--li"] {
+    font-style: italic;
+  }
+}

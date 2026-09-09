@@ -1,0 +1,17 @@
+@page {
+  size: A4;
+  margin: 1cm;
+}
+
+html,
+body {
+  color: #000;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+
+  font-family: "Public Sans Variable", sans-serif;
+  font-size: 12px;
+
+  --wsx--list--indent: 1cm;
+}

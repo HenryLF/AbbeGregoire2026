@@ -65,7 +65,7 @@
 
 html,
 body {
-  color: #0f172a;
+  color: #000;
   margin: 0;
   padding: 0;
   line-height: 1.7;
@@ -86,7 +86,7 @@ body {
 }
 
 .wsx--h1 {
-  border-left: .8mm solid var(--wsx--h1--color);
+  border-left: 0.8mm solid var(--wsx--h1--color);
   padding-left: 3mm;
 }
 

@@ -48,7 +48,7 @@ EOF
   if ! bun run build; then
     failures+=("$dir")
   fi
-done < <(find . -mindepth 2 -maxdepth 4 -name index.tsx -not -path '*/node_modules/*' -not -path '*/src/*')
+done < <(find . -mindepth 2 -name index.tsx -not -path '*/node_modules/*' -not -path '*/src/*' -not -path '*/.build/*')
 
 echo
 if [ "${#failures[@]}" -eq 0 ]; then

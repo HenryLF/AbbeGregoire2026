@@ -1,0 +1,8 @@
+@import url("@styles/cours.css");
+@import "../math.css";
+
+@page {
+  @top-center {
+    content: "Nombres et Calculs";
+  }
+}

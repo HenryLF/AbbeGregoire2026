@@ -5,6 +5,8 @@
 // name; the Exercice one is re-exported as `ExerciceProblem`. Either can also be
 // reached unambiguously via a deep import, e.g. `@components/Exercice`.
 
+export { Document, type DocumentProps } from "./Document";
+
 export { Img, QR } from "./Image";
 export { Call, Circle, Details, Problem, type DetailsProps, type TextBlockProps } from "./TextBlock";
 
