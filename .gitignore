@@ -4,4 +4,6 @@ node_modules/
 
 assets/**/*.*
 !assets/**/*.png
+!assets/**/*.jpg
+!assets/**/*.jpeg
 !assets/**/*.ts
