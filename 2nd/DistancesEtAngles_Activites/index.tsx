@@ -384,16 +384,16 @@ export default function DistancesEtAnglesActivitesDocument() {
       </Exercice>
 
       <TPPolygone
-        nom="le pentagone"
-        cote="5"
-        coteFigure="5"
-        href={GGB_PENTAGONE}
-      />
-      <TPPolygone
         nom="l'hexagone"
         cote="3.5"
         coteFigure="4.5"
         href={GGB_HEXAGONE}
+      />
+      <TPPolygone
+        nom="le pentagone"
+        cote="5"
+        coteFigure="5"
+        href={GGB_PENTAGONE}
       />
     </Document>
   );
