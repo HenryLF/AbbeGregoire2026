@@ -26,6 +26,7 @@ import {
   toLowerAlphabetical,
 } from "@weasyprint-tsx/ui";
 import "./index.css";
+import { GGB_HEXAGONE, GGB_PENTAGONE, TPPolygone } from "./TP_Polygone";
 
 const listUnit = [
   "km",
@@ -155,9 +156,9 @@ export default function DistancesEtAnglesActivitesDocument() {
       </Exercice>
       <Exercice title="Grande Roue">
         <p>
-          À l’Exposition universelle de Paris en 1900, on pouvait monter dans
-          la Grande Roue. Elle avait un diamètre de 93 m. Quelle distance
-          avait-on parcourue en faisant :
+          À l’Exposition universelle de Paris en 1900, on pouvait monter dans la
+          Grande Roue. Elle avait un diamètre de 93 m. Quelle distance avait-on
+          parcourue en faisant :
         </p>
         <LI>un tour de roue ?</LI>
         <DotLine count={2} />
@@ -196,8 +197,8 @@ export default function DistancesEtAnglesActivitesDocument() {
           </Block>
           <Block ratio={2.2}>
             <p className="question">
-              Peut-on renverser l'armoire comme sur le schéma ? (sans abîmer
-              ni le plafond, ni l'armoire)
+              Peut-on renverser l'armoire comme sur le schéma ? (sans abîmer ni
+              le plafond, ni l'armoire)
             </p>
             <DotLine count={3} />
           </Block>
@@ -238,8 +239,8 @@ export default function DistancesEtAnglesActivitesDocument() {
           </Block>
           <Block>
             <p>
-              Le théorème de Pythagore est connu sous différents noms depuis
-              le Ve siècle av. J.-C.
+              Le théorème de Pythagore est connu sous différents noms depuis le
+              Ve siècle av. J.-C.
             </p>
             <LI>Reproduire le schéma du manuscrit.</LI>
             <div className="h-100 w-full bg-[#e0e0e050] rounded flex justify-center items-start ">
@@ -344,9 +345,8 @@ export default function DistancesEtAnglesActivitesDocument() {
       <H1>Angles</H1>
       <Exercice title="Conversion d'angles">
         <LI>
-          Rappeler la relation entre un angle <LaTeX tex="\theta" /> exprimé
-          en degré et sa valeur <LaTeX tex="\widehat{a}" /> exprimée en
-          radian.
+          Rappeler la relation entre un angle <LaTeX tex="\theta" /> exprimé en
+          degré et sa valeur <LaTeX tex="\widehat{a}" /> exprimée en radian.
         </LI>
         <DotLine count={2} />
         <LI>Compléter le tableau suivant :</LI>
@@ -382,6 +382,19 @@ export default function DistancesEtAnglesActivitesDocument() {
           </Block>
         </BlockBox>
       </Exercice>
+
+      <TPPolygone
+        nom="le pentagone"
+        cote="5"
+        coteFigure="5"
+        href={GGB_PENTAGONE}
+      />
+      <TPPolygone
+        nom="l'hexagone"
+        cote="3.5"
+        coteFigure="4.5"
+        href={GGB_HEXAGONE}
+      />
     </Document>
   );
 }
