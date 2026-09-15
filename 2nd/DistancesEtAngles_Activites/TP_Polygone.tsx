@@ -3,7 +3,7 @@ import { Block, BlockBox, DotLine, LaTeX, LI } from "@weasyprint-tsx/ui";
 
 // TODO: remplacer par le lien du fichier GeoGebra une fois publié.
 export const GGB_PENTAGONE = "dabfnswd";
-export const GGB_HEXAGONE = "svapczu3";
+export const GGB_HEXAGONE = "abxauanb";
 
 interface TPPolygoneProps {
   /** Nom avec article, ex. "le pentagone" / "l'hexagone" */

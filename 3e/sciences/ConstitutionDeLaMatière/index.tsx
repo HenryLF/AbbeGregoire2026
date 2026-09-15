@@ -64,9 +64,13 @@ function UnitTable() {
 export default function ConstitutionDeLaMatiereDocument() {
   return (
     <Document title="Constitution de la Matière">
-      <Page>
-        <Img src={atom}>Schéma d'un atome</Img>
-        <Img src={periodicTable}>Tableau périodique</Img>
+      <Page page="no-bg">
+        <Img align="right" src={atom}>
+          Schéma d'un atome
+        </Img>
+        <Img align="right" src={periodicTable}>
+          Tableau périodique
+        </Img>
       </Page>
       <H1>Atomes</H1>
       <p>
@@ -77,8 +81,8 @@ export default function ConstitutionDeLaMatiereDocument() {
       </p>
       <H2>Électrons</H2>
       <p>
-        Les <strong>électrons</strong> sont des particules élémentaires
-        portant une charge négative.
+        Les <strong>électrons</strong> sont des particules élémentaires portant
+        une charge négative.
       </p>
       <div className="text">
         La masse d'un électron est de <LaTeX tex="m_{e^-} = 10^{-30}\:kg" />, sa
@@ -118,7 +122,7 @@ export default function ConstitutionDeLaMatiereDocument() {
         <DotLine width={"17.4cm"} />
         <DotLine />
       </div>
-      <Img src={atom} className="w-3/4 mx-auto">
+      <Img align="right" src={atom} className="w-3/4 mx-auto">
         Schéma d'un atome
       </Img>
       <p>On remarque que:</p>
@@ -145,8 +149,8 @@ export default function ConstitutionDeLaMatiereDocument() {
       <p>
         Il existe 118 types d'atomes différents que l'on appelle{" "}
         <strong>éléments</strong>, on les distingue par leur numéro atomique{" "}
-        <LaTeX tex="Z" />. Chaque élément est associé à un symbole, par exemple
-        :
+        <LaTeX tex="Z" />. Chaque élément est associé à un{" "}
+        <strong> symbole</strong>, par exemple :
       </p>
       <Table
         className="w-8/10 mx-auto"
@@ -166,9 +170,9 @@ export default function ConstitutionDeLaMatiereDocument() {
         On retrouve tous les éléments connus dans le{" "}
         <strong>tableau périodique des éléments</strong>.
       </p>
-      <Img src={periodicTable}>Tableau périodique</Img>
-
-
+      <Img align="right" src={periodicTable}>
+        Tableau périodique
+      </Img>
     </Document>
   );
 }

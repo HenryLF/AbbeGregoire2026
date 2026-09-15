@@ -1,5 +1,14 @@
 import { Document, ImportantEquation, Problem } from "@/components";
-import { DotLine, H1, H2, H3, LaTeX, LI, UL } from "@weasyprint-tsx/ui";
+import {
+  DotLine,
+  H1,
+  H2,
+  H3,
+  LaTeX,
+  LI,
+  PageBreak,
+  UL,
+} from "@weasyprint-tsx/ui";
 import "./index.css";
 
 export default function NombresEtEnsemblesDocument() {
@@ -34,7 +43,7 @@ export default function NombresEtEnsemblesDocument() {
         <DotLine count={3} />
       </Problem>
       <p>On en déduit que:</p>
-      <div className="important-equation mx-auto mb-30!">
+      <div className="important-equation mx-auto ">
         <div className="text">
           Soit <LaTeX tex="a" /> un nombre réel, <LaTeX tex="n" /> et{" "}
           <LaTeX tex="m" /> deux nombres entiers relatifs, alors :
@@ -48,14 +57,17 @@ export default function NombresEtEnsemblesDocument() {
         <DotLine count={3} />
       </Problem>
       <p>On en déduit que:</p>
-      <div className="important-equation mx-auto mb-30!">
+      <div className="important-equation mx-auto ">
         <div className="text">
           Soit <LaTeX tex="a" /> un nombre réel, <LaTeX tex="n" /> et{" "}
           <LaTeX tex="m" /> deux nombres entiers relatifs, alors :
         </div>
-        <LaTeX className="block!" tex="\huge \frac{a^{n}}{a^{m}} = \Large   a^{n-m}" />
+        <LaTeX
+          className="block!"
+          tex="\huge \frac{a^{n}}{a^{m}} = \Large   a^{n-m}"
+        />
       </div>
-
+      <PageBreak />
       <H3>Puissance de fractions</H3>
       <Problem>
         Quelle est la valeur de{" "}
@@ -63,7 +75,7 @@ export default function NombresEtEnsemblesDocument() {
         <DotLine count={3} />
       </Problem>
       <p>On en déduit que:</p>
-      <div className="important-equation mx-auto mb-30!">
+      <div className="important-equation mx-auto ">
         <div className="text">
           Soient <LaTeX tex="a" /> et <LaTeX tex="b" /> deux nombres réels,{" "}
           <LaTeX tex="n" /> un entier relatif, alors :
@@ -80,7 +92,7 @@ export default function NombresEtEnsemblesDocument() {
         <DotLine count={3} />
       </Problem>
       <p>On en déduit que:</p>
-      <div className="important-equation mx-auto mb-30!">
+      <div className="important-equation mx-auto ">
         <div className="text">
           Soit <LaTeX tex="a" /> un nombre réel, <LaTeX tex="n" /> et{" "}
           <LaTeX tex="m" /> deux nombres entiers relatifs, alors :

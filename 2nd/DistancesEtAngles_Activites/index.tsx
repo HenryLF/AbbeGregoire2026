@@ -92,7 +92,7 @@ export default function DistancesEtAnglesActivitesDocument() {
             style={{ "--wsx--dotline--line-height": "2em" }}
           >
             <LI>
-              de la ligne d'arrivée :
+              de la ligne de départ :
               <DotLine inline width={"13cm"} />
             </LI>
 
@@ -108,7 +108,7 @@ export default function DistancesEtAnglesActivitesDocument() {
           </OL>
         </LI>
         <LI>
-          Calculer les distances parcourues depuis la ligne d'arrivée par :
+          Calculer les distances parcourues depuis la ligne de départ par :
           <OL
             format={toLowerAlphabetical}
             separator=".)"
