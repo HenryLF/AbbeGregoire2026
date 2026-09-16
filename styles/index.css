@@ -63,8 +63,26 @@
   background-image: url("@assets/background/bg_landscape.png");
 }
 
-@page no-bg {
+@page blank {
   background-image: none;
+
+  counter-increment: page 0;
+
+  @bottom-center {
+    content: none;
+  }
+
+  @top-left {
+    content: none;
+  }
+
+  @top-center {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
 }
 
 html,
@@ -125,6 +143,9 @@ body {
     margin-bottom: 2mm;
   }
 }
+
+
+
 
 p,
 .text {

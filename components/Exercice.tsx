@@ -1,8 +1,17 @@
-import { H2, LI, OL, UL, joinClasses, mergeStyle, toLowerAlphabetical } from "@weasyprint-tsx/ui";
+import type { OlProps } from "@weasyprint-tsx/ui";
+import {
+  H2,
+  LI,
+  OL,
+  UL,
+  joinClasses,
+  mergeStyle,
+  toLowerAlphabetical,
+} from "@weasyprint-tsx/ui";
 import { toChildArray } from "preact";
 import { ComponentProps, PropsWithChildren } from "preact/compat";
 import "./Exercice.css";
-interface ExerciceProps extends ComponentProps<"div"> {
+interface ExerciceProps extends OlProps {
   title?: string;
 }
 
@@ -10,12 +19,27 @@ export function Exercice({
   title = "",
   children,
   className,
+  start,
+  format,
+  separator,
+  spacing,
+  indent,
   ...props
 }: ExerciceProps) {
   return (
     <div className={joinClasses(className, "exercice")} {...props}>
       <H2>{title}</H2>
-      <OL>{children}</OL>
+      <OL
+        {...{
+          start,
+          format,
+          separator,
+          spacing,
+          indent,
+        }}
+      >
+        {children}
+      </OL>
     </div>
   );
 }
@@ -37,26 +61,43 @@ export function Doc({ children, className, ...props }: ExerciceProps) {
   );
 }
 
-
 export interface OptionsProps extends ComponentProps<"div"> {
-  columns?: number
+  columns?: number;
 }
-export function Options({ columns, style, className, children, ...props }: OptionsProps) {
-  const childs = toChildArray(children).map(child => <LI>{child}</LI>)
+export function Options({
+  columns,
+  style,
+  className,
+  children,
+  ...props
+}: OptionsProps) {
+  const childs = toChildArray(children).map((child) => <LI>{child}</LI>);
   const css = mergeStyle(style, {
-    columnCount: columns ?? childs.length
-  })
-  return <UL marker="&#9634;" className={joinClasses("options", className)} indent={0} style={css} children={childs} {...props} />
+    columnCount: columns ?? childs.length,
+  });
+  return (
+    <UL
+      marker="&#9634;"
+      className={joinClasses("options", className)}
+      indent={0}
+      style={css}
+      children={childs}
+      {...props}
+    />
+  );
 }
 
 export interface SubQuestionProps extends PropsWithChildren {
-  count: number
+  count: number;
 }
 export function SubQuestions({ children, count }: SubQuestionProps) {
-  return <OL
-    className="subquestion"
-    format={(s => `${count}.${toLowerAlphabetical(s)}`)}
-    separator=")">
-    {children}
-  </OL>
+  return (
+    <OL
+      className="subquestion"
+      format={(s) => `${count}.${toLowerAlphabetical(s)}`}
+      separator=")"
+    >
+      {children}
+    </OL>
+  );
 }

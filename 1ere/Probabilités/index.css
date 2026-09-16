@@ -1,0 +1,8 @@
+@import url("@styles/cours.css");
+@import "../1ere.css";
+
+@page {
+  @top-center {
+    content: "Probabilités";
+  }
+}

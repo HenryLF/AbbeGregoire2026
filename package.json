@@ -10,7 +10,7 @@
   "dependencies": {
     "@weasyprint-tsx/build": "latest",
     "@weasyprint-tsx/ui": "latest",
-    "preact": "^10.0.0",
+    "preact": "^10.29.8",
     "tailwindcss": "latest"
   },
   "devDependencies": {
