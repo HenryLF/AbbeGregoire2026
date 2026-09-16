@@ -96,7 +96,7 @@
 
     "@weasyprint-tsx/build": ["@weasyprint-tsx/build@0.1.7", "", { "dependencies": { "@tailwindcss/postcss": "^4.3.0", "postcss": "^8.5.15", "postcss-custom-properties": "^15.0.1", "preact": "^10.29.2", "preact-render-to-string": "^6.7.0" }, "bin": { "weasyprint-tsx": "src/cli.ts" } }, "sha512-RWrChKiZSmyV4Vqw/VC4SvKh0ovjpCm2v7UHWPhStVQzN5bBmtPdWqb50SU4oK7O506y0ZJzcJ7tqT6BDggSUA=="],
 
-    "@weasyprint-tsx/ui": ["@weasyprint-tsx/ui@0.2.16", "", { "dependencies": { "@napi-rs/canvas": "^1.0.0", "chart.js": "^4.5.1", "highlight.js": "11.11.1", "katex": "^0.16.47", "qrcode": "^1.5.4" } }, "sha512-TgCwXWRUgm5zqXpqAeHEm/JpvG4FWTRSzp4Om9mJmZJzJU2Hb2/Mm9khE4uEMnFRe4XRTMBmsZGI0OICvcLsIg=="],
+    "@weasyprint-tsx/ui": ["@weasyprint-tsx/ui@0.2.17", "", { "dependencies": { "@napi-rs/canvas": "^1.0.0", "chart.js": "^4.5.1", "highlight.js": "11.11.1", "katex": "^0.16.47", "qrcode": "^1.5.4" } }, "sha512-hgD2wvzoEl91e9cYB7bZ1BdQkOcxmexl6Y1aWPAExpkLtZNmhJsPT9nC4E5xrYxlAY4noseLseOcBEXv9erp5g=="],
 
     "ansi-regex": ["ansi-regex@5.0.1", "", {}, "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="],
 

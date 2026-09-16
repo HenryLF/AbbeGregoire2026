@@ -64,3 +64,33 @@
     width: 5.5cm;
   }
 }
+
+.aide-title {
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 0.4mm solid black;
+  margin-bottom: 1.5mm;
+}
+
+.aide-card {
+  border-left: 0.8mm solid black;
+  padding: 0.5mm 2mm;
+  margin-bottom: 2mm;
+  font-size: 10px;
+  break-inside: avoid;
+}
+
+.aide-terme {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.aide-definition {
+  font-style: italic;
+}
+
+.aide-exemple {
+  background: #f0f0f0;
+  padding: 0.5mm 1.5mm;
+  margin-top: 0.5mm;
+}
