@@ -1,0 +1,66 @@
+@import url("@styles/activites.css");
+@import "../gestion.css";
+
+@page {
+  @top-center {
+    content: "Calculs commerciaux - Co-intervention";
+  }
+}
+
+.calc-table {
+  border-collapse: collapse;
+  margin: 2mm auto;
+
+  th {
+    border: 0.2mm solid black;
+    padding: 1mm 2mm;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  td {
+    padding: 0 2mm;
+    height: 0.62cm;
+  }
+
+  td.answer {
+    border-bottom: 0.2mm dotted black;
+  }
+
+  td.given {
+    text-align: right;
+  }
+
+  tr.total td {
+    font-weight: bold;
+    background: #f0f0f080;
+    border-top: 0.2mm solid black;
+    border-bottom: 0.2mm solid black;
+  }
+
+  tr.total td.answer {
+    border-bottom: 0.6mm double black;
+  }
+}
+
+.justif-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2mm 0;
+
+  th {
+    border: 0.2mm solid black;
+    padding: 1mm 2mm;
+    font-weight: bold;
+  }
+
+  td {
+    border: 0.2mm solid black;
+    height: 0.85cm;
+    padding: 0 2mm;
+  }
+
+  td:first-child {
+    width: 5.5cm;
+  }
+}

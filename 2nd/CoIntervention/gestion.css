@@ -1,0 +1,21 @@
+@page {
+  @top-right {
+    content: "2026/2027 - LP Abbé Grégoire - 2nd";
+    font-size: 8px;
+  }
+
+  @top-left {
+    content: "D. Sauvage & B. Zuber";
+  }
+}
+
+@page :right {
+  background-image: url("@assets/background/bg_gestion_right.png");
+}
+@page :left {
+  background-image: url("@assets/background/bg_gestion_left.png");
+}
+
+@page landscape {
+  background-image: url("@assets/background/bg_gestion_landscape.png");
+}
