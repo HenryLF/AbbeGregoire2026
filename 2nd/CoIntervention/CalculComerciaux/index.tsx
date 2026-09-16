@@ -2,6 +2,7 @@ import { Document, Exercice } from "@components";
 import {
   Block,
   BlockBox,
+  DotLine,
   H1,
   LI,
   Page,
@@ -119,14 +120,14 @@ const aidePrixCouts: Aide[] = [
     definition:
       "Réduction commerciale accordée sur le prix initial d'un produit (quantité importante, type de client, etc.).",
     donnees: ["Prix initial : 200 €", "Remise : 20 €"],
-    calcul: "Prix initial − Remise = 200 € − 20 €",
+    calcul: "Prix initial - Remise = 200 € - 20 €",
     resultat: "Prix final : 180 €",
   },
   {
     terme: "Prix d'achat net",
     definition: "Prix d'achat après déduction des remises.",
     donnees: ["Prix catalogue : 40 €", "Remise : 5 €"],
-    calcul: "Prix catalogue − Remise = 40 € − 5 €",
+    calcul: "Prix catalogue - Remise = 40 € - 5 €",
     resultat: "Prix d'achat net : 35 €",
   },
   {
@@ -149,7 +150,7 @@ const aidePrixCouts: Aide[] = [
     definition:
       "TVA payée par l'entreprise sur ses achats, qu'elle peut déduire de la TVA qu'elle collecte.",
     donnees: ["Achat fournitures : 100 € HT", "Taux TVA : 20 %"],
-    calcul: "Montant HT × Taux TVA = 100 € × 20 %",
+    calcul: "Montant HT \\times Taux TVA = 100 € \\times 20 %",
     resultat: "TVA déductible : 20 €",
   },
   {
@@ -166,14 +167,14 @@ const aideVenteMarges: Aide[] = [
     terme: "TVA collectée",
     definition: "TVA que l'entreprise facture à ses clients lors de la vente.",
     donnees: ["Vente : 50 € HT", "Taux TVA : 20 %"],
-    calcul: "Montant HT × Taux TVA = 50 € × 20 %",
+    calcul: "Montant HT \\times Taux TVA = 50 € \\times 20 %",
     resultat: "TVA collectée : 10 €",
   },
   {
     terme: "Prix de vente TTC",
     definition: "Prix final payé par le client, incluant la TVA.",
     donnees: ["Prix HT : 20 €", "Taux TVA : 20 %"],
-    calcul: "Prix HT + (Prix HT × Taux TVA) = 20 € + (20 € × 20 %)",
+    calcul: "Prix HT + (Prix HT \\times Taux TVA) = 20 € + (20 € \\times 20 %)",
     resultat: "Prix TTC affiché : 24 €",
   },
   {
@@ -188,7 +189,7 @@ const aideVenteMarges: Aide[] = [
     terme: "Marge commerciale",
     definition: "Différence entre le prix de vente HT et le coût d'achat HT.",
     donnees: ["Achat : 200 € HT", "Vente : 300 € HT"],
-    calcul: "Prix de vente HT − Coût d'achat HT = 300 € − 200 €",
+    calcul: "Prix de vente HT - Coût d'achat HT = 300 € - 200 €",
     resultat: "Marge : 100 €",
   },
   {
@@ -196,7 +197,7 @@ const aideVenteMarges: Aide[] = [
     definition:
       "Rapport entre la marge commerciale et le coût d'achat HT, exprimé en pourcentage.",
     donnees: ["Marge : 60 €", "Coût d'achat HT : 40 €"],
-    calcul: "(Marge ÷ Coût d'achat HT) × 100 = (60 € ÷ 40 €) × 100",
+    calcul: "(Marge ÷ Coût d'achat HT) \\times 100 = (60 € ÷ 40 €) \\times 100",
     resultat: "Taux de marge : 150 %",
   },
   {
@@ -204,7 +205,8 @@ const aideVenteMarges: Aide[] = [
     definition:
       "Rapport entre la marge commerciale et le prix de vente HT, exprimé en pourcentage.",
     donnees: ["Marge : 60 €", "Prix de vente HT : 100 €"],
-    calcul: "(Marge ÷ Prix de vente HT) × 100 = (60 € ÷ 100 €) × 100",
+    calcul:
+      "(Marge ÷ Prix de vente HT) \\times 100 = (60 € ÷ 100 €) \\times 100",
     resultat: "Taux de marque : 60 %",
   },
 ];
@@ -283,12 +285,17 @@ export default function CalculsCommerciauxDocument() {
         }}
       />
 
-      <Page page="landscape">
-        <BlockBox align="middle">
-          <AideCards title="Prix et coûts" aides={aidePrixCouts} />
-          <Block ratio={0.1} className={"border-r border-solid h-225 w-0!"} />
-          <AideCards title="Vente et marges" aides={aideVenteMarges} />
-        </BlockBox>
+      <Page page="landscape" >
+      <BlockBox align="middle">
+        <AideCards title="Prix et coûts" aides={aidePrixCouts} />
+        <Block ratio={0.1} className={"border-r border-solid h-225 w-0!"} />
+        <AideCards title="Vente et marges" aides={aideVenteMarges} />
+      </BlockBox>
+      <BlockBox align="middle">
+        <DotLine count={20} />
+        <Block ratio={0.1} className={"border-r border-solid h-225 w-0!"} />
+        <DotLine count={20} />
+      </BlockBox>
       </Page>
     </Document>
   );
