@@ -1,5 +1,5 @@
 import { anion, atom, cation, h2o, periodicTable } from "@/assets";
-import { Document, Img } from "@/components";
+import { Document, Img, QR } from "@/components";
 import {
   Block,
   BlockBox,
@@ -16,54 +16,6 @@ import {
   UL,
 } from "@weasyprint-tsx/ui";
 import "./index.css";
-
-const listUnit = [
-  ["G", "Giga"],
-  null,
-  null,
-  ["M", "Méga"],
-  null,
-  null,
-  ["k", "Kilo"],
-  null,
-  null,
-  ["?", "(base)"],
-  null,
-  null,
-  ["m", "Milli"],
-  null,
-  null,
-  ["µ", "Micro"],
-  null,
-  null,
-  ["n", "Nano"],
-];
-
-function UnitTable() {
-  return (
-    <table className="border-collapse mt-2 mb-5 mx-auto ">
-      <tr>
-        {listUnit.map((e) => (
-          <td className="border-solid border border-y-0 first:border-l-0 last:border-r-0 w-10 text-center font-bold px-2">
-            {e?.at(0)}
-          </td>
-        ))}
-      </tr>
-      <tr>
-        {listUnit.map((e) => (
-          <td className="border-solid border border-t-0 first:border-l-0 last:border-r-0 w-10 text-center  px-2">
-            {e?.at(1)}
-          </td>
-        ))}
-      </tr>
-      <tr>
-        {Array.from(listUnit, (_) => (
-          <td className="h-20 border-solid border border-b-0 first:border-l-0 last:border-r-0" />
-        ))}
-      </tr>
-    </table>
-  );
-}
 
 export default function ConstitutionDeLaMatiereDocument() {
   return (
@@ -142,6 +94,9 @@ export default function ConstitutionDeLaMatiereDocument() {
         </LI>
       </UL>
       <H2>Tableau périodique</H2>
+      <div className="float-right">
+        <QR href="https://www.youtube.com/watch?v=N6vzvErUTUw" className="w-17 px-2! pl-5!" align="left">E comme Element</QR>
+      </div>
       <p>
         Il existe 118 types d'atomes différents que l'on appelle{" "}
         <strong>éléments</strong>, on les distingue par leur numéro atomique{" "}
