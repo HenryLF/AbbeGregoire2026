@@ -1,5 +1,11 @@
 import handraised from "@assets/handraised.png";
-import { joinClasses, mergeStyle, OL } from "@weasyprint-tsx/ui";
+import {
+  Block,
+  BlockBox,
+  joinClasses,
+  mergeStyle,
+  OL,
+} from "@weasyprint-tsx/ui";
 
 import { ComponentChildren, ComponentProps } from "preact";
 import { Img } from "./Image";
@@ -64,9 +70,11 @@ export function Circle({ style, className, ...props }: ComponentProps<"div">) {
 
 export function Call({ className, children, ...props }: ComponentProps<"div">) {
   return (
-    <div className={joinClasses(styles.call, className)} {...props}>
-      <Img src={handraised} className="h-15" />
+    <BlockBox className={joinClasses(styles.call, className)} {...props}>
+      <Block ratio={0.1}>
+        <Img src={handraised} className="h-10" />
+      </Block>
       <div className={styles.call_content}>{children}</div>
-    </div>
+    </BlockBox>
   );
 }

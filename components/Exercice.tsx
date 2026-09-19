@@ -1,4 +1,4 @@
-import type { OlProps } from "@weasyprint-tsx/ui";
+import type { OlProps, UlProps } from "@weasyprint-tsx/ui";
 import {
   H2,
   LI,
@@ -9,7 +9,7 @@ import {
   toLowerAlphabetical,
 } from "@weasyprint-tsx/ui";
 import { toChildArray } from "preact";
-import { ComponentProps, PropsWithChildren } from "preact/compat";
+import { PropsWithChildren } from "preact/compat";
 import "./Exercice.css";
 interface ExerciceProps extends OlProps {
   title?: string;
@@ -61,7 +61,7 @@ export function Doc({ children, className, ...props }: ExerciceProps) {
   );
 }
 
-export interface OptionsProps extends ComponentProps<"div"> {
+export interface OptionsProps extends UlProps {
   columns?: number;
 }
 export function Options({
@@ -69,6 +69,7 @@ export function Options({
   style,
   className,
   children,
+  indent=0,
   ...props
 }: OptionsProps) {
   const childs = toChildArray(children).map((child) => <LI>{child}</LI>);
@@ -79,7 +80,7 @@ export function Options({
     <UL
       marker="&#9634;"
       className={joinClasses("options", className)}
-      indent={0}
+      indent={indent}
       style={css}
       children={childs}
       {...props}

@@ -12,6 +12,7 @@ import {
   Page,
   PageBreak,
   Stack,
+  StackChild,
   Table,
   UL,
 } from "@weasyprint-tsx/ui";
@@ -95,7 +96,13 @@ export default function ConstitutionDeLaMatiereDocument() {
       </UL>
       <H2>Tableau périodique</H2>
       <div className="float-right">
-        <QR href="https://www.youtube.com/watch?v=N6vzvErUTUw" className="w-17 px-2! pl-5!" align="left">E comme Element</QR>
+        <QR
+          href="https://www.youtube.com/watch?v=N6vzvErUTUw"
+          className="w-17 mx-auto px-2! pl-5!"
+          align="center"
+        >
+          E comme Element
+        </QR>
       </div>
       <p>
         Il existe 118 types d'atomes différents que l'on appelle{" "}
@@ -208,6 +215,35 @@ export default function ConstitutionDeLaMatiereDocument() {
 
           {Array.from({ length: 2 }, () => (
             <Img src={cation} />
+          ))}
+        </Stack>
+      </Page>
+
+      <Page page="blank">
+        <Stack gap={"1cm"} className="w-full mx-auto" align="middle">
+          {Array.from({ length: 5 }, () => (
+            <StackChild>
+              <BlockBox gap={"1cm"}>
+                <Img src={h2o}>Molécule d'eau</Img>
+
+                <Img src={h2o}>Molécule d'eau</Img>
+
+                <QR
+                  href="https://www.youtube.com/watch?v=N6vzvErUTUw"
+                  className="w-17 mx-auto px-2! pl-5!"
+                  align="center"
+                >
+                  E comme Element
+                </QR>
+                <QR
+                  href="https://www.youtube.com/watch?v=N6vzvErUTUw"
+                  className="w-17 mx-auto px-2! pl-5!"
+                  align="center"
+                >
+                  E comme Element
+                </QR>
+              </BlockBox>
+            </StackChild>
           ))}
         </Stack>
       </Page>

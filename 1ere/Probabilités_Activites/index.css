@@ -1,0 +1,73 @@
+@import url("@styles/activites.css");
+@import "../1ere.css";
+
+@page {
+  @top-center {
+    content: "Probabilités - Activités";
+  }
+}
+
+/* Petites étiquettes noires portant les probabilités à replacer (activité 2). */
+.proba-chip {
+  display: inline-block;
+  color: black;
+  border: 2px solid black;
+  border-radius: 1.5mm;
+  padding: 0.5mm 2mm;
+  margin: 0 2mm;
+  font-weight: bold;
+}
+
+/* Les listes d'options sont des blocs multi-colonnes : sans cette règle elles se
+   fragmentent d'une page à l'autre. */
+.options {
+  .wsx--li {
+    break-after: auto;
+  }
+}
+
+/* Interlignes des pointillés : un cran plus serré que la feuille d'activités
+   partagée, pour tenir une activité entière par page. */
+html,
+body {
+  --wsx--dotline--line-height: 0.72cm;
+}
+
+/* Le pictogramme « Appel » (Call) : un format plus compact pour ce document,
+   qui en compte une dizaine. */
+.h-15 {
+  height: 2.2rem;
+}
+
+
+/* Les encadrés d'énoncé et les tableaux à compléter ne se coupent pas d'une
+   page à l'autre. */
+.document,
+.wsx--table {
+  break-inside: avoid;
+}
+
+/* Diagrammes de Venn à colorier. */
+.venn {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Tableau des sommes de deux dés : la moitié inférieure est barrée. */
+.dice-grid {
+  .crossed {
+    display: block;
+    width: 100%;
+    height: 0.7cm;
+  }
+}
+
+/* Les pointillés à compléter tiennent sur la ligne de texte qui les précède. */
+.evenements,
+.answers {
+  .wsx--dotline {
+    --wsx--dotline--line-height: 0.35cm;
+    vertical-align: bottom;
+  }
+}
