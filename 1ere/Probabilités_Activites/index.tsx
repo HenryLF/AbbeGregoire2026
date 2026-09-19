@@ -1043,7 +1043,7 @@ function DefautDeCanalisations() {
           Montrer, à partir du tableau, que{" "}
           <LaTeX tex="p_D(A_1) = \frac{5}{11}" />.
         </LI>
-        <DotLine />
+        <DotLine count={2} />
         <LI className="answers">
           Déterminer à partir du tableau la probabilité{" "}
           <LaTeX tex="p(A_1 \cap D)" /> : <LaTeX tex="p(A_1 \cap D) = " />
@@ -1058,11 +1058,17 @@ function DefautDeCanalisations() {
           <LaTeX tex="p(D)" />, <LaTeX tex="p_D(A_1)" /> et{" "}
           <LaTeX tex="p(A_1 \cap D)" /> :
         </LI>
-        <Options columns={2} className="text-xs">
-          <LaTeX tex="p(D) = p_D(A_1) \times p(A_1 \cap D)" />
-          <LaTeX tex="p_D(A_1) = p(D) \times p(A_1 \cap D)" />
-          <LaTeX tex="p_D(A_1) = \frac{p(A_1 \cap D)}{p(D)}" />
-        </Options>
+        <BlockBox>
+          <Options columns={1}>
+            <LaTeX tex="p(D) = p_D(A_1) \times p(A_1 \cap D)" />
+          </Options>
+          <Options columns={1}>
+            <LaTeX tex="p_D(A_1) = p(D) \times p(A_1 \cap D)" />
+          </Options>
+          <Options columns={1}>
+            <LaTeX tex="p_D(A_1) = \frac{p(A_1 \cap D)}{p(D)}" />
+          </Options>
+        </BlockBox>
         <LI>
           Soit la probabilité <LaTeX tex="p_{\overline{D}}(A_2)" />, exprimer
           par une phrase la signification de cette probabilité :
@@ -1096,10 +1102,6 @@ function DefautDeCanalisations() {
           <DotLine inline width="4cm" />
         </LI>
       </SubQuestions>
-      <Call>
-        Faire vérifier la probabilité conditionnelle{" "}
-        <LaTeX tex="p_{\overline{D}}(A_2)" />
-      </Call>
     </TP>
   );
 }
