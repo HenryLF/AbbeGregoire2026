@@ -194,7 +194,7 @@ export default function ConstitutionDeLaMatiereDocument() {
           exposant.
         </strong>
         <div className="block! text-2xl mx-auto mt-2 mb-10">
-          <LaTeX chemical tex="Au^5+" />
+          <LaTeX chemical tex="Au^3+" />
           <div className="w-20 inline-block" />
           <LaTeX chemical tex="F^-" />
         </div>

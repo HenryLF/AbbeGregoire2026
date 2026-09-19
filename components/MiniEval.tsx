@@ -8,7 +8,7 @@ interface MiniEvalProps extends PropsWithChildren {
   gap?: number | string;
 }
 
-export function MiniEval({ title, count = 4, children, gap }: MiniEvalProps) {
+export function MiniEval({ title, count = 3, children, gap }: MiniEvalProps) {
   return (
     <Document title={title}>
       <Stack gap={gap}>

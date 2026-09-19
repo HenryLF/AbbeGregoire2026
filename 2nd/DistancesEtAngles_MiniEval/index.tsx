@@ -9,7 +9,7 @@ export default function () {
   return (
     <MiniEval title="Distances et Angles - 2nd" count={3} gap={"4mm"}>
       <LI>
-        Parmis les unités suivantes laquelle ne correspond pas à une distance.
+        Parmi les unités suivantes, laquelle ne correspond pas à une distance ?
       </LI>
       <Options>
         <>
@@ -31,9 +31,9 @@ export default function () {
       </LI>
       <Options fontWeight="normal">
         <>la longueur de son contour</>
-        <>la distance entre son centre et le bord.</>
-        <>la plus grande longueur entre bords.</>
-        <>sa surface.</>
+        <>la distance entre son centre et le bord</>
+        <>la plus grande longueur entre ses bords</>
+        <>sa surface</>
       </Options>
 
       <LI>
@@ -47,7 +47,7 @@ export default function () {
         <LaTeX tex="2 \pi r^3" />
       </Options>
 
-      <LI>Calculer la surface d'un carré de 100m de coté.</LI>
+      <LI>Calculer la surface d'un carré de 100 m de côté.</LI>
 
       <Options fontWeight="normal">
         <LaTeX tex="100 m^2" />

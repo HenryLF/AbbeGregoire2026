@@ -17,3 +17,8 @@ body {
 
   --wsx--list--indent: 1cm;
 }
+
+em {
+  border-bottom: 1px solid black;
+  font-weight: 600;
+}
