@@ -1,4 +1,4 @@
-import { joinClasses, mergeStyle } from "@weasyprint-tsx/ui";
+import { BlockBox, joinClasses, mergeStyle } from "@weasyprint-tsx/ui";
 import { ComponentProps, toChildArray } from "preact";
 
 export function TrueFalse({
@@ -18,22 +18,27 @@ export function Options({
   children,
   columns,
   inline = false,
+  fontWeight = "bold",
   style,
   ...props
-}: ComponentProps<"div"> & { columns?: number; inline?: boolean }) {
+}: ComponentProps<"div"> & {
+  columns?: number;
+  inline?: boolean;
+  fontWeight?: string;
+}) {
   const childArray = toChildArray(children);
   const css = mergeStyle(style, {
     columnCount: columns ?? childArray.length,
-    fontWeight: "bold",
+    fontWeight,
     display: inline ? "inline-block" : undefined,
     verticalAlign: inline ? "middle" : undefined,
     padding: "0 1mm",
   });
   return (
-    <div style={css} {...props}>
+    <BlockBox basis={columns}>
       {childArray.map((child) => (
         <div>▢ {child}</div>
       ))}
-    </div>
+    </BlockBox>
   );
 }
