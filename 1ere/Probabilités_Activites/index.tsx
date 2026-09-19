@@ -878,7 +878,7 @@ function ProbabilitesSurLeChantier() {
           Utiliser la probabilité <LaTeX tex="p(M \cup L)" /> pour déterminer la
           probabilité <LaTeX tex="p(A)" /> :
         </LI>
-        <DotLine count={2} />
+        <DotLine count={4} />
       </SubQuestions>
     </TP>
   );
