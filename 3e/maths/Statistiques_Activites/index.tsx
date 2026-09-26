@@ -24,7 +24,7 @@ const PoolTable = () => (
       contentClass="px-1 min-w-[1.2cm]"
     >
       <Entry content={Array.from({ length: 11 }, (_, k) => k + 1)}>
-        Elève n°
+        Élève n°
       </Entry>
       <Entry content={Array(11).fill(<DotLine />)}>Genre de film</Entry>
       <Entry content={Array(11).fill(<DotLine />)}>Type de film</Entry>
@@ -51,7 +51,7 @@ const FrequencyTables = () => (
         <Entry content={Array(4).fill(<DotLine />)}>Fréquence</Entry>
       </Table>
       <Details align="right">
-        Effectifs et Fréquences - genre de films préférés
+        Effectifs et fréquences - genre de films préférés
       </Details>
     </Block>
 
@@ -116,7 +116,7 @@ export default function () {
   return (
     <Document title="Statistiques - Activités">
       <TP title="Différentes visualisations pour différentes séries statistiques">
-        <LI>Réalisons un sondage dans la classe et completons le tableau :</LI>
+        <LI>Réalisons un sondage dans la classe et complétons le tableau :</LI>
         <SubQuestions count={1}>
           <LI>
             Question 1 : Quel est ton genre de film préféré ? "Action",
@@ -136,28 +136,26 @@ export default function () {
             <UL className="inline-block! align-top" indent={"5mm"}>
               <LI>
                 Une observation <strong>quantitative</strong> est une mesure
-                associé à un nombre.
+                associée à un nombre.
               </LI>
               <LI>
                 Une observation <strong>qualitative</strong> est une
-                caractéristique ou une opignon.
+                caractéristique ou une opinion.
               </LI>
             </UL>
           </div>
-          <div
-            style={{ "--wsx--dotline--line-height": "5mm" }}
-          >
-            <em>Pour des fleurs :</em> le nombre de pétales est une
-            observation <DotLine width={"3cm"} /> tandis que la couleur est une
-            observation <DotLine width={"3cm"} /> .
+          <div style={{ "--wsx--dotline--line-height": "5mm" }}>
+            <em>Pour des fleurs :</em> le nombre de pétales est une observation{" "}
+            <DotLine width={"3cm"} /> tandis que la couleur est une observation{" "}
+            <DotLine width={"3cm"} /> .
           </div>
         </Doc>
-        <LI>Pour ces deux séries statistiques:</LI>
+        <LI>Pour ces deux séries statistiques :</LI>
         <SubQuestions count={2}>
-          <LI>Les observations sont-elles qualitatives ou quantitative ?</LI>
+          <LI>Les observations sont-elles qualitatives ou quantitatives ?</LI>
           <LI>
             Peut-on représenter ces séries statistiques par un diagramme en
-            barre ?
+            barres ?
           </LI>
         </SubQuestions>
 
@@ -165,14 +163,14 @@ export default function () {
 
         <SubQuestions count={3}>
           <LI>
-            L'<strong>effectif</strong> correspond au nombre de fois on on a
-            obtenue un observation spécifique.
+            L'<strong>effectif</strong> correspond au nombre de fois où l'on a
+            obtenu une observation spécifique.
           </LI>
 
           <LI>
-            La <strong>frequence</strong> correspond au nombre de fois on on a
-            obtenue un observation spécifique divisé par le nombre total
-            d'observation. C'est a dire la proportion de cette observation dans
+            La <strong>fréquence</strong> correspond au nombre de fois où l'on a
+            obtenu une observation spécifique divisé par le nombre total
+            d'observations. C'est-à-dire la proportion de cette observation dans
             la série.
           </LI>
         </SubQuestions>
@@ -193,17 +191,20 @@ export default function () {
         </BlockBox>
 
         <LI>
-          Tracer les diagrammes de type camenberg, on pourra calculer les angles
-          en faisant des produit en croix.
+          Tracer les diagrammes de type camembert, on pourra calculer les angles
+          en faisant des produits en croix.
         </LI>
         <BlockBox>
           {[filmGenre, filmType].map((labels) => (
             <>
               <Img
                 src={protractor_full_circle}
-                className={"w-13/24 mx-auto"}
+                className={"w-12/24 mx-auto"}
                 align="right"
-              />
+              >
+                {labels.length == 3 ? "Genre de film" : "Type de film"} -
+                Diagramme camenbert
+              </Img>
               <Table
                 orientation="row"
                 className="w-full"
@@ -218,12 +219,9 @@ export default function () {
                   Observation
                 </Entry>
                 <Entry
-                  content={[
-                    ...Array(labels.length).fill(<DotLine />),
-                    "1 (100%)",
-                  ]}
+                  content={[...Array(labels.length).fill(<DotLine />), "100%"]}
                 >
-                  Frequence
+                  Fréquence
                 </Entry>
                 <Entry
                   content={[...Array(labels.length).fill(<DotLine />), "360°"]}
@@ -234,11 +232,11 @@ export default function () {
             </>
           ))}
         </BlockBox>
-        <LI>Commenter les résultats obtenues.</LI>
         <LI>
-          Quand utilisera t'on un diagramme cammenberg plutot qu'un diagramme en
-          bar.
+          Quand utilisera-t-on un diagramme camembert plutôt qu'un diagramme en
+          barres ?
         </LI>
+        <LI>Commenter les résultats obtenus.</LI>
       </TP>
     </Document>
   );

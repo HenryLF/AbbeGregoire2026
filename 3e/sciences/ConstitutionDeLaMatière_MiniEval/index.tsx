@@ -57,7 +57,7 @@ export default function () {
         <>C'est un anion</>
         <>Il porte une charge -</>
         <>C'est une molécule qui a gagné un électron</>
-        <>C'est un cation</>
+        <>C'est un atome qui a gagné un électron</>
       </Options>
 
       <LI>

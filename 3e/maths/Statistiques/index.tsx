@@ -25,7 +25,7 @@ const ObservationTable = () => (
         content={Array.from({ length: 11 }, (_, k) => k + 1)}
         cellBg="var(--wsx--table--header-color)"
       >
-        Eleve n°
+        Élève n°
       </Entry>
       <Entry content={Array(11).fill(<DotLine />)} contentClass="h-10 px-2">
         Taille (cm)
@@ -64,7 +64,7 @@ const BlankChart = () => (
         },
       }}
     />
-    <Details align="right">Tailles des élèves - Graphique en barre</Details>
+    <Details align="right">Tailles des élèves - Graphique en barres</Details>
   </>
 );
 
@@ -94,10 +94,10 @@ const IndicatorTable = () => (
 export default function () {
   return (
     <Document title="Statistiques">
-      <H1>Definitions</H1>
+      <H1>Définitions</H1>
       <p>
-        La <strong>statistique</strong> est la science de la collecte , la
-        visualisation et l'analyse de données. Elle cherche a expliquer et/ou
+        La <strong>statistique</strong> est la science de la collecte, la
+        visualisation et l'analyse de données. Elle cherche à expliquer et/ou
         prédire des phénomènes en se basant sur des observations réelles.
       </p>
 
@@ -110,21 +110,21 @@ export default function () {
         )}
       </UL>
       <H1>Collecte de données</H1>
-      <p>Mesuront les tailles des élèves de la classe :</p>
+      <p>Mesurons les tailles des élèves de la classe :</p>
       <ObservationTable />
       <p>
         Chaque mesure est une <strong>observation</strong>, l'ensemble des
-        mesures est une <strong>série statistique</strong>
+        mesures est une <strong>série statistique</strong>.
       </p>
       <H1>Visualisation</H1>
-      <p>On peut observer le résultats des mesures dans un graphique :</p>
+      <p>On peut observer les résultats des mesures dans un graphique :</p>
       <BlankChart />
       <p>
-        Ce type de graphique s'appelle un <strong>diagramme en barre</strong>
+        Ce type de graphique s'appelle un <strong>diagramme en barres</strong>.
       </p>
       <H1>Indicateurs</H1>
       <p>
-        Plutôt que regarder toute la série statistiques on peut calculer des{" "}
+        Plutôt que de regarder toute la série statistique, on peut calculer des{" "}
         <strong>indicateurs statistiques</strong> qui vont décrire nos données.
       </p>
       <IndicatorTable />
