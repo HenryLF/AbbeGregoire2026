@@ -1,0 +1,12 @@
+@import url("@styles/cours.css");
+@import "../math.css";
+
+@page {
+  @top-center {
+    content: "Statistiques";
+  }
+}
+
+@page blank {
+  margin: 1cm;
+}

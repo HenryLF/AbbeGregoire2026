@@ -1,0 +1,19 @@
+@import url("@styles/activites.css");
+@import "../math.css";
+
+@page {
+  @top-center {
+    content: "Statistiques - Activités";
+  }
+}
+
+html {
+  --wsx--table--cell-fontsize: 10px;
+  --wsx--table--header-fontsize: 10px;
+}
+
+.tp {
+  .wsx--h2::before {
+    content: "Activité " counter(--wsx--counter-h2) " :";
+  }
+}
