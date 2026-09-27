@@ -31,7 +31,7 @@ export function Options({
     fontWeight,
     display: inline ? "inline-block" : undefined,
     verticalAlign: inline ? "middle" : undefined,
-    textIndent : 0
+    textIndent: 0,
   });
   return (
     <BlockBox basis={columns} style={css} {...props}>
