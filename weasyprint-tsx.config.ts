@@ -2,7 +2,7 @@ import type { Config } from "@weasyprint-tsx/build";
 import { sep } from "node:path";
 
 // Document to build. Switch this to any document folder, e.g. "2nd/1erDegre_Activites".
-const currentDir = "2nd/Stat1Var";
+const currentDir = "3e/maths/Statistiques";
 
 const config: Config = {
   io: {

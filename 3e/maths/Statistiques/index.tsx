@@ -1,16 +1,16 @@
 import { Details, Document } from "@/components";
 import {
-    Chart,
-    DotLine,
-    Entry,
-    H1,
-    H2,
-    LI,
-    Page,
-    PageBreak,
-    Stack,
-    Table,
-    UL,
+  Chart,
+  DotLine,
+  Entry,
+  H1,
+  H2,
+  LI,
+  Page,
+  PageBreak,
+  Stack,
+  Table,
+  UL,
 } from "@weasyprint-tsx/ui";
 import "./index.css";
 
@@ -55,10 +55,16 @@ const BlankChart = () => (
         },
         options: {
           scales: {
-            y: { min: 120, ticks: { stepSize: 5 } },
+            y: {
+              min: 120,
+              ticks: { stepSize: 5 },
+              title: { display: true, text: "Taille (cm)" },
+            },
+            x: {
+              title: { display: true, text: "Élèves" },
+            },
           },
           plugins: {
-            title: { text: "Tailles des élèves", display: true },
             legend: { display: false },
           },
         },
