@@ -108,9 +108,7 @@ export default function Stat1VarActivitesDocument() {
               {[serie1, serie2, serie3, serie4].map((s) => (
                 <div>
                   <Table
-                    className={
-                      "text-xs inline-block w-[6cm] mx-5 align-middle"
-                    }
+                    className={"text-xs inline-block w-[6cm] mx-5 align-middle"}
                   >
                     <Entry content={s.labels}>{s.label_txt}</Entry>
                     <Entry content={s.data}>{s.data_txt}</Entry>
@@ -177,9 +175,9 @@ export default function Stat1VarActivitesDocument() {
 
       <Exercice title="Répartition des salariés des travaux publics">
         <p>
-          Le graphique ci-contre donne la répartition des salariés par
-          catégorie professionnelle dans le secteur des travaux publics (ETAM
-          = Employés, Techniciens et Agents de Maîtrise).
+          Le graphique ci-contre donne la répartition des salariés par catégorie
+          professionnelle dans le secteur des travaux publics (ETAM = Employés,
+          Techniciens et Agents de Maîtrise).
         </p>
         <BlockBox>
           <Block ratio={1.8}>
@@ -190,8 +188,8 @@ export default function Stat1VarActivitesDocument() {
               <>Le nombre d’ouvriers a baissé</>
               <>Les ouvriers représentent plus de la moitié des effectifs</>
               <>
-                Les entreprises recherchent une montée en qualification de
-                leur personnel
+                Les entreprises recherchent une montée en qualification de leur
+                personnel
               </>
               <>Le secteur des travaux publics a plus recruté en 2017</>
             </Options>
@@ -250,14 +248,11 @@ export default function Stat1VarActivitesDocument() {
 
           <Entry content={[0, 3, 2, 0, 0, 4, 1, 5, 3, 0]}>Mionel Lessi</Entry>
 
-          <Entry content={[1, 2, 3, 3, 1, 3, 2, 2, 0, 1]}>
-            Lilian M’Kappe
-          </Entry>
+          <Entry content={[1, 2, 3, 3, 1, 3, 2, 2, 0, 1]}>Lilian M’Kappe</Entry>
         </Table>
 
         <LI>
-          Calculer le nombre moyen de buts par rencontre pour ces deux
-          joueurs.
+          Calculer le nombre moyen de buts par rencontre pour ces deux joueurs.
         </LI>
         <DotLine count={4} />
         <LI>
@@ -265,11 +260,7 @@ export default function Stat1VarActivitesDocument() {
         </LI>
         <BlockBox>
           <Block>
-            <Table
-              className="w-full"
-              contentClass="min-w-5"
-              orientation="row"
-            >
+            <Table className="w-full" contentClass="min-w-5" orientation="row">
               <Entry
                 content={Array.from({ length: 6 }, (_, k) => k)}
                 cellBg="var(--wsx--table--header-color)"
@@ -322,15 +313,14 @@ export default function Stat1VarActivitesDocument() {
 
       <TP title="La montée de l’Alpe d’Huez ">
         <p>
-          Haut lieu du Tour de France cycliste, l’Alpe d’Huez et ses 21
-          virages constituent l’étape incontournable du passage de la Grande
-          Boucle. En moyenne, près de 300 cyclistes gravissent chaque jour
-          cette montée mythique. Plus de 6 000 cyclotouristes participent
-          chaque année à l’épreuve de la Marmotte (début juillet) et 2 000
-          d’entre eux reçoivent un diplôme officialisant leur temps de montée.
-          L’Alpe d’Huez, au cœur de l’Oisans, est vraiment le temple du vélo
-          et c’est surtout la course à réaliser au moins une fois dans sa vie
-          !
+          Haut lieu du Tour de France cycliste, l’Alpe d’Huez et ses 21 virages
+          constituent l’étape incontournable du passage de la Grande Boucle. En
+          moyenne, près de 300 cyclistes gravissent chaque jour cette montée
+          mythique. Plus de 6 000 cyclotouristes participent chaque année à
+          l’épreuve de la Marmotte (début juillet) et 2 000 d’entre eux
+          reçoivent un diplôme officialisant leur temps de montée. L’Alpe
+          d’Huez, au cœur de l’Oisans, est vraiment le temple du vélo et c’est
+          surtout la course à réaliser au moins une fois dans sa vie !
         </p>
         <BlockBox>
           <Block ratio={0.9}>
@@ -343,8 +333,8 @@ export default function Stat1VarActivitesDocument() {
           <Stack>
             <Doc>
               <p>
-                Le <strong>dénivelé</strong> est la différence d’altitude
-                entre deux points. Il représente une hauteur.
+                Le <strong>dénivelé</strong> est la différence d’altitude entre
+                deux points. Il représente une hauteur.
               </p>
               <Details align="left">
                 Doc<Circle>2</Circle> : Notion de dénivelé
@@ -374,9 +364,9 @@ export default function Stat1VarActivitesDocument() {
           Avant de recevoir le précieux diplôme officialisant le temps de leur
           montée, les cyclotouristes ont à leur disposition de nombreux
           renseignements plus précis que les précédents pour préparer leur
-          ascension. Compléter les informations manquantes en t'appuyant sur
-          les documents <Circle>1</Circle>, <Circle>2</Circle> et{" "}
-          <Circle>3</Circle>.
+          ascension. Compléter les informations manquantes en t'appuyant sur les
+          documents <Circle>1</Circle>, <Circle>2</Circle> et <Circle>3</Circle>
+          .
         </LI>
         <UL marker="•" className="text-xs columns-2 bordered-box">
           <LI>nombre de virages : 21 ;</LI>
@@ -396,16 +386,16 @@ export default function Stat1VarActivitesDocument() {
           </LI>
           <LI>pente maximale : 14 % ;</LI>
           <LI>
-            record de la montée : 37 min 35 s (par Marco Pantani, en 1997) à
-            une vitesse moyenne de 23 km/h.
+            record de la montée : 37 min 35 s (par Marco Pantani, en 1997) à une
+            vitesse moyenne de 23 km/h.
           </LI>
         </UL>
         <DotLine count={4} />
         <Call>Faire vérifier la pente moyenne en %</Call>
         <LI>
           Au long de la montée, 21 panneaux rythment l’effort du cycliste dans
-          un compte à rebours de plus de 14 km sur un dénivelé très important
-          ! Expliquer les différences de couleur sur le document{" "}
+          un compte à rebours de plus de 14 km sur un dénivelé très important !
+          Expliquer les différences de couleur sur le document{" "}
           <Circle>4</Circle> sur les tronçons de la montée en complétant la
           phrase suivante :
         </LI>
@@ -417,70 +407,70 @@ export default function Stat1VarActivitesDocument() {
         <LI>
           On dispose du fichier « ALPE HUEZ.ods » où ont été saisis les
           distances et altitudes des différents tronçons du versant Sud.
-          <OL format={toLowerAlphabetical} separator=")">
-            <LI>
-              Quelle formule faut-il saisir dans la cellule C3 pour calculer
-              la distance du 1er tronçon ?
-            </LI>
-            <Options>
-              {`"= B1 + C1"`}
-              {`"= B1 - C1"`}
-              {`"= C1 - B1"`}
-            </Options>
-            <LI>
-              Quelle formule faut-il saisir dans la cellule C4 pour calculer
-              le dénivelé du 1er tronçon ?
-            </LI>
-            <Options>
-              {`"= B2 + C2"`}
-              {`"= B2 - C2"`}
-              {`"= C2 - B2"`}
-            </Options>
-            <LI>
-              Effectuer les calculs des différentes distances et dénivelés de
-              chacun des tronçons.
-            </LI>
-            <LI>
-              Quelle formule faut-il saisir dans la cellule C5 pour calculer
-              la pente du 1er tronçon ?
-            </LI>
-            <Options>
-              {`"= C4*100/C2"`}
-              {`"= C2*100/C4"`}
-              {`"= C4*100/C3"`}
-              {`"= C3*100/C4"`}
-            </Options>
-            <LI>
-              Effectuer les calculs des différentes pentes moyennes de chacun
-              des tronçons.
-            </LI>
-            <Call>Faire vérifier les pentes moyennes</Call>
-            <LI>
-              Sur le document <Circle>4</Circle>, à quoi correspondent les
-              valeurs indiquées au pied de chaque barre ?
-            </LI>
-            <DotLine count={2} />
-            <LI>
-              La pente moyenne du versant Sud est de 7,79 %. Peut-on retrouver
-              dans le cas présent la pente moyenne de la montée à partir de la
-              pente moyenne de chaque tronçon ?
-            </LI>
-
-            <Options>
+        </LI>
+        <SubQuestions count={3}>
+          <LI>
+            Quelle formule faut-il saisir dans la cellule C3 pour calculer la
+            distance du 1er tronçon ?
+          </LI>
+          <Options>
+            {`"= B1 + C1"`}
+            {`"= B1 - C1"`}
+            {`"= C1 - B1"`}
+          </Options>
+          <LI>
+            Quelle formule faut-il saisir dans la cellule C4 pour calculer le
+            dénivelé du 1er tronçon ?
+          </LI>
+          <Options>
+            {`"= B2 + C2"`}
+            {`"= B2 - C2"`}
+            {`"= C2 - B2"`}
+          </Options>
+          <LI>
+            Effectuer les calculs des différentes distances et dénivelés de
+            chacun des tronçons.
+          </LI>
+          <LI>
+            Quelle formule faut-il saisir dans la cellule C5 pour calculer la
+            pente du 1er tronçon ?
+          </LI>
+          <Options>
+            {`"= C4*100/C2"`}
+            {`"= C2*100/C4"`}
+            {`"= C4*100/C3"`}
+            {`"= C3*100/C4"`}
+          </Options>
+          <LI>
+            Effectuer les calculs des différentes pentes moyennes de chacun des
+            tronçons.
+          </LI>
+          <Call>Faire vérifier les pentes moyennes</Call>
+          <LI>
+            Sur le document <Circle>4</Circle>, à quoi correspondent les valeurs
+            indiquées au pied de chaque barre ?
+          </LI>
+          <DotLine count={2} />
+          <LI>
+            La pente moyenne du versant Sud est de 7,79 %. Peut-on retrouver
+            dans le cas présent la pente moyenne de la montée à partir de la
+            pente moyenne de chaque tronçon ?{" "}
+            <Options inline columns={1} className={"pl-5"}>
               {"OUI"}
               {"NON"}
             </Options>
-            <DotLine count={4} />
-          </OL>
-        </LI>
+          </LI>
+
+          <DotLine count={4} />
+        </SubQuestions>
       </TP>
 
       <Exercice title="Pyramide des salaires en France">
         <BlockBox>
           <Block ratio={1.5}>
             <p>
-              Le graphique ci-dessus donne la distribution des salaires NETS
-              en France métropolitaine pour l’année 2022.
+              Le graphique ci-dessus donne la distribution des salaires NETS en
+              France métropolitaine pour l’année 2022.
             </p>
             <LI>
               Quel pourcentage de salariés gagnent moins de 2 000 € NETS
@@ -488,8 +478,8 @@ export default function Stat1VarActivitesDocument() {
             </LI>
             <DotLine count={1} />
             <LI>
-              Quel pourcentage de salariés gagnent plus de 4 000 € NETS
-              mensuels ?
+              Quel pourcentage de salariés gagnent plus de 4 000 € NETS mensuels
+              ?
             </LI>
             <DotLine count={1} />
 
@@ -505,8 +495,8 @@ export default function Stat1VarActivitesDocument() {
               <>la retraite minimale est de 2 091 €</>
             </Options>
             <LI>
-              En 2022, un salarié du secteur privé percevait en moyenne 2 630
-              € nets par mois. Comment expliquer une moyenne significativement
+              En 2022, un salarié du secteur privé percevait en moyenne 2 630 €
+              nets par mois. Comment expliquer une moyenne significativement
               supérieure au salaire médian de 2 091 € ?
             </LI>
           </Block>
@@ -518,12 +508,12 @@ export default function Stat1VarActivitesDocument() {
       <H1>Indicateur de dispersion</H1>
       <TP title="Nouvelle route du littoral">
         <p>
-          Sur l’île de la Réunion, la nouvelle route du littoral est une voie
-          en pleine mer pour relier les villes de l’île en 2020.{" "}
+          Sur l’île de la Réunion, la nouvelle route du littoral est une voie en
+          pleine mer pour relier les villes de l’île en 2020.{" "}
           <em>
-            L’architecture de ce projet souhaite, pour des raisons
-            esthétiques, que 75 % des piles aient une hauteur inférieure à 40
-            m et que l’étendue associée à ces hauteurs ne dépasse pas 6 m
+            L’architecture de ce projet souhaite, pour des raisons esthétiques,
+            que 75 % des piles aient une hauteur inférieure à 40 m et que
+            l’étendue associée à ces hauteurs ne dépasse pas 6 m
           </em>
           . On donne ci-dessous les hauteurs, en mètre, des piles constituant
           une portion de cette route.
@@ -557,8 +547,8 @@ export default function Stat1VarActivitesDocument() {
         </LI>
         <p className="text-xs italic text-right">
           On saisira toutes les données des six colonnes suivantes dans la
-          première colonne de la calculatrice et on affectera l’effectif « 1 »
-          à toutes les valeurs dans la deuxième colonne de la calculatrice.
+          première colonne de la calculatrice et on affectera l’effectif « 1 » à
+          toutes les valeurs dans la deuxième colonne de la calculatrice.
         </p>
         <OL format={toLowerAlphabetical} separator=".)" indent={"1cm"}>
           <LI>
@@ -620,9 +610,7 @@ export default function Stat1VarActivitesDocument() {
             <OL format={toLowerAlphabetical} separator=".)" indent={"1cm"}>
               <LI>Le nombre total de logements étudiés.</LI>
               <DotLine />
-              <LI>
-                La concentration moyenne en plomb (arrondir à 0,1 près).
-              </LI>
+              <LI>La concentration moyenne en plomb (arrondir à 0,1 près).</LI>
             </OL>
             <DotLine count={3} />
           </Block>
@@ -700,9 +688,7 @@ export default function Stat1VarActivitesDocument() {
         <H1 marker="">Utilisation de la calculatrice graphique</H1>
         <H2 marker="">CASIO</H2>
         <OL>
-          <LI className="font-bold">
-            Pour saisir les données statistiques :
-          </LI>
+          <LI className="font-bold">Pour saisir les données statistiques :</LI>
           <UL marker="•" indent="2em">
             <LI>
               Choisir le menu « STAT », et saisir les données dans les deux
@@ -714,21 +700,19 @@ export default function Stat1VarActivitesDocument() {
           <UL marker="•" indent="2em">
             <LI>Choisir le menu contextuel « CALC »</LI>
             <LI>
-              Vérifier la configuration en choisissant « SET » : List1 doit
-              être choisie pour « 1Var XList » et List2 pour « 1Var Freq ».
+              Vérifier la configuration en choisissant « SET » : List1 doit être
+              choisie pour « 1Var XList » et List2 pour « 1Var Freq ».
             </LI>
             <LI>Choisir ensuite « 1VAR »</LI>
           </UL>
         </OL>
         <H2 marker="">Texas Instrument</H2>
         <OL>
-          <LI className="font-bold">
-            Pour saisir les données statistiques :{" "}
-          </LI>
+          <LI className="font-bold">Pour saisir les données statistiques : </LI>
           <UL marker="•" indent="2em">
             <LI>
-              Appuyer sur stats, puis « EDIT » puis « 1 » et saisir les
-              données dans les colonnes L1 et L2.
+              Appuyer sur stats, puis « EDIT » puis « 1 » et saisir les données
+              dans les colonnes L1 et L2.
             </LI>
           </UL>
           <LI className="font-bold">Pour afficher les indicateurs :</LI>
@@ -748,8 +732,8 @@ export default function Stat1VarActivitesDocument() {
         <p>
           Commencer la formule par le signe égal « = », suivi des éléments à
           calculer (opérandes), lesquels sont séparés par des opérateurs de
-          calcul (+ , - , * , / ...). Les opérandes peuvent être des
-          constantes ou des cellules (A1, B10…).
+          calcul (+ , - , * , / ...). Les opérandes peuvent être des constantes
+          ou des cellules (A1, B10…).
         </p>
         <Img src={exemple_calc} className={"mx-auto"} align="center">
           La cellule C1 contient le résultat de la somme des cellules A1 et B1
@@ -757,14 +741,14 @@ export default function Stat1VarActivitesDocument() {
         <H2 marker="">Pour recopier une formule</H2>
         <p>
           <em>
-            Pour recopier une formule vers le bas par exemple de la cellule A2
-            à la cellule A15{" "}
+            Pour recopier une formule vers le bas par exemple de la cellule A2 à
+            la cellule A15{" "}
           </em>{" "}
           : Sélectionner la cellule A2 contenant la formule à recopier, placer
           la souris dans le coin inférieur droit de cette cellule (sur le{" "}
-          <em>carré noir</em>). Cliquer et sans relâcher le clic, faire
-          glisser la souris jusqu’à la cellule A15. La formule contenue dans
-          la cellule A2 est ainsi recopiée jusqu’à la cellule A15.
+          <em>carré noir</em>). Cliquer et sans relâcher le clic, faire glisser
+          la souris jusqu’à la cellule A15. La formule contenue dans la cellule
+          A2 est ainsi recopiée jusqu’à la cellule A15.
         </p>
 
         <Img src={exemple_calc2} className={"mx-auto"} align="center">

@@ -28,14 +28,13 @@ export function Options({
 }) {
   const childArray = toChildArray(children);
   const css = mergeStyle(style, {
-    columnCount: columns ?? childArray.length,
     fontWeight,
     display: inline ? "inline-block" : undefined,
     verticalAlign: inline ? "middle" : undefined,
-    padding: "0 1mm",
+    textIndent : 0
   });
   return (
-    <BlockBox basis={columns}>
+    <BlockBox basis={columns} style={css} {...props}>
       {childArray.map((child) => (
         <div>▢ {child}</div>
       ))}
