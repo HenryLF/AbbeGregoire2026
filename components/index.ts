@@ -48,6 +48,7 @@ export {
 export { TrueFalse } from "./TrueFalse";
 
 export { Arrow, type ArrowProps } from "./Arrow";
+export { NumberLine, type NumberLineProps } from "./NumberLine";
 
 // `Options` (also exported by Exercice.tsx) and `TrueFalse` (also exported by
 // TrueFalse.tsx) are unrelated components from a different source file —

@@ -9,6 +9,8 @@ export { default as area_shape } from "./area_shape.png";
 export { default as area_shapes } from "./area_shapes.png";
 export { default as armoire } from "./armoire.png";
 export { default as atom } from "./atom.png";
+export { default as ballbox } from "./ballbox.png";
+export { default as balls } from "./balls.png";
 export { default as boite1 } from "./boite1.jpg";
 export { default as boite2 } from "./boite2.jpg";
 export { default as brush } from "./brush.png";
