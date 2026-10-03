@@ -208,13 +208,13 @@ export default function ConstitutionDeLaMatiereDocument() {
         </Img>
       </Page>
       <Page page="blank">
-        <Stack gap={"1cm"} className="w-3/4 mx-auto" align="middle">
+        <Stack gap={"1cm"} className="w-4/5 mx-auto" align="middle">
           {Array.from({ length: 2 }, () => (
-            <Img src={anion} />
-          ))}
-
-          {Array.from({ length: 2 }, () => (
+            <>
             <Img src={cation} />
+            <div className={"h-[5mm]"}/>
+            <Img src={anion} />
+            </>
           ))}
         </Stack>
       </Page>
