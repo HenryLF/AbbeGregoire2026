@@ -11,3 +11,9 @@
   border: 1px solid black;
   padding: 1mm;
 }
+
+.activite0 {
+  .wsx--h2::before {
+    content: "Activité 0 :";
+  }
+}

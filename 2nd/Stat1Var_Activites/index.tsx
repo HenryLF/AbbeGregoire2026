@@ -1,6 +1,8 @@
 import {
   boite1,
   boite2,
+  excel_diagram_exemple,
+  excel_diagram_icon,
   exemple_calc,
   exemple_calc2,
   pente_huez,
@@ -18,6 +20,7 @@ import {
   Exercice,
   Img,
   Stat1VarOptions as Options,
+  QR,
   SubQuestions,
   TP,
 } from "@components";
@@ -100,6 +103,73 @@ ChartJS.defaults.plugins.legend.display = false;
 export default function Stat1VarActivitesDocument() {
   return (
     <Document title="Statistique à une variable - Activités">
+      <TP title="Universités Parisiennes" className="activite0">
+        <div className="float-right ">
+          <QR
+            href="https://drive.monlycee.net/s/aWRmMg-mnko56d7"
+            className="w-15 m-2"
+          >
+            Tableau Excel
+          </QR>
+        </div>
+        <p>
+          On fournit le tableau Excel "UniversitésParis.xlsx" qui contient les
+          (vraies) données issues de ParcourSup pour les années 2021 et
+          2025.{" "}
+        </p>
+        <LI>
+          Décrire le contenu du tableau. Quelles informations nous donne-t-il ?
+        </LI>
+        <DotLine count={3} />
+        <LI>
+          Dans la cellule "B11", taper la formule "=SOMME(B3:B10)", propager
+          cette formule aux cellules "C11" , "D11" et "E11".
+        </LI>
+        <LI>
+          Comment a évolué le nombre de candidats entre 2021 et 2025 ? Calculer
+          le nombre de candidats supplémentaires ou en moins entre les deux
+          années.
+        </LI>
+        <DotLine count={3} />
+        <LI>
+          On souhaite savoir comment se répartissent les candidatures parmi les
+          différentes universités. Pour cela entrer dans la cellule "C3" la
+          formule "=100*B3/B$11" (attention au signe $ !!). Propager cette
+          cellule sur la plage "C3:C10".
+        </LI>
+        <LI>
+          Copier (Ctrl + C) coller (Ctrl + V) la formule de la cellule "C3" dans
+          la cellule "E3". Puis propager la formule de la cellule "E3" à la
+          plage "E3:E10".
+        </LI>
+        <LI>
+          À l'aide de la fiche disponible en page 9 et de recherches internet,
+          tracer les graphiques suivants :
+        </LI>
+        <SubQuestions count={6}>
+          <LI>
+            Un diagramme en barres, représentant le nombre de candidats pour
+            toutes les universités en 2021 et 2025.{" "}
+          </LI>
+          <LI>
+            Un diagramme circulaire, représentant la répartition des candidats
+            parmi les universités en 2021.{" "}
+          </LI>
+          <LI>
+            Un diagramme circulaire, représentant la répartition des candidats
+            parmi les universités en 2025.{" "}
+          </LI>
+        </SubQuestions>
+        <LI>
+          Observer le diagramme en barres. Les observations sont-elles
+          cohérentes avec la réponse à la question 3 ?
+        </LI>
+        <DotLine count={3} />
+        <LI>Comparer les deux diagrammes circulaires. Que constate-t-on ?</LI>
+        <DotLine count={3} />
+        <LI>Analyser les données et conclure.</LI>
+        <DotLine count={4} />
+      </TP>
       <H1>Représentation des séries statistiques</H1>
       <Exercice title="Quelles représentations d’une série statistique ?">
         <BlockBox gap="2.5cm">
@@ -403,6 +473,14 @@ export default function Stat1VarActivitesDocument() {
           « La couleur rouge correspond à des tronçons où les pentes sont{" "}
           <DotLine inline width={"5cm"} lineHeight="1em" /> »
         </div>
+        <div className="float-right ">
+          <QR
+            href="https://drive.monlycee.net/s/aWRmMg-oJMynTsn"
+            className="w-15 m-2"
+          >
+            Tableau Excel
+          </QR>
+        </div>
 
         <LI>
           On dispose du fichier « ALPE HUEZ.ods » où ont été saisis les
@@ -511,11 +589,11 @@ export default function Stat1VarActivitesDocument() {
           Sur l’île de la Réunion, la nouvelle route du littoral est une voie en
           pleine mer pour relier les villes de l’île en 2020.{" "}
           <em>
-            L’architecture de ce projet souhaite, pour des raisons esthétiques,
+            L’architecte de ce projet souhaite, pour des raisons esthétiques,
             que 75 % des piles aient une hauteur inférieure à 40 m et que
             l’étendue associée à ces hauteurs ne dépasse pas 6 m
           </em>
-          . On donne ci-dessous les hauteurs, en mètre, des piles constituant
+          . On donne ci-dessous les hauteurs, en mètres, des piles constituant
           une portion de cette route.
         </p>
         <BlockBox>
@@ -706,7 +784,7 @@ export default function Stat1VarActivitesDocument() {
             <LI>Choisir ensuite « 1VAR »</LI>
           </UL>
         </OL>
-        <H2 marker="">Texas Instrument</H2>
+        {/* <H2 marker="">Texas Instrument</H2>
         <OL>
           <LI className="font-bold">Pour saisir les données statistiques : </LI>
           <UL marker="•" indent="2em">
@@ -725,9 +803,8 @@ export default function Stat1VarActivitesDocument() {
             </LI>
             <LI>Choisir « Calculs »</LI>
           </UL>
-        </OL>
-
-        <H1 marker="">Utilisation du tableur LibreOffice Calc</H1>
+        </OL> */}
+        <H1 marker="">Utilisation du tableur</H1>
         <H2 marker="">Pour créer une formule dans le tableur</H2>
         <p>
           Commencer la formule par le signe égal « = », suivi des éléments à
@@ -735,7 +812,7 @@ export default function Stat1VarActivitesDocument() {
           calcul (+ , - , * , / ...). Les opérandes peuvent être des constantes
           ou des cellules (A1, B10…).
         </p>
-        <Img src={exemple_calc} className={"mx-auto"} align="center">
+        <Img src={exemple_calc} className={"mx-auto w-6/10"} align="center">
           La cellule C1 contient le résultat de la somme des cellules A1 et B1
         </Img>
         <H2 marker="">Pour recopier une formule</H2>
@@ -750,11 +827,19 @@ export default function Stat1VarActivitesDocument() {
           la souris jusqu’à la cellule A15. La formule contenue dans la cellule
           A2 est ainsi recopiée jusqu’à la cellule A15.
         </p>
-
-        <Img src={exemple_calc2} className={"mx-auto"} align="center">
+        <Img src={exemple_calc2} className={"mx-auto w-6/10"} align="center">
           On peut "recopier" une formule de manière intelligente en faisant un
           clic-glissé.
         </Img>
+        <H2 marker=""> Pour représenter un graphique</H2>
+        <div className="text">
+          Dans la colonne A du tableur saisir les valeurs de x. Dans la colonne
+          B du tableur saisir les valeurs de y. Sélectionner toutes les valeurs
+          saisies puis cliquer sur l’icône « diagramme » :{" "}
+          <Img src={excel_diagram_icon} className="inline" /> Dans la fenêtre
+          qui s’affiche (voir ci-dessous), choisir le type de graphique.
+        </div>
+        <Img src={excel_diagram_exemple} className={"mx-auto w-7/10"} />
       </Page>
     </Document>
   );

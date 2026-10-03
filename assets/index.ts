@@ -40,6 +40,8 @@ export { default as ex_intervalle } from "./ex_intervalle.png";
 export { default as ex_parcelle } from "./ex_parcelle.png";
 export { default as ex_solid } from "./ex_solid.png";
 export { default as ex_tri } from "./ex_tri.png";
+export { default as excel_diagram_exemple } from "./excel_diagram_exemple.png";
+export { default as excel_diagram_icon } from "./excel_diagram_icon.png";
 export { default as exemple_calc } from "./exemple_calc.png";
 export { default as exemple_calc2 } from "./exemple_calc2.png";
 export { default as fox_and_rabbit } from "./fox_and_rabbit.png";
