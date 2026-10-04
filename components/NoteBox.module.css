@@ -1,0 +1,78 @@
+/* Same look as `.synthesis`: black borders, grey label cell. */
+.notebox {
+  border-collapse: collapse;
+  margin: 1mm 0 2mm auto;
+  text-indent: 0;
+  font-style: normal;
+  font-size: 10;
+  break-inside: avoid;
+
+  th,
+  td {
+    border: 0.3mm solid black;
+    padding: 1mm 2mm;
+    white-space: nowrap;
+  }
+
+  th {
+    background-color: #e5e7eb;
+    font-size: 11px;
+  }
+
+  td {
+    height: 7mm;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.total {
+  margin-top: 3mm;
+  font-size: 10px;
+
+  th,
+  td {
+    border-width: 0.5mm;
+  }
+
+  td {
+    height: 9mm;
+  }
+}
+
+.synthesis {
+  border-collapse: collapse;
+  margin: 2mm auto 4mm;
+  width: 80%;
+  text-align: center;
+  break-inside: avoid;
+
+  th,
+  td {
+    border: 0.3mm solid black;
+    padding: 1.5mm 2mm;
+  }
+
+  th {
+    background-color: #e5e7eb;
+    font-size: 12px;
+  }
+
+  tbody td {
+    height: 1cm;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  tfoot td {
+    font-size: 10px;
+    font-style: italic;
+    border: none;
+    padding-top: 1mm;
+  }
+}
+
+.blank {
+  display: inline-block;
+  width: 1.5cm;
+}

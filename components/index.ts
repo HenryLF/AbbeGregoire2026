@@ -29,6 +29,15 @@ export {
 export { Interval, type IntervalProps } from "./Interval";
 
 export {
+  EvalSynthesis,
+  formatPoints,
+  NoteBox,
+  sumPoints,
+  type EvalSynthesisProps,
+  type NoteBoxProps,
+} from "./NoteBox";
+
+export {
   A,
   B,
   F,
