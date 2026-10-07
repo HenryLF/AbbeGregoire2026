@@ -18,7 +18,7 @@ export function MiniEval({ title, count = 3, children, gap }: MiniEvalProps) {
               <header className={s.header}>
                 <div className={s.title}>{title}</div>
                 <div className={s.name}>
-                  Nom : <DotLine width={"50%"} />
+                  Nom : <DotLine width={"50%"} lineHeight="1em" />
                 </div>
               </header>
               <div className={s.container}>

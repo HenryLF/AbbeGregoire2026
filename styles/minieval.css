@@ -16,6 +16,7 @@ body {
   font-size: 12px;
 
   --wsx--list--indent: 1cm;
+  --wsx--dotline--line-height: 8mm;
 }
 
 em {
