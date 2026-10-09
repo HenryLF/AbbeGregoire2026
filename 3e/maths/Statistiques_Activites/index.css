@@ -17,3 +17,23 @@ html {
     content: "Activité " counter(--wsx--counter-h2) " :";
   }
 }
+
+.exercice {
+  .wsx--h2::before {
+    content: "Exercice " counter(--wsx--counter-h2) " :";
+  }
+}
+
+/* Pas de H1 dans ce document : les exercices ont leur propre compteur, créé au
+   niveau du body pour être partagé entre exercices successifs. */
+body {
+  counter-reset: exercice;
+}
+
+.exercice {
+  counter-increment: exercice;
+
+  .wsx--h2::before {
+    content: "Exercice " counter(exercice) " :";
+  }
+}

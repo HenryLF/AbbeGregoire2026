@@ -51,8 +51,8 @@ export default function () {
       </LI>
 
       <LI>
-        <LaTeX tex="7" /> est la valeur telle que la moitié des observations sont
-        en dessous et l'autre moitié au-dessus, c'est :
+        <LaTeX tex="7" /> est la valeur telle que la moitié des observations
+        sont en dessous et l'autre moitié au-dessus, c'est :
       </LI>
       <Options>
         {"la médiane"}
@@ -62,7 +62,7 @@ export default function () {
       </Options>
       <LI>
         La somme des observations divisée par leur nombre est d'environ{" "}
-        <LaTeX tex="5{,}9" />, c'est :
+        <LaTeX tex="5.9" />, c'est :
       </LI>
 
       <Options>
