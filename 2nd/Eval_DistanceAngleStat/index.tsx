@@ -194,9 +194,9 @@ export default function () {
             <LaTeX tex="V" /> en fonction de <LaTeX tex="V_T" /> et{" "}
             <LaTeX tex="V_B" />.{" "}
             <em className="text-xs">
-              (Attention cela veut dire pas de calcul pour l'instant juste la
+              Attention cela veut dire pas de calcul pour l'instant juste la
               relation entre <LaTeX tex="V" />, <LaTeX tex="V_T" /> et{" "}
-              <LaTeX tex="V_B" /> .)
+              <LaTeX tex="V_B" /> .
             </em>
           </LI>
           <DotLine count={2} />
