@@ -54,7 +54,7 @@ const total = {
   pythagore: sumPoints(bareme.pythagore),
   volume: sumPoints(bareme.volume),
   surface: sumPoints(bareme.surface),
-  stat: sumPoints(bareme.stat),
+  // stat: sumPoints(bareme.stat),
 };
 const pts = (n: number) => `${n.toLocaleString("fr-FR")} pts`;
 
@@ -87,13 +87,13 @@ function UnitTable({ dim = 3 }: { dim?: number }) {
 export default function () {
   return (
     <Document title="Évaluation - Distances et Angles & Statistiques">
-      <EvalSynthesis total={sumPoints(bareme)} />
+      <EvalSynthesis total={sumPoints(total)} />
       <p>Ce contrôle contient 4 exercices.</p>
       <OL className="columns-2">
         <LI>Pythagore ({sumPoints(bareme.pythagore)} pts - p.1)</LI>
         <LI>Calcul de volume ({sumPoints(bareme.volume)} pts - p.2)</LI>
         <LI>Calcul de surface ({sumPoints(bareme.surface)} pts - p.3)</LI>
-        <LI>Etude statistique ({sumPoints(bareme.stat)} pts - p.5)</LI>
+        <LI>Etude statistique (bonus : {sumPoints(bareme.stat)} pts - p.5)</LI>
       </OL>
       <p>
         Il est volontairement plus long que ce que vous pouvez réaliser en 1
@@ -254,9 +254,10 @@ export default function () {
           Surfaces de la maison et du parking.{" "}
           <em className="text-xs">
             Attention, ici aussi je ne demande pas un calcul car on ne connaît
-            pas encore la valeur de <LaTeX tex="x" />, il faut donner la
-            relation mathématique (la "formule") qui permet de calculer{" "}
-            <LaTeX tex="\mathcal{S}" /> à partir de <LaTeX tex="x" />.
+            pas encore la valeur de <LaTeX tex="x" />, il faut donner les
+            relations mathématiques (la "formule") qui permettent de calculer{" "}
+            <LaTeX tex="\mathcal{P}" /> et <LaTeX tex="\mathcal{M}" /> à partir
+            de <LaTeX tex="x" />.
           </em>
         </LI>
         <SubQuestions count={1}>
@@ -326,7 +327,9 @@ export default function () {
         <NoteBox total points={total.surface} />
       </Exercice>
       <PageBreak />
-      <Exercice title={`Étude Statistique (${pts(total.stat)})`}>
+      <Exercice
+        title={`Étude Statistique (bonus : ${pts(sumPoints(bareme.stat))})`}
+      >
         <p>
           Les élèves de la classe font une compétition de jeu vidéo, chacun des
           élèves joue à tour de rôle et on note son meilleur score sur le
@@ -408,7 +411,7 @@ export default function () {
 
         <DotLine count={3} />
         <NoteBox points={bareme.stat.commentaire} />
-        <NoteBox total points={total.stat} />
+        <NoteBox total points={sumPoints(bareme.stat)} />
       </Exercice>
     </Document>
   );

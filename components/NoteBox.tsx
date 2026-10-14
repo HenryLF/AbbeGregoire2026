@@ -77,8 +77,8 @@ export function EvalSynthesis({
         <thead>
           <tr>
             <th>Note brute</th>
-            <th>Base de notation</th>
-            <th>Note corrigée</th>
+            <th>Note redressée</th>
+            <th>Note finale</th>
           </tr>
         </thead>
         <tbody>
