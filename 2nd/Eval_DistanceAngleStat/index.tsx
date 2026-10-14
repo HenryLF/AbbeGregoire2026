@@ -255,7 +255,7 @@ export default function () {
           <em className="text-xs">
             Attention, ici aussi je ne demande pas un calcul car on ne connaît
             pas encore la valeur de <LaTeX tex="x" />, il faut donner les
-            relations mathématiques (la "formule") qui permettent de calculer{" "}
+            relations mathématiques (les "formules") qui permettent de calculer{" "}
             <LaTeX tex="\mathcal{P}" /> et <LaTeX tex="\mathcal{M}" /> à partir
             de <LaTeX tex="x" />.
           </em>
