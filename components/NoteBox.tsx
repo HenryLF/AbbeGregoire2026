@@ -41,7 +41,7 @@ export function NoteBox({ points, total, className, ...props }: NoteBoxProps) {
       {...props}
     >
       <tr>
-        <th>{total ? "Total exercice" : "Note"}</th>
+        {total && <th>Total Exercice</th>}
         <td>
           <span className={styles.blank} /> / {formatPoints(points)}
         </td>
