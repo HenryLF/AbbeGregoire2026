@@ -48,13 +48,28 @@ export function Exercice({
   );
 }
 
-export function TP({ style, header = "Activité", ...props }: ExerciceProps) {
+export function TP({
+  title,
+  count,
+  header,
+  style,
+  className,
+  children,
+  ...props
+}: ExerciceProps) {
   return (
-    <Exercice
-      header={header}
-      style={mergeStyle(style, { "--color": "#208080" })}
+    <OL
+      className={cx(className, s.tp)}
+      style={mergeStyle(style, {
+        counterIncrement: "tp-count",
+        counterSet: count ? `tp-count ${count}` : undefined,
+        "--header-text": headerText(header),
+      })}
       {...props}
-    />
+    >
+      <div className={s.title}>{title}</div>
+      {children}
+    </OL>
   );
 }
 

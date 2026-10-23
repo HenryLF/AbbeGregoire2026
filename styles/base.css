@@ -20,6 +20,12 @@
     font-size: 8px;
     color: grey;
   }
+
+  @bottom-center {
+    content: counter(page) "/" counter(pages);
+    color: grey;
+    font-size: 10px;
+  }
 }
 
 @page landscape {
@@ -39,7 +45,7 @@
 }
 
 :root {
-  counter-reset: doc-count exercice-count call-count;
+  counter-reset: doc-count exercice-count call-count tp-count;
 
   --table--header-color: #50505020;
 }

@@ -1,5 +1,4 @@
 import area_shape from "@assets/geometry/area-shape.png";
-import { AnswerBox } from "@components/atoms/AnswerBox";
 import area_shapes from "@assets/geometry/area-shapes.png";
 import armoire from "@assets/geometry/armoire.png";
 import casier_bouteille from "@assets/geometry/casier-bouteille.png";
@@ -11,11 +10,13 @@ import triangle_ang from "@assets/geometry/triangle-ang.png";
 import triangle from "@assets/geometry/triangle.svg";
 import triangles_rect from "@assets/geometry/triangles-rect.png";
 import volume_shapes from "@assets/geometry/volume-shapes.png";
+import { AnswerBox } from "@components/atoms/AnswerBox";
 import { Img } from "@components/atoms/Img";
 import { P, S } from "@components/atoms/Texts";
 import { Activites } from "@components/doctype/Activites";
 import { Exercice } from "@components/section/Exercice";
 import type { ComponentChildren } from "preact";
+import { PageBreak } from "zefpdf-lab/ui";
 import { DotLine } from "zefpdf-lab/ui/Inputs";
 import { LaTeX } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
@@ -59,7 +60,9 @@ function UnitTable({ dim = 1, rows = 1 }: { dim?: number; rows?: number }) {
       {Array.from({ length: rows }, () => (
         <TEntry
           style={{ height: "1cm" }}
-          content={Array.from({ length: 13 * dim }, () => <TD />)}
+          content={Array.from({ length: 13 * dim }, () => (
+            <TD />
+          ))}
         />
       ))}
     </Table>
@@ -128,20 +131,20 @@ export default function DistancesEtAnglesActivitesDocument() {
               if (k == 0) return <LaTeX tex={unit} />;
               return (
                 <>
-                  = <DotLine width="4cm" />{" "}
-                  <LaTeX tex={unit} />
+                  = <DotLine width="4cm" /> <LaTeX tex={unit} />
                 </>
               );
             })}
           </LI>
         ))}
       </Exercice>
+      <PageBreak />
 
       <Exercice title="Grande Roue">
         <P>
-          À l’Exposition universelle de Paris en 1900, on pouvait monter dans
-          la Grande Roue. Elle avait un diamètre de 93 m. Quelle distance
-          avait-on parcourue en faisant :
+          À l’Exposition universelle de Paris en 1900, on pouvait monter dans la
+          Grande Roue. Elle avait un diamètre de 93 m. Quelle distance avait-on
+          parcourue en faisant :
         </P>
         <LI>un tour de roue ?</LI>
         <DotLine count={2} />
@@ -154,7 +157,7 @@ export default function DistancesEtAnglesActivitesDocument() {
         <Flex gap="5mm" align="center">
           <Img src={triangles_rect} className="flex-1" />
           <div className="flex-[1.8]">
-            <DotLine count={4} />
+            <DotLine count={6} />
           </div>
         </Flex>
       </Exercice>
@@ -185,6 +188,7 @@ export default function DistancesEtAnglesActivitesDocument() {
         </Flex>
         <DotLine count={3} />
       </Exercice>
+      <PageBreak />
 
       <H1>Aires et Surfaces</H1>
       <Exercice title="Calcul d'aire">
@@ -206,7 +210,6 @@ export default function DistancesEtAnglesActivitesDocument() {
             <DotLine count={5} />
           </div>
         </Flex>
-        <DotLine count={3} />
       </Exercice>
 
       <Exercice title="Une preuve de Pythagore">
@@ -220,13 +223,14 @@ export default function DistancesEtAnglesActivitesDocument() {
               Ve siècle av. J.-C.
             </P>
             <LI>Reproduire le schéma du manuscrit.</LI>
-            <AnswerBox height="25rem">
+            <AnswerBox height="9cm">
               <Flex justify="center" align="start">
                 <Img src={triangle} className="w-3/10 mt-30" />
               </Flex>
             </AnswerBox>
           </div>
         </Flex>
+        <PageBreak />
         <LI>Rappeler l'énoncé du théorème de Pythagore.</LI>
         <DotLine count={3} />
         <LI>
@@ -243,8 +247,7 @@ export default function DistancesEtAnglesActivitesDocument() {
 
       <Exercice title="Aire et cadastre">
         <P>
-          L'<S>hectare</S> (symbole : ha) est une unité de mesure de
-          superficie.{" "}
+          L'<S>hectare</S> (symbole : ha) est une unité de mesure de superficie.{" "}
           <em>
             Un hectare équivaut à une surface carrée de 100 mètres de côté.
           </em>
@@ -258,8 +261,8 @@ export default function DistancesEtAnglesActivitesDocument() {
           les dimensions manquantes (en mètres).
         </LI>
         <Flex gap="5mm" align="center">
-          <div className="flex-[2]">
-            <DotLine count={3} />
+          <div className="flex-2">
+            <DotLine count={4} />
           </div>
           <Img align="right" className="flex-1" src={champ}>
             Plan du champ
@@ -267,7 +270,7 @@ export default function DistancesEtAnglesActivitesDocument() {
         </Flex>
         <DotLine count={4} />
       </Exercice>
-
+      <PageBreak />
       <H1>Volumes et Solides</H1>
 
       <Exercice title="Calcul de volume">
@@ -291,7 +294,7 @@ export default function DistancesEtAnglesActivitesDocument() {
           <Img src={casier_bouteille} className="flex-1">
             Schéma du casier à bouteilles
           </Img>
-          <div className="flex-[2]">
+          <div className="flex-2">
             <LI>
               Calculer le volume du pavé droit à partir duquel a été formé le
               casier.
@@ -313,7 +316,7 @@ export default function DistancesEtAnglesActivitesDocument() {
         </LI>
         <Flex gap="5mm" align="center">
           <Img src={ex_solid} className="flex-1" />
-          <div className="flex-[2]">
+          <div className="flex-2">
             <DotLine count={5} />
           </div>
         </Flex>
@@ -335,12 +338,7 @@ export default function DistancesEtAnglesActivitesDocument() {
               </>
             }
             content={[244, null, 120, null, 217, null, 261, null, 340].map(
-              (k) =>
-                k ? (
-                  <LaTeX tex={`${k}°`} />
-                ) : (
-                  <DotLine />
-                ),
+              (k) => (k ? <LaTeX tex={`${k}°`} /> : <DotLine />),
             )}
           />
           <TEntry
@@ -359,9 +357,7 @@ export default function DistancesEtAnglesActivitesDocument() {
               null,
               "\\large \\frac{22\\pi}{ 15}",
               null,
-            ].map((k) =>
-              k ? <LaTeX tex={k} /> : <DotLine />,
-            )}
+            ].map((k) => (k ? <LaTeX tex={k} /> : <DotLine />))}
           />
         </Table>
         <LI>Donner les valeurs des angles du triangle ABC en degrés.</LI>

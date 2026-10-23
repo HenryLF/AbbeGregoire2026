@@ -1,7 +1,7 @@
 .problem,
-.exercice {
+.exercice,
+.tp {
   --dotline--lineheight: 8mm;
-
 
   border-left: 2px solid var(--color);
   border-bottom: 4px solid var(--color);
@@ -20,6 +20,18 @@
     font-size: 12px;
     line-height: 1.8;
   }
+}
+
+.exercice + .problem,
+.exercice + .exercice,
+.exercice + .tp,
+.problem + .problem,
+.problem + .exercice,
+.problem + .tp,
+.tp + .problem,
+.tp + .exercice,
+.tp + .tp {
+  margin-top: 2mm;
 }
 
 .title {
@@ -56,6 +68,20 @@
     font-size: 14px;
     &::before {
       content: "• " var(--header-text) counter(exercice-count) ":";
+    }
+  }
+}
+
+.tp {
+  --color: #202080;
+  --header-text: "Activité ";
+
+  --list--indent: 5mm;
+
+  .title {
+    font-size: 14px;
+    &::before {
+      content: "• " var(--header-text) counter(tp-count) ":";
     }
   }
 }

@@ -11,9 +11,9 @@ export function Qr({
   align?: "center" | "justify" | "left" | "right";
 }) {
   return (
-    <div {...props}>
+    <a href={href} {...props}>
       <QrCode href={href} size={size} />
       {children && <Details align={align}>{children}</Details>}
-    </div>
+    </a>
   );
 }
