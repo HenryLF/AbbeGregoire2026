@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="133.31248mm"
+   height="58.071178mm"
+   viewBox="0 0 133.31248 58.071179"
+   version="1.1"
+   id="svg7969"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="champ.svg"
+   inkscape:export-filename="champ.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7971"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.4948513"
+     inkscape:cx="317.75736"
+     inkscape:cy="58.199769"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs7966">
+    <marker
+       style="overflow:visible"
+       id="Arrow1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606599"
+       markerHeight="6.7071061"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         id="path5057"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.3257472,-23.949921)">
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.35px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:justify;fill:#000000;stroke:none;stroke-width:0.817999;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       x="41.167282"
+       y="40.60733"
+       id="text9001"><tspan
+         sodipodi:role="line"
+         id="tspan8999"
+         style="fill:#000000;stroke:none;stroke-width:0.818"
+         x="41.167282"
+         y="40.60733">1.2 ha</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.35px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:justify;fill:#000000;stroke:#000000;stroke-width:0.518001;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stop-color:#000000"
+       x="0.9319728"
+       y="39.471786"
+       id="text9864"><tspan
+         sodipodi:role="line"
+         id="tspan9862"
+         style="stroke:none;stroke-width:0.518"
+         x="0.9319728"
+         y="39.471786">60 m</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.35px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:justify;fill:#000000;stroke:#000000;stroke-width:0.518001;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stop-color:#000000"
+       x="66.476112"
+       y="81.931183"
+       id="text9912"><tspan
+         sodipodi:role="line"
+         id="tspan9910"
+         style="stroke:none;stroke-width:0.518"
+         x="66.476112"
+         y="81.931183">320 m</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:6.35px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:justify;fill:#000000;stroke:none;stroke-width:0.518001;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stop-color:#000000"
+       x="65.614502"
+       y="62.697369"
+       id="text10654"><tspan
+         sodipodi:role="line"
+         id="tspan10652"
+         style="stroke-width:0.518"
+         x="65.614502"
+         y="62.697369">0.44 ha</tspan></text>
+    <g
+       id="g10682"
+       transform="rotate(90,77.18606,49.81062)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.817999;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+         d="M 51.734361,43.862975 V 103.00696 H 98.060182 V -7.23255 H 78.342041 Z"
+         id="path8993" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.518;stroke-linecap:round;stroke-dasharray:0.518, 3.108;stroke-dashoffset:0;stop-color:#000000"
+         d="M 51.83383,43.794578 H 78.335468"
+         id="path8995"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.518;stroke-linecap:round;stroke-dasharray:0.518, 3.108;stroke-dashoffset:0;stop-color:#000000"
+         d="M 78.368121,-7.1862849 V 103.3134"
+         id="path8997" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.418;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+         d="m 78.155637,40.479828 h -2.885316 v 2.90792"
+         id="path9082"
+         sodipodi:nodetypes="ccc" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:0.518;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Arrow1);marker-end:url(#Arrow1);stop-color:#000000"
+         d="M 53.005961,106.85379 H 76.128624"
+         id="path9810" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:0.518001;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Arrow1);marker-end:url(#Arrow1);stop-color:#000000"
+         d="M 102.63776,-6.1423873 V 102.09613"
+         id="path9866" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:2.82223px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:justify;fill:#000000;stroke-width:0.600001;stroke-linecap:round;stop-color:#000000"
+       x="46.977268"
+       y="47.676777"
+       id="text19178"><tspan
+         sodipodi:role="line"
+         id="tspan19176"
+         style="stroke-width:0.6"></tspan></text>
+  </g>
+</svg>

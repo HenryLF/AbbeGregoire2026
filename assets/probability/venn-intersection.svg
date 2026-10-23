@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="60.0mm"
+   height="36.0mm"
+   viewBox="0 0 200 120"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="venn_intersection.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.9002083"
+     inkscape:cx="96.098302"
+     inkscape:cy="67.963702"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <rect
+     x="3"
+     y="3"
+     width="194"
+     height="114"
+     rx="7"
+     fill="white"
+     stroke="#4f74b3"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="11"
+     y="21"
+     font-family="DejaVu Serif, serif"
+     font-weight="bold"
+     font-size="16"
+     id="text4">Ω</text>
+  <ellipse
+     cx="78"
+     cy="72"
+     rx="46"
+     ry="27"
+     transform="rotate(-15 78 72)"
+     fill="none"
+     stroke="#6b8e23"
+     stroke-width="3"
+     id="ellipse6" />
+  <ellipse
+     cx="122"
+     cy="52"
+     rx="42"
+     ry="25"
+     transform="rotate(10 122 52)"
+     fill="none"
+     stroke="#e2661b"
+     stroke-width="3"
+     id="ellipse8" />
+  <text
+     x="52"
+     y="90"
+     font-family="DejaVu Serif, serif"
+     font-style="italic"
+     font-weight="bold"
+     font-size="15"
+     id="text10">A</text>
+  <text
+     x="143.54591"
+     y="61.779335"
+     font-family="'DejaVu Serif', serif"
+     font-style="italic"
+     font-weight="bold"
+     font-size="15px"
+     id="text12">B</text>
+</svg>

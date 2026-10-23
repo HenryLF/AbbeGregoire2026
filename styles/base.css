@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@page {
+  size: A4;
+  margin: 1cm;
+
+  font-family: "Lato", sans-serif;
+
+  @top-left {
+    font-size: 8px;
+    color: grey;
+  }
+
+  @top-center {
+    font-size: 16px;
+    font-weight: bold;
+    color: grey;
+  }
+  @top-right {
+    font-size: 8px;
+    color: grey;
+  }
+}
+
+@page landscape {
+  size: A4 landscape;
+}
+
+@page blank {
+  @top-left {
+    content: none;
+  }
+  @top-center {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+}
+
+:root {
+  counter-reset: doc-count exercice-count call-count;
+
+  --table--header-color: #50505020;
+}
+
+.table--cell {
+  --dotline--lineheight: 0.8cm;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.htitle {
+  font-weight: 800;
+  line-height: 1.6;
+  padding-left: 2mm;
+  --title--subsequent-margin: 0.3mm;
+  --title--margin: 0.5mm;
+  color: var(--color);
+}
+
+.title--h1 {
+  --color: #202080;
+  font-size: 18px;
+  border-left: 0.6mm solid var(--color);
+}
+
+.title--h2 {
+  --color: #208020;
+  font-size: 16px;
+
+  border-left: 0.6mm solid var(--color);
+  margin-left: 5mm;
+  &::before {
+    content: counter(count-h1, upper-roman) "." counter(count-h2, decimal) " -";
+  }
+}
+
+.title--h3 {
+  --color: #808020;
+  font-size: 14px;
+
+  border-left: 0.6mm solid var(--color);
+  margin-left: 1cm;
+  &::before {
+    content: counter(count-h3, lower-alpha) ")";
+  }
+}

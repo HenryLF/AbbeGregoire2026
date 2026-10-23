@@ -1,0 +1,51 @@
+:root {
+  --strong--color: #802020;
+}
+.details {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.text,
+p {
+  text-indent: 5mm;
+  font-size: 12px;
+  line-height: 1.8;
+
+  --dotline--lineheight: 8mm;
+}
+
+.strong {
+  font-weight: bold;
+  color: var(--strong--color);
+}
+
+.note {
+  border-left: 1px solid var(--strong--color);
+  border-top: 1px solid var(--strong--color);
+  border-bottom: 3px solid var(--strong--color);
+  border-right: 3px solid var(--strong--color);
+  border-radius: 2px;
+
+  padding: 1mm 2mm;
+
+  margin: 1mm 0;
+
+  .strong {
+    border-bottom: 2px solid var(--strong--color);
+    margin-right: 5px;
+  }
+}
+
+.important {
+  display: table;
+  margin: 2mm auto;
+
+  padding: 0 5mm;
+
+  border-left: 1px solid var(--strong--color);
+  border-top: 1px solid var(--strong--color);
+  border-bottom: 3px solid var(--strong--color);
+  border-right: 3px solid var(--strong--color);
+  border-radius: 3px;
+}

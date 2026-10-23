@@ -1,8 +1,0 @@
-@import url("@styles/activites.css");
-@import "../sciences.css";
-
-@page {
-  @top-center {
-    content: "Constitution de la Matière - Activités";
-  }
-}

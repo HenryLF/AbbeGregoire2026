@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="echelle_grandeur.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="echelle_grandeur.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview758"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:zoom="0.52850974"
+     inkscape:cx="175.02043"
+     inkscape:cy="503.30198"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1" />
+  <defs
+     id="defs753">
+    <marker
+       id="fleche"
+       markerWidth="6"
+       markerHeight="6"
+       refX="5"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M 0,0 6,3 0,6 Z"
+         style="fill:#000000;stroke:none"
+         id="path3145" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Echelle"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       inkscape:label="ligne 1"
+       transform="rotate(-90,133.24692,164.90322)"
+       id="g4448">
+      <path
+         d="M 10,64 H 289"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt"
+         marker-end="url(#fleche)"
+         id="path4360" />
+      <path
+         d="m 13,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4362" />
+      <text
+         x="13"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4366">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4364">−15</tspan></text>
+      <path
+         d="m 33.7692,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4368" />
+      <text
+         x="33.769199"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4372">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4370">−14</tspan></text>
+      <path
+         d="m 54.5385,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4374" />
+      <text
+         x="54.538502"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4378">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4376">−13</tspan></text>
+      <path
+         d="m 75.3077,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4380" />
+      <text
+         x="75.307701"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4384">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4382">−12</tspan></text>
+      <path
+         d="m 96.0769,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4386" />
+      <text
+         x="96.076897"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4390">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4388">−11</tspan></text>
+      <path
+         d="m 116.8462,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4392" />
+      <text
+         x="116.8462"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4396">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4394">−10</tspan></text>
+      <path
+         d="m 137.6154,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4398" />
+      <text
+         x="137.6154"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4402">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4400">−9</tspan></text>
+      <path
+         d="m 158.3846,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4404" />
+      <text
+         x="158.3846"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4408">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4406">−8</tspan></text>
+      <path
+         d="m 179.1538,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4410" />
+      <text
+         x="179.15379"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4414">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4412">−7</tspan></text>
+      <path
+         d="m 199.9231,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4416" />
+      <text
+         x="199.9231"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4420">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4418">−6</tspan></text>
+      <path
+         d="m 220.6923,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4422" />
+      <text
+         x="220.69231"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4426">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4424">−5</tspan></text>
+      <path
+         d="m 241.4615,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4428" />
+      <text
+         x="241.4615"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4432">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4430">−4</tspan></text>
+      <path
+         d="m 262.2308,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4434" />
+      <text
+         x="262.2308"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4438">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4436">−3</tspan></text>
+      <path
+         d="m 283,61.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4440" />
+      <text
+         x="283"
+         y="71.599998"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4444">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4442">−2</tspan></text>
+      <text
+         x="286"
+         y="59.5"
+         style="font-style:italic;font-size:4.2px;font-family:'Liberation Serif';text-anchor:start;fill:#000000;stroke:none"
+         id="text4446">m</text>
+    </g>
+    <g
+       inkscape:label="ligne 2"
+       transform="rotate(-90,137.73965,160.32457)"
+       id="g4538">
+      <path
+         d="M 10,127 H 289"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt"
+         marker-end="url(#fleche)"
+         id="path4450" />
+      <path
+         d="m 13,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4452" />
+      <text
+         x="13"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4456">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4454">−2</tspan></text>
+      <path
+         d="m 33.7692,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4458" />
+      <text
+         x="33.769199"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4462">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4460">−1</tspan></text>
+      <path
+         d="m 54.5385,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4464" />
+      <text
+         x="54.538502"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4468">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4466">0</tspan></text>
+      <path
+         d="m 75.3077,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4470" />
+      <text
+         x="75.307701"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4474">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4472">1</tspan></text>
+      <path
+         d="m 96.0769,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4476" />
+      <text
+         x="96.076897"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4480">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4478">2</tspan></text>
+      <path
+         d="m 116.8462,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4482" />
+      <text
+         x="116.8462"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4486">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4484">3</tspan></text>
+      <path
+         d="m 137.6154,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4488" />
+      <text
+         x="137.6154"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4492">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4490">4</tspan></text>
+      <path
+         d="m 158.3846,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4494" />
+      <text
+         x="158.3846"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4498">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4496">5</tspan></text>
+      <path
+         d="m 179.1538,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4500" />
+      <text
+         x="179.15379"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4504">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4502">6</tspan></text>
+      <path
+         d="m 199.9231,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4506" />
+      <text
+         x="199.9231"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4510">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4508">7</tspan></text>
+      <path
+         d="m 220.6923,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4512" />
+      <text
+         x="220.69231"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4516">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4514">8</tspan></text>
+      <path
+         d="m 241.4615,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4518" />
+      <text
+         x="241.4615"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4522">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4520">9</tspan></text>
+      <path
+         d="m 262.2308,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4524" />
+      <text
+         x="262.2308"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4528">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4526">10</tspan></text>
+      <path
+         d="m 283,124.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4530" />
+      <text
+         x="283"
+         y="134.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4534">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4532">11</tspan></text>
+      <text
+         x="286"
+         y="122.5"
+         style="font-style:italic;font-size:4.2px;font-family:'Liberation Serif';text-anchor:start;fill:#000000;stroke:none"
+         id="text4536">m</text>
+    </g>
+    <g
+       inkscape:label="ligne 3"
+       transform="rotate(-90,139.14334,159.0068)"
+       id="g4628">
+      <path
+         d="M 10,190 H 289"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt"
+         marker-end="url(#fleche)"
+         id="path4540" />
+      <path
+         d="m 13,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4542" />
+      <text
+         x="13"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4546">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4544">11</tspan></text>
+      <path
+         d="m 33.7692,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4548" />
+      <text
+         x="33.769199"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4552">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4550">12</tspan></text>
+      <path
+         d="m 54.5385,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4554" />
+      <text
+         x="54.538502"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4558">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4556">13</tspan></text>
+      <path
+         d="m 75.3077,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4560" />
+      <text
+         x="75.307701"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4564">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4562">14</tspan></text>
+      <path
+         d="m 96.0769,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4566" />
+      <text
+         x="96.076897"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4570">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4568">15</tspan></text>
+      <path
+         d="m 116.8462,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4572" />
+      <text
+         x="116.8462"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4576">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4574">16</tspan></text>
+      <path
+         d="m 137.6154,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4578" />
+      <text
+         x="137.6154"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4582">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4580">17</tspan></text>
+      <path
+         d="m 158.3846,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4584" />
+      <text
+         x="158.3846"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4588">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4586">18</tspan></text>
+      <path
+         d="m 179.1538,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4590" />
+      <text
+         x="179.15379"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4594">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4592">19</tspan></text>
+      <path
+         d="m 199.9231,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4596" />
+      <text
+         x="199.9231"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4600">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4598">20</tspan></text>
+      <path
+         d="m 220.6923,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4602" />
+      <text
+         x="220.69231"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4606">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4604">21</tspan></text>
+      <path
+         d="m 241.4615,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4608" />
+      <text
+         x="241.4615"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4612">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4610">22</tspan></text>
+      <path
+         d="m 262.2308,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4614" />
+      <text
+         x="262.2308"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4618">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4616">23</tspan></text>
+      <path
+         d="m 283,187.5 v 5"
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt"
+         id="path4620" />
+      <text
+         x="283"
+         y="197.60001"
+         style="font-size:5px;font-family:'Liberation Serif';text-anchor:middle;fill:#000000;stroke:none"
+         id="text4624">10<tspan
+   style="font-size:3.4px"
+   dy="-2.2"
+   id="tspan4622">24</tspan></text>
+      <text
+         x="286"
+         y="185.5"
+         style="font-style:italic;font-size:4.2px;font-family:'Liberation Serif';text-anchor:start;fill:#000000;stroke:none"
+         id="text4626">m</text>
+    </g>
+  </g>
+</svg>

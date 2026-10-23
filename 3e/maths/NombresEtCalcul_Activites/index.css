@@ -1,8 +1,0 @@
-@import url("@styles/activites.css");
-@import "../math.css";
-
-@page {
-  @top-center {
-    content: "Nombres et Calculs - Activites";
-  }
-}

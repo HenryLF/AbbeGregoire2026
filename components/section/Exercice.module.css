@@ -1,0 +1,79 @@
+.problem,
+.exercice {
+  --dotline--lineheight: 8mm;
+
+
+  border-left: 2px solid var(--color);
+  border-bottom: 4px solid var(--color);
+
+  border-radius: 5px;
+  padding-left: 2mm;
+  padding-bottom: 1mm;
+
+  margin: 1mm 0;
+
+  counter-reset: call-count;
+
+  [class="list--item"] {
+    font-style: italic;
+    padding-left: 3mm;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+.title {
+  font-weight: bold;
+  color: var(--color);
+  font-style: italic;
+  margin-bottom: 1mm;
+
+  &::before {
+    margin-right: 5px;
+    font-style: normal;
+    border-bottom: 2px solid var(--color);
+  }
+}
+
+.problem {
+  --header-text: "Problème ";
+  --color: #802080;
+
+  .title {
+    &::before {
+      content: "• " var(--header-text) ":";
+    }
+  }
+}
+
+.exercice {
+  --color: #808020;
+  --header-text: "Exercice ";
+
+  --list--indent: 5mm;
+
+  .title {
+    font-size: 14px;
+    &::before {
+      content: "• " var(--header-text) counter(exercice-count) ":";
+    }
+  }
+}
+
+.call {
+  counter-increment: call-count;
+  width: 75%;
+  margin: 1mm 0 1mm auto;
+}
+
+.callIcon {
+  height: 10mm;
+}
+
+.callContent {
+  font-weight: bold;
+  &::before {
+    content: "Appel n°" counter(call-count) " :";
+    margin-right: 1mm;
+  }
+}

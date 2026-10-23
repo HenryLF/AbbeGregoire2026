@@ -1,8 +1,0 @@
-@import url("@styles/eval.css");
-@import "../2nd.css";
-
-@page {
-  @top-center {
-    content: "Évalutation - Distances et Angles & Statistiques";
-  }
-}

@@ -1,0 +1,20 @@
+.container {
+  padding: 2mm;
+  border: 2px solid #005580;
+  border-radius: 2mm;
+  background-color: #00558060;
+  display: table;
+}
+
+.caption {
+  margin: 1mm auto;
+  display: table;
+  font-style: italic;
+  border-bottom: 1px solid currentColor;
+}
+
+.caption::before {
+  content: "Doc. " counter(doc-count) " : ";
+  font-style: normal;
+  font-weight: bold;
+}

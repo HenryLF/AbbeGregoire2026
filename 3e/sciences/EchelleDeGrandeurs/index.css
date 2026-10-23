@@ -1,8 +1,0 @@
-@import url("@styles/cours.css");
-@import "../sciences.css";
-
-@page {
-  @top-center {
-    content: "Echelle de Grandeurs";
-  }
-}
