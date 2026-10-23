@@ -75,7 +75,7 @@ body {
   font-size: 16px;
 
   border-left: 0.6mm solid var(--color);
-  margin-left: 5mm;
+  margin-left: 8mm;
   &::before {
     content: counter(count-h1, upper-roman) "." counter(count-h2, decimal) " -";
   }
@@ -86,7 +86,7 @@ body {
   font-size: 14px;
 
   border-left: 0.6mm solid var(--color);
-  margin-left: 1cm;
+  margin-left: 1.2cm;
   &::before {
     content: counter(count-h3, lower-alpha) ")";
   }

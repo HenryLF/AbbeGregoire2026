@@ -39,9 +39,9 @@ p {
 
 .important {
   display: table;
-  margin: 2mm auto;
+  margin: 1mm auto;
 
-  padding: 0 5mm;
+  padding: 1mm;
 
   border-left: 1px solid var(--strong--color);
   border-top: 1px solid var(--strong--color);

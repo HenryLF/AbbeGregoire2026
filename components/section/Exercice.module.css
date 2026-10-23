@@ -37,7 +37,7 @@
 
 .problem {
   --header-text: "Problème ";
-  --color: #802080;
+  --color: #2c47a7;
 
   .title {
     &::before {

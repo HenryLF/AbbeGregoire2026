@@ -1,1 +1,38 @@
 @import "./base.css";
+
+html {
+  page: blank;
+}
+
+@page {
+  margin: 0 5mm;
+}
+
+.minieval--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+
+  --strong--color: black;
+  
+  strong {
+    font-size: 14px;
+    font-weight: 900;
+  }
+}
+
+.minieval--items {
+  border-left: 1px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 3mm;
+  padding: 2mm 1mm;
+}
+
+.minieval--items > * > .list--item {
+  font-style: italic;
+  em {
+    font-weight: 600;
+    font-style: normal;
+  }
+}

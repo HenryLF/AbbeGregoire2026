@@ -12,9 +12,9 @@ import { LI, UL } from "zefpdf-lab/ui/List";
 import { Table, TEntry, THeader } from "zefpdf-lab/ui/Table";
 import { H1, H2 } from "zefpdf-lab/ui/Titles";
 import "./index.css";
+import { PageBreak } from "zefpdf-lab/ui";
 
-const dots = (n: number) =>
-  Array.from({ length: n }, () => <DotLine />);
+const dots = (n: number) => Array.from({ length: n }, () => <DotLine />);
 
 export default function () {
   return (
@@ -45,9 +45,8 @@ export default function () {
         </Img>
       </Flex>
       <Problem>
-        Pour notre expérience aléatoire{" "}
-        <DotLine width={"11cm"} /> est un des événements
-        élémentaires.
+        Pour notre expérience aléatoire <DotLine width={"11cm"} /> est un des
+        événements élémentaires.
       </Problem>
       <H2>Probabilité d’un événement</H2>
       <P>
@@ -58,8 +57,7 @@ export default function () {
       <UL>
         {["p = 0", "p = 1"].map((tex) => (
           <LI>
-            Si <LaTeX tex={tex} /> :{" "}
-            <DotLine width={"16cm"} />
+            Si <LaTeX tex={tex} /> : <DotLine width={"16cm"} />
           </LI>
         ))}
       </UL>
@@ -82,7 +80,7 @@ export default function () {
         <LaTeX tex="A" /> est donnée par la formule :
       </P>
       <Important>
-        <LaTeX noFormatNumber tex={`p(A) = \\large \\frac{ \\hspace{5cm}}{}`} />
+        <LaTeX displayMode noFormatNumber tex={`p(A) = \\large \\frac{ \\hspace{8cm}}{}`} />
       </Important>
       <Problem>
         <P>
@@ -108,6 +106,8 @@ export default function () {
           tex='\text{Proba} = \frac{\text{ nbr.de cas "content"}}{\text{nbr. total de cas} } \text{(entre 0 et 1 ou en \%)}'
         />
       </Note>
+
+      <PageBreak />
       <H1>Opérations sur les événements</H1>
       <H2>Événement contraire</H2>
       <P>
@@ -117,7 +117,7 @@ export default function () {
         <LaTeX tex="\overline{A}" /> n'a aucun événement élémentaire en commun
         avec <LaTeX tex="A" />, on a donc :
         <Important>
-          <LaTeX noFormatNumber tex="p(\overline{A}) = \hspace{2cm} " />
+          <LaTeX displayMode noFormatNumber tex="p(\overline{A}) = \hspace{2cm} " />
         </Important>
       </P>
       <Problem>
@@ -126,10 +126,8 @@ export default function () {
           (tex) => (
             <>
               <LI>
-                <LaTeX tex={tex} /> :{" "}
-                <DotLine width={"16cm"} />
+                <LaTeX tex={tex} /> : <DotLine inline />
               </LI>
-              <DotLine />
             </>
           ),
         )}
@@ -143,13 +141,13 @@ export default function () {
       </P>
       <P>
         <LaTeX tex="A \cap B" /> regroupe tous les événements élémentaires qui
-        sont <DotLine width={"8cm"} />
+        sont <DotLine inline />
       </P>
       <Note title="Note :">
         Il peut arriver que <LaTeX tex="A" /> et <LaTeX tex="B" /> n'aient aucun
         événement élémentaire en commun, dans ce cas :<br />
-        <LaTeX noFormatNumber tex="p(A\cap B) = \hspace{1cm}" />, A et B sont
-        dits <S>incompatibles</S> <DotLine width={"8cm"} />
+        <LaTeX noFormatNumber tex="p(A\cap B) = \hspace{2cm}" />, A et B sont
+        dits <S>incompatibles</S> <DotLine inline />
       </Note>
       <Problem>
         Pour notre tirage de balles, décrire l'événement{" "}
@@ -157,7 +155,7 @@ export default function () {
         correspondent à quel événement et donner sa probabilité.
         <Flex gap="5mm" align="center">
           <Img src={balls} className="flex-1" />
-          <div className="flex-[3]">
+          <div className="flex-3">
             <DotLine count={3} />
           </div>
         </Flex>
@@ -168,7 +166,7 @@ export default function () {
         que l'un, l'autre ou les deux événements se réalisent. Ainsi on notera{" "}
         <LaTeX tex="A \cup B" /> (dire "A union B") l'événement correspondant à
         A <S>OU</S> B.{" "}
-        <em>
+        <em className={"text-[8px]"}>
           Attention, contrairement au "ou" français qui est exclusif ("fromage
           ou dessert mais pas les deux"), le "ou" des maths est inclusif
           ("fromage, dessert ou les deux").
@@ -176,7 +174,7 @@ export default function () {
       </P>
       <P>
         <LaTeX tex="A \cup B" /> regroupe tous les événements élémentaires qui
-        sont <DotLine width={"8cm"} />
+        sont <DotLine inline/>
       </P>
       <Problem>
         Pour notre tirage de balles, décrire l'événement{" "}
@@ -191,12 +189,11 @@ export default function () {
       </Problem>
       <P>
         Pour calculer la probabilité de <LaTeX tex="A \cup B" />, on doit bien
-        faire attention à : <DotLine width={"7cm"} />
-        <DotLine width={"14cm"} />, c'est pour cela que l'on
-        a :
+        faire attention à : <DotLine inline />
+        <DotLine width={"14cm"} />, c'est pour cela que l'on a :
       </P>
-      <Important className="mb-[7mm]">
-        <LaTeX noFormatNumber tex={`p(A \\cup B) = \\hspace{6cm}`} />
+      <Important >
+        <LaTeX displayMode noFormatNumber tex={`p(A \\cup B) = \\hspace{12cm}`} />
       </Important>
       <Note title="À retenir :">
         <LaTeX tex="\overline{A} = pas\:A" />, <LaTeX tex="\cap = ET " />,{" "}
@@ -259,14 +256,17 @@ export default function () {
         En fait, lorsque je regarde <LaTeX tex="p_A(B)" />, tout se passe comme
         si l'événement <LaTeX tex="A" /> était le nouvel{" "}
         <DotLine width={"4.5cm"} />
-        <DotLine width={"5cm"} />, les issues qui réalisent{" "}
-        <LaTeX tex="B" /> sont donc celles qui appartiennent à :{" "}
-        <DotLine width={"5cm"} /> donc à{" "}
+        <DotLine width={"5cm"} />, les issues qui réalisent <LaTeX tex="B" />{" "}
+        sont donc celles qui appartiennent à : <DotLine width={"5cm"} /> donc à{" "}
         <DotLine width={"3cm"} />.
       </P>
       <P>Ainsi on a la formule :</P>
       <Important>
-        <LaTeX noFormatNumber tex={`p_A(B) = \\frac{\\hspace{3cm}}{}`} />
+        <LaTeX
+          noFormatNumber
+          displayMode
+          tex={`p_A(B) = \\frac{\\hspace{3cm}}{}`}
+        />
       </Important>
 
       <Note title="À retenir :">
@@ -276,16 +276,6 @@ export default function () {
       </Note>
 
       <Problem header="Exercice type CCF">
-        Sur une ligne de production de drones, les drones produits peuvent avoir
-        deux défauts.
-        <UL className="columns-2">
-          <LI>
-            <LaTeX tex="A" /> : ailes tordues
-          </LI>
-          <LI>
-            <LaTeX tex="F" /> : fuselage fissuré
-          </LI>
-        </UL>
         <Flex gap="5mm">
           <Table className="flex-1 w-full">
             <THeader
@@ -301,12 +291,19 @@ export default function () {
               header={<LaTeX tex="\overline{F}" />}
               content={[8, <DotLine />, 485]}
             />
-            <TEntry
-              header="Total"
-              content={[<DotLine />, 350, 500]}
-            />
+            <TEntry header="Total" content={[<DotLine />, 350, 500]} />
           </Table>
           <div className="flex-1">
+            Sur une ligne de production de drones, les drones produits peuvent
+            avoir deux défauts.
+            <UL className="columns-2">
+              <LI>
+                <LaTeX tex="A" /> : ailes tordues
+              </LI>
+              <LI>
+                <LaTeX tex="F" /> : fuselage fissuré
+              </LI>
+            </UL>
             <LI>
               Décrire <LaTeX tex="\overline{A}" /> et donner sa probabilité.
             </LI>

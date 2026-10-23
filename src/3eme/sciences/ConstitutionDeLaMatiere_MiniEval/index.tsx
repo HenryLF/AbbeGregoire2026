@@ -8,14 +8,10 @@ import "./index.css";
 
 const title = "Atomes et Molécules";
 
-const Ce = ({ tex }: { tex: string }) => (
-  <LaTeX noFormatNumber tex={`\\mathrm{${tex}}`} />
-);
 
 export default function () {
   return (
     <MiniEval title={title} lang="fr">
-      <div className="break-inside-avoid my-[5mm]">
         <Flex justify="space-between" align="center" gap="1cm">
           <S>{title}</S>
           <div className="w-1/2">
@@ -41,28 +37,28 @@ export default function () {
           </Options>
 
           <LI>
-            La molécule de <Ce tex="CO_2" /> est composée de :
+            La molécule de <LaTeX chemical tex="CO_2" /> est composée de :
           </LI>
           <Options columns={2}>
             <>
-              1 oxygène (<Ce tex="O" />) et 2 hydrogènes (<Ce tex="H" />)
+              1 oxygène (<LaTeX chemical tex="O" />) et 2 hydrogènes (<LaTeX chemical tex="H" />)
             </>
             <>
-              1 oxygène (<Ce tex="O" />) et 2 carbones (<Ce tex="C" />)
+              1 oxygène (<LaTeX chemical tex="O" />) et 2 carbones (<LaTeX chemical tex="C" />)
             </>
             <>
-              2 oxygènes (<Ce tex="O" />) et 1 carbone (<Ce tex="C" />)
+              2 oxygènes (<LaTeX chemical tex="O" />) et 1 carbone (<LaTeX chemical tex="C" />)
             </>
             <>
-              1 oxygène (<Ce tex="O" />) et 1 carbone (<Ce tex="C" />)
+              1 oxygène (<LaTeX chemical tex="O" />) et 1 carbone (<LaTeX chemical tex="C" />)
             </>
           </Options>
 
           <LI>
-            Pour l'ion suivant <Ce tex="HO^-" />, laquelle de ces affirmations
+            Pour l'ion suivant <LaTeX chemical tex="HO^-" />, laquelle de ces affirmations
             est <em>fausse</em> :
           </LI>
-          <Options>
+          <Options columns={2}>
             <>C'est un anion</>
             <>Il porte une charge -</>
             <>C'est une molécule qui a gagné un électron</>
@@ -70,7 +66,7 @@ export default function () {
           </Options>
 
           <LI>
-            Quelle est la charge de l'ion suivant : <Ce tex="Fe^{3+}" />
+            Quelle est la charge de l'ion suivant : <LaTeX chemical tex="Fe^{3+}" />
           </LI>
           <Options>
             <>il n'est pas chargé</>
@@ -79,7 +75,6 @@ export default function () {
             <>2 charges négatives</>
           </Options>
         </OL>
-      </div>
     </MiniEval>
   );
 }
