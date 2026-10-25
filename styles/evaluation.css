@@ -1,0 +1,64 @@
+@import "./base.css";
+
+@page {
+  margin: 1.5cm 1cm 1.5cm 8mm;
+}
+
+:root {
+  --dotline--lineheight: 8mm;
+}
+
+.evaluation--identity {
+  display: flex;
+  justify-content: space-between;
+  --dotline--lineheight: 5mm;
+}
+
+.evaluation--synthesis {
+  width: 80%;
+  margin: 2mm auto 4mm;
+  border: 1px solid black;
+  table-layout: fixed;
+  text-align: center;
+  break-inside: avoid;
+
+  td {
+    height: 1cm;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+/* Sits on its own line against the right margin, leaving the space to its
+   left free for the grader's comments. */
+.evaluation--notebox {
+  margin: 1mm 2mm 2mm auto;
+  border: var(--table--border-width, 1px) solid black;
+  font-style: normal;
+  break-inside: avoid;
+
+  td {
+    height: 7mm;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+}
+
+.evaluation--total {
+  margin-top: 3mm;
+  --table--border-width: 0.5mm;
+
+  td {
+    height: 9mm;
+  }
+}
+
+.evaluation--blank {
+  display: inline-block;
+  width: 1.5cm;
+}
+
+em {
+  font-style: normal;
+  font-size: 8px;
+}
