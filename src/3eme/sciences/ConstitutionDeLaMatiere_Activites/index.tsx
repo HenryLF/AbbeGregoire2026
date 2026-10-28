@@ -19,7 +19,7 @@ import "./index.css";
 const alphaMarker = (n: number) => toLowerAlpha(n) + ".)";
 
 const Ce = ({ tex }: { tex: string }) => (
-  <LaTeX noFormatNumber tex={`\\mathrm{${tex}}`} />
+  <LaTeX chemical tex={tex} />
 );
 
 export default function ConstitutionDeLaMatiereActivitesDocument() {
@@ -135,7 +135,7 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
 
       <H1 marker="•">Activité documentaire</H1>
 
-      <Doc caption="définition des polymères" className="w-full">
+      <Doc caption="Définition des polymères" className="w-full">
         <Flex gap="3mm" align="start">
           <div className="flex-1">
             Les <S>polymères</S> sont des substances dont les molécules sont
@@ -182,17 +182,14 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
           <Img src={polystyrene} />
         </Doc>
       </Flex>
-
-      <P>
-        <em>Prendre connaissance des documents et regarder la vidéo.</em>
-      </P>
-      <P>
-        <em>
+      <OL className={"italic"}>
+        <LI>Prendre connaissance des documents et regarder la vidéo.</LI>
+        <LI>
           Pour chacun des plastiques des documents <Circle>2</Circle> et{" "}
           <Circle>3</Circle>, identifier les monomères et donner leur symbole
           chimique.
-        </em>
-      </P>
+        </LI>
+      </OL>
     </Activites>
   );
 }

@@ -1,6 +1,6 @@
 import { defineConfig } from "zefpdf-lab";
 
-const target = "src/2nde/math/Eval_DistancesEtAngles_Stat";
+const target = "src/3eme/math/Statistiques_MiniEval";
 
 // Paths are relative to this file. CLI flags (--engine, --out, --outdir,
 // --port) override these values.
@@ -21,7 +21,7 @@ export default defineConfig({
   // dev server port (`bun run dev`)
   port: 3000,
   // engine binaries, if not on PATH under these names
-  // paths: { weasyprint: "weasyprint", chromium: "chromium" },
+  // paths: { weasyprint: "/home/zub/src/weasyprint-env/bin/weasyprint" },
   // dev rebuild settings
   // watch: { debounceMs: 100, ignore: ["node_modules", "dist", ".git"] },
 });
