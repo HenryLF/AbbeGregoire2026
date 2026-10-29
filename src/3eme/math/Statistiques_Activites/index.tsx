@@ -219,15 +219,15 @@ function EntretienVoitures() {
       <LI>Compléter le tableau ci-dessous.</LI>
       <Table className="w-full my-2">
         <THeader content={["Marque de voitures", "A", "B", "C", "D", "E"]} />
-        <TEntry header="Nombre de voitures" content={["2", "3", "3", "4", "8"]} />
+        <TEntry
+          header="Nombre de voitures"
+          content={["2", "3", "3", "4", "8"]}
+        />
         <TEntry
           header="Dépense par voiture (en €)"
           content={["300", "1 000", "", "1 350", "450"]}
         />
-        <TEntry
-          header="Dépense totale (en €)"
-          content={Array(5).fill("")}
-        />
+        <TEntry header="Dépense totale (en €)" content={Array(5).fill("")} />
       </Table>
       <Flex align="center">
         <div className="flex-[4]">
@@ -479,10 +479,10 @@ export default function StatistiquesActivites() {
           </LI>
         </SubQuestion>
         <PoolTable />
-        <Doc caption="Types d'observation" className="mx-auto">
-          <Flex gap="2mm">
+        <Doc className="w-full">
+          <Flex>
             <div>Lorsque l'on collecte des données :</div>
-            <UL indent="5mm">
+            <UL>
               <LI>
                 Une observation <S>quantitative</S> est une mesure associée à un
                 nombre.
@@ -495,9 +495,8 @@ export default function StatistiquesActivites() {
           </Flex>
           <div>
             <em>Pour des fleurs :</em> le nombre de pétales est une observation{" "}
-            <DotLine width="3cm" lineHeight="5mm" /> tandis
-            que la couleur est une observation{" "}
-            <DotLine width="3cm" lineHeight="5mm" /> .
+            <DotLine width="3cm" /> tandis que la couleur est une observation{" "}
+            <DotLine inline />
           </div>
         </Doc>
         <LI>Pour ces deux séries statistiques :</LI>
@@ -528,8 +527,14 @@ export default function StatistiquesActivites() {
           Tracer les diagrammes en barres pour les deux séries statistiques.
         </LI>
         <Flex>
-          <BlankBarChart labels="genre" title="Effectifs - diagramme en barres" />
-          <BlankBarChart labels="type" title="Effectifs - diagramme en barres" />
+          <BlankBarChart
+            labels="genre"
+            title="Effectifs - diagramme en barres"
+          />
+          <BlankBarChart
+            labels="type"
+            title="Effectifs - diagramme en barres"
+          />
         </Flex>
 
         <LI>
@@ -539,7 +544,11 @@ export default function StatistiquesActivites() {
         <Flex gap="5mm">
           {[filmGenre, filmType].map((labels) => (
             <div className="flex-1">
-              <Img src={protractorFullCircle} className="w-2/5 mx-auto" align="right">
+              <Img
+                src={protractorFullCircle}
+                className="w-2/5 mx-auto"
+                align="right"
+              >
                 {labels.length == 3 ? "Genre de film" : "Type de film"} -
                 Diagramme camenbert
               </Img>

@@ -48,6 +48,7 @@
   counter-reset: doc-count exercice-count call-count tp-count;
 
   --table--header-color: #50505020;
+  --table--cell-padding: 2px;
 }
 
 .table--cell {

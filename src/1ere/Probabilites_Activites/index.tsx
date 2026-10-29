@@ -130,11 +130,10 @@ function JeuxDeDe() {
             </LI>
             <CombinaisonsTable />
             <LI>Conclure quant à la stratégie adoptée par Rafaël.</LI>
-            <DotLine count={2} />
+            <DotLine count={3} />
           </div>
         </Flex>
       </SubQuestion>
-      <DotLine />
     </TP>
   );
 }
@@ -295,12 +294,12 @@ function TableauCroiseCasques() {
       <SubQuestion count={1}>
         <LI>
           Traduire par une phrase l’événement <LaTeX tex="\overline{M}" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
         <LI>
           Traduire par une phrase l’événement <LaTeX tex="\overline{F}" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
       </SubQuestion>
 
       <LI count={2}>Compléter le tableau croisé suivant :</LI>
@@ -355,7 +354,7 @@ function TableauCroiseCasques() {
               Compléter chacune des cases blanches du tableau ci-contre avec les
               étiquettes suivantes :
             </LI>
-            <Flex justify="center" gap="3mm" className="flex-wrap my-2">
+            <Flex justify="center" gap="3mm" className="my-2">
               {[
                 "M \\cap F",
                 "\\overline{M} \\cap \\overline{F}",
@@ -370,7 +369,7 @@ function TableauCroiseCasques() {
           </div>
           <div className="flex-1">
             <TableauCroise
-              className="w-full"
+              className="w-full mb-1"
               colonnes={[M, NonM]}
               lignes={[F, NonF]}
             />
@@ -461,12 +460,12 @@ function ProbabilitesSurLeChantier() {
       <SubQuestion count={1}>
         <LI>
           Définir par une phrase l’événement <LaTeX tex="\overline{D}" /> :
+        <DotLine inline />
         </LI>
-        <DotLine />
         <LI>
           Définir par une phrase l’événement <LaTeX tex="D \cap E" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
         <LI>Calculer les probabilités suivantes :</LI>
         <Answers texs={["p(D) = ", "p(\\overline{D}) = "]} />
         <Flex align="center" gap="5mm">
@@ -557,12 +556,12 @@ function ProbabilitesSurLeChantier() {
         <Answers texs={["p(R) = ", "p(P) = "]} />
         <LI>
           Définir par une phrase l’événement <LaTeX tex="R \cap P" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
         <LI>
           Calculer la probabilité <LaTeX tex="p(R \cap P)" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
       </SubQuestion>
       <LI count={3}>
         <S>
@@ -604,7 +603,7 @@ function ProbabilitesSurLeChantier() {
         <LI>
           On prélève au hasard une racle dans le stock testé. On considère les
           événements suivants :
-          <UL>
+          <UL className="inline-block align-middle mr-5" indent={0}>
             <LI>
               <LaTeX tex="M" /> : « la racle VRD présente le défaut de type{" "}
               <LaTeX tex="M" /> » ;
@@ -627,8 +626,8 @@ function ProbabilitesSurLeChantier() {
         <DotLine count={2} />
         <LI>
           Définir par une phrase l’événement <LaTeX tex="M \cap L" /> :
+        <DotLine inline/>
         </LI>
-        <DotLine />
         <LI>
           Calculer la probabilité <LaTeX tex="p(M \cap L)" /> à{" "}
           <LaTeX tex="10^{-4}" /> près :
@@ -752,7 +751,7 @@ function DefautDeCanalisations() {
             produites par les deux ateliers. Toutes les canalisations ont la
             même probabilité d’être choisies. On considère les événements
             suivants :
-            <UL>
+            <UL >
               <LI>
                 <LaTeX tex="A_1" /> : « la canalisation prélevée provient de
                 l’atelier 1 » ;
@@ -972,6 +971,7 @@ function Depistage() {
       <DotLine count={2} />
       <LI count={6}>Calculer la probabilité d’avoir un test positif.</LI>
       <DotLine count={2} />
+      <PageBreak/>
       <LI count={7}>
         Calculer la probabilité d’être malade sachant que la personne a un test
         positif.
@@ -1069,6 +1069,8 @@ export default function () {
       <JeuxDeDe />
       <H1>Opérations sur les événements</H1>
       <RepresentationsGraphiques />
+      <PageBreak />
+
       <TableauCroiseCasques />
       <PageBreak />
       <ProbabilitesSurLeChantier />

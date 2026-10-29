@@ -2,7 +2,6 @@
   display: inline-block;
   border: 1px solid var(--pill--color, currentColor);
   border-radius: 999px;
-  padding: 0 2.5mm;
-  margin: 0.5mm;
+  padding: 2px 2mm;
   line-height: 1.6;
 }

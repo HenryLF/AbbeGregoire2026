@@ -82,11 +82,12 @@ export function SommesTable() {
 export function CombinaisonsTable() {
   const sommes = Array.from({ length: 11 }, (_, k) => k + 2);
   return (
-    <Table className="w-full table-fixed">
+    <Table className="w-full">
       <THeader content={["Somme", ...sommes]} />
       <TEntry
         header="Nombre de combinaisons différentes possibles"
-        content={sommes.map(() => "")}
+        className="text-[8px]"
+        content={sommes.map(() => <DotLine/>)}
       />
     </Table>
   );
@@ -200,7 +201,7 @@ export function TableauCroise({
         <TEntry
           header={ligne}
           content={colonnes.map((_, j) => (
-            <TD className="h-7 text-center">{cells[i]?.[j] ?? ""}</TD>
+            <TD className="h-5 text-center">{cells[i]?.[j] ?? <DotLine/>}</TD>
           ))}
         />
       ))}

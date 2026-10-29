@@ -106,6 +106,7 @@ export function SubQuestion({
   children,
   marker: propsMarker = (k) => toLowerAlpha(k) + ")",
   count,
+  indent = "8mm",
   ...props
 }: ListProps) {
   return (
@@ -121,7 +122,7 @@ export function SubQuestion({
               : context.marker(n);
           const subMarker =
             typeof propsMarker == "string" ? () => propsMarker : propsMarker;
-          return <OL marker={(k) => `${marker}${subMarker(k)}`}>{children}</OL>;
+          return <OL marker={(k) => `${marker}${subMarker(k)}`} indent={indent}>{children}</OL>;
         }}
       </ListContext.Consumer>
     </>
