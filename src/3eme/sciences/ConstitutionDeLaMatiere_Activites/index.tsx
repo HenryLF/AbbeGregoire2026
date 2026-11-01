@@ -9,17 +9,54 @@ import { P, S } from "@components/atoms/Texts";
 import { Activites } from "@components/doctype/Activites";
 import { Doc } from "@components/section/Doc";
 import { Exercice } from "@components/section/Exercice";
-import { LaTeX } from "zefpdf-lab/ui/LaTeX";
+import { LaTeX, type LaTeXProps } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
 import { LI, OL, toLowerAlpha, UL } from "zefpdf-lab/ui/List";
 import { PageBreak } from "zefpdf-lab/ui/Pages";
 import { H1 } from "zefpdf-lab/ui/Titles";
 import "./index.css";
+import { Table, TEntry, TH, THeader } from "zefpdf-lab/ui/Table";
+import { DotLine } from "zefpdf-lab/ui/Inputs";
 
 const alphaMarker = (n: number) => toLowerAlpha(n) + ".)";
 
-const Ce = ({ tex }: { tex: string }) => (
-  <LaTeX chemical tex={tex} />
+const Ce = ({ tex, ...props }: LaTeXProps) => (
+  <LaTeX {...props} chemical tex={tex} />
+);
+
+const IdTestTable = () => (
+  <Doc
+    caption="Tests d'identification des ions"
+    className="w-full break-inside-avoid"
+  >
+    <Table className="w-full text-center" headerBg="#e0e0e0" cellBg="#fff">
+      <THeader
+        content={[
+          "Réactif utilisé",
+          <TH colspan={4}>Hydroxyde de sodium ou soude</TH>,
+          "Nitrate d'argent",
+          "Chlorure de baryum",
+        ]}
+      />
+      <TEntry
+        header="Couleur du précipité"
+        content={["Bleu", "Vert", "Rouille", "Blanc", "Blanc", "Blanc"]}
+      />
+      <TEntry
+        header="Ion identifié"
+        content={[
+          "Cu^{2+}",
+          "Fe^{2+}",
+          "Fe^{3+}",
+          "Zn^{2+}",
+          "Cl^-",
+          "SO_4^{2-}",
+        ].map((tex) => (
+          <Ce tex={tex} />
+        ))}
+      />
+    </Table>
+  </Doc>
 );
 
 export default function ConstitutionDeLaMatiereActivitesDocument() {
@@ -133,7 +170,7 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
         </div>
       </Exercice>
 
-      <H1 marker="•">Activité documentaire</H1>
+      <H1 marker="•">Activités documentaires</H1>
 
       <Doc caption="Définition des polymères" className="w-full">
         <Flex gap="3mm" align="start">
@@ -190,6 +227,62 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
           chimique.
         </LI>
       </OL>
+      <PageBreak />
+      <H1 marker="•">Test d'identification des ions</H1>
+      <Doc caption="Réaction de précipitation" count={1}>
+        <Flex>
+          <P>
+            Des ions de charges opposées (c'est à dire un <S>cation</S> chargé{" "}
+            <DotLine width={"3cm"} /> et un un <S>anion</S> chargé{" "}
+            <DotLine width={"3cm"} /> ) peuvent s'associer pour former des
+            solides que l'on appelle <S>précipité</S>.{" "}
+            <em>Un précipité est toujours éléctriquement neutre</em>. On appelle
+            cela la <S>précipitation</S> et l'on peut décrire ce phénomène par
+            des <S>équations de réactions</S>. Par exemple cette équation décrit
+            la formation du <S>chlorure de sodium</S> <Ce tex="NaCl" /> (le sel
+            de table à partir d'ions chlorure <Ce tex="Cl-" /> et d'ions sodium{" "}
+            <Ce tex="Na+" /> ) :
+          </P>
+          <Qr href="https://www.youtube.com/watch?v=YVdUvDN9zZo" />
+        </Flex>
+        <Ce displayMode tex="Na+ + Cl- -> NaCl v" />
+      </Doc>
+
+      <Flex gap={"1mm"} className="my-[1mm]" align="center">
+        <Doc caption="Formation d'hydroxyde métaliques" className={"flex-1"}>
+          <P>
+            Les ions métaliques, qui proviennent en général de l'oxydation
+            (c'est à dire la <DotLine width={"4cm"} />) de métaux tel le cuivre{" "}
+            <Ce tex="Cu" />, le fer <Ce tex="Fe" />, ou le zinc <Ce tex="Zn" />{" "}
+            sont solluble dans l'eau. si l'on rajoute des ions hydroxyde{" "}
+            <Ce tex="HO-" /> forment des solides appelées{" "}
+            <S>hydroxyde métaliques</S>.
+          </P>
+          <Ce displayMode tex="Me^{n+} + n HO-  -> Me(OH)_n  v" />
+        </Doc>
+        <Doc
+          caption="Réaction avec l'Argent et le Barium"
+          className={"flex-[1.25]"}
+        >
+          <P>
+            Certains précipités sont plus <S>stable</S> que d'autres, cela veut
+            dire que si la formation de plusieurs sels est possible. Les ions
+            vont "préferer" former l'un plutôt que l'autre.
+          </P>
+          <P>
+            C'est par exemple le cas du <S>chlorure d'argent</S> et du{" "}
+            <S>sulfate de Barium</S> respectivement plus stable que le{" "}
+            <S>nitrate d'argent</S> et le <S>chlorure de barium</S>. Ainsi on a
+            :
+          </P>
+          <Ce displayMode tex="AgNO3 v + Cl- -> AgCl v" />
+        </Doc>
+      </Flex>
+      <IdTestTable />
+
+      <Qr href="https://www.youtube.com/watch?v=OEiPcW2CwBA" className="table">
+        Trois test avec l'hydroxyde de sodium
+      </Qr>
     </Activites>
   );
 }
