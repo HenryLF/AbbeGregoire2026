@@ -9,14 +9,14 @@ import { P, S } from "@components/atoms/Texts";
 import { Activites } from "@components/doctype/Activites";
 import { Doc } from "@components/section/Doc";
 import { Exercice } from "@components/section/Exercice";
+import { DotLine } from "zefpdf-lab/ui/Inputs";
 import { LaTeX, type LaTeXProps } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
 import { LI, OL, toLowerAlpha, UL } from "zefpdf-lab/ui/List";
 import { PageBreak } from "zefpdf-lab/ui/Pages";
+import { Table, TD, TEntry, TH, THeader } from "zefpdf-lab/ui/Table";
 import { H1 } from "zefpdf-lab/ui/Titles";
 import "./index.css";
-import { Table, TEntry, TH, THeader } from "zefpdf-lab/ui/Table";
-import { DotLine } from "zefpdf-lab/ui/Inputs";
 
 const alphaMarker = (n: number) => toLowerAlpha(n) + ".)";
 
@@ -33,9 +33,16 @@ const IdTestTable = () => (
       <THeader
         content={[
           "Réactif utilisé",
-          <TH colspan={4}>Hydroxyde de sodium ou soude</TH>,
-          "Nitrate d'argent",
-          "Chlorure de baryum",
+          <TH colspan={4}>
+            Hydroxyde de sodium ou soude <Ce tex="NaOH" />
+          </TH>,
+          <>
+            Nitrate d'argent
+            <Ce tex="AgNO3" />
+          </>,
+          <>
+            Chlorure de baryum <Ce tex="BaCl" />{" "}
+          </>,
         ]}
       />
       <TEntry
@@ -174,16 +181,16 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
 
       <Doc caption="Définition des polymères" className="w-full">
         <Flex gap="3mm" align="start">
-          <div className="flex-1">
+          <P className="flex-1">
             Les <S>polymères</S> sont des substances dont les molécules sont
             constituées d’un très grand nombre de maillons identiques ou
             similaires reliés entre eux par de longues chaînes. En termes
             simples : un polymère est comme une longue chaîne composée de
             nombreuses « unités » identiques appelées <S>monomères</S>. Il
             existe différents types de polymères :
-          </div>
-          <Qr href="https://www.youtube.com/watch?v=frXu-CEdscM" size={60}>
-            vidéo
+          </P>
+          <Qr href="https://www.youtube.com/watch?v=frXu-CEdscM">
+            Vidéo Polymère
           </Qr>
         </Flex>
         <UL>
@@ -230,44 +237,49 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
       <PageBreak />
       <H1 marker="•">Test d'identification des ions</H1>
       <Doc caption="Réaction de précipitation" count={1}>
-        <Flex>
-          <P>
-            Des ions de charges opposées (c'est à dire un <S>cation</S> chargé{" "}
-            <DotLine width={"3cm"} /> et un un <S>anion</S> chargé{" "}
-            <DotLine width={"3cm"} /> ) peuvent s'associer pour former des
-            solides que l'on appelle <S>précipité</S>.{" "}
-            <em>Un précipité est toujours éléctriquement neutre</em>. On appelle
-            cela la <S>précipitation</S> et l'on peut décrire ce phénomène par
-            des <S>équations de réactions</S>. Par exemple cette équation décrit
-            la formation du <S>chlorure de sodium</S> <Ce tex="NaCl" /> (le sel
-            de table à partir d'ions chlorure <Ce tex="Cl-" /> et d'ions sodium{" "}
-            <Ce tex="Na+" /> ) :
-          </P>
-          <Qr href="https://www.youtube.com/watch?v=YVdUvDN9zZo" />
-        </Flex>
+        <Qr
+          href="https://www.youtube.com/watch?v=YVdUvDN9zZo"
+          className="float-right m-1 ml-2"
+        >
+          Vidéo
+        </Qr>
+        <P className="flex-1">
+          Des ions de charges opposées (c'est à dire un <S>cation</S> chargé{" "}
+          <DotLine width={"3cm"} /> et un <S>anion</S> chargé{" "}
+          <DotLine width={"3cm"} /> ) peuvent s'associer pour former des solides
+          que l'on appelle <S>précipité</S>.{" "}
+          <em>Un précipité est toujours électriquement neutre</em>. On appelle
+          cela la <S>précipitation</S> et l'on peut décrire ce phénomène par des{" "}
+          <S>équations de réactions</S>. Par exemple cette équation décrit la
+          formation du <S>chlorure de sodium</S> <Ce tex="NaCl" /> (le sel de
+          table à partir d'ions chlorure <Ce tex="Cl-" /> et d'ions sodium{" "}
+          <Ce tex="Na+" /> ) :
+        </P>
         <Ce displayMode tex="Na+ + Cl- -> NaCl v" />
       </Doc>
 
       <Flex gap={"1mm"} className="my-[1mm]" align="center">
-        <Doc caption="Formation d'hydroxyde métaliques" className={"flex-1"}>
+        <Doc caption="Formation d'hydroxydes métalliques" className={"flex-1"}>
           <P>
-            Les ions métaliques, qui proviennent en général de l'oxydation
-            (c'est à dire la <DotLine width={"4cm"} />) de métaux tel le cuivre{" "}
-            <Ce tex="Cu" />, le fer <Ce tex="Fe" />, ou le zinc <Ce tex="Zn" />{" "}
-            sont solluble dans l'eau. si l'on rajoute des ions hydroxyde{" "}
-            <Ce tex="HO-" /> forment des solides appelées{" "}
-            <S>hydroxyde métaliques</S>.
+            Les ions métalliques, qui proviennent en général de l'oxydation
+            (c'est à dire la <DotLine width={"4cm"} />) de métaux tels que le
+            cuivre <Ce tex="Cu" />, le fer <Ce tex="Fe" />, ou le zinc{" "}
+            <Ce tex="Zn" /> sont solubles dans l'eau. Si l'on rajoute des ions
+            hydroxyde <Ce tex="HO-" />, ils forment des solides appelées{" "}
+            <S>hydroxydes métalliques</S>. L'équation suivante décrit la
+            formation d'un précipité pour un ion métal <Ce tex="Me^{n+}" />{" "}
+            portant <LaTeX tex="n" /> charges positives.
           </P>
           <Ce displayMode tex="Me^{n+} + n HO-  -> Me(OH)_n  v" />
         </Doc>
         <Doc
           caption="Réaction avec l'Argent et le Barium"
-          className={"flex-[1.25]"}
+          className={"flex-[0.75]"}
         >
           <P>
-            Certains précipités sont plus <S>stable</S> que d'autres, cela veut
+            Certains précipités sont plus <S>stables</S> que d'autres, cela veut
             dire que si la formation de plusieurs sels est possible. Les ions
-            vont "préferer" former l'un plutôt que l'autre.
+            vont "préférer" former l'un plutôt que l'autre.
           </P>
           <P>
             C'est par exemple le cas du <S>chlorure d'argent</S> et du{" "}
@@ -279,10 +291,63 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
         </Doc>
       </Flex>
       <IdTestTable />
+      <OL className="italic">
+        <LI>Prendre connaissance des documents et de la vidéo</LI>
+        <LI>
+          Regarder la vidéo suivante jusqu'à 1m20, remplir le tableau ci-dessous
+          pour les tubes 1 à 3.
+        </LI>
+        <Flex align="center" gap={"1mm"}>
+          <Table className="table-fixed w-full flex-1">
+            <THeader content={[null, "Tube 1", "Tube 2", "Tube 3", "Tube 4"]} />
+            <TEntry
+              header="Réactif utilisé"
+              content={[
+                <TD colspan={3}>
+                  <DotLine />
+                </TD>,
+                <DotLine />,
+              ]}
+            />
+            <TEntry
+              header="Couleur du précipité"
+              content={Array(4).fill(<DotLine />)}
+            />
 
-      <Qr href="https://www.youtube.com/watch?v=OEiPcW2CwBA" className="table">
-        Trois test avec l'hydroxyde de sodium
-      </Qr>
+            <TEntry
+              header="Ions identifiés"
+              content={Array(4).fill(<DotLine />)}
+            />
+          </Table>
+          <Qr href="https://www.youtube.com/watch?v=OEiPcW2CwBA">
+            Test d'identification
+          </Qr>
+        </Flex>
+        <LI>Regarder la fin de la vidéo, remplir le tableau pour le tube 4.</LI>
+        <LI>
+          Pour chacun des tubes à essai écrire la réaction de formation du
+          précipité.
+        </LI>
+
+        <LI>
+          Joris dispose d'un tube à essai contenant une solution inconnue. Il
+          réalise les deux tests d'identification, voici les résultats obtenus.
+          Quels ions sont contenus dans le tube à essai ?
+        </LI>
+        <Table className={"w-2/3 mx-auto"}>
+          <THeader
+            content={[
+              null,
+              <Ce tex="AgNO3" />,
+              <Ce tex="BaCl" />,
+              <Ce tex="NaOH" />,
+            ]}
+          />
+
+          <TEntry header="Précipité" content={["Aucun", "Blanc", "Vert"]} />
+        </Table>
+      </OL>
+      {/* <PageBreak /> */}
     </Activites>
   );
 }

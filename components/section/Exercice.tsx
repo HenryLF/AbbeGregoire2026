@@ -1,4 +1,5 @@
 import handraised from "@assets/icons/handraised.png";
+import type { ComponentChildren } from "preact";
 import {
   cssString,
   cx,
@@ -107,8 +108,9 @@ export function SubQuestion({
   marker: propsMarker = (k) => toLowerAlpha(k) + ")",
   count,
   indent = "8mm",
+  mainLI,
   ...props
-}: ListProps) {
+}: ListProps & { mainLI?: ComponentChildren }) {
   return (
     <>
       <ListContext.Consumer>
@@ -122,7 +124,25 @@ export function SubQuestion({
               : context.marker(n);
           const subMarker =
             typeof propsMarker == "string" ? () => propsMarker : propsMarker;
-          return <OL marker={(k) => `${marker}${subMarker(k)}`} indent={indent}>{children}</OL>;
+          return (
+            <>
+              {mainLI && (
+                <div
+                  style={{
+                    "--list--marker-spacing": context.markerSpacing,
+                  }}
+                  data-marker={marker}
+                  className="list--item"
+                >
+                  {mainLI}
+                </div>
+              )}
+              <OL marker={(k) => `${marker}${subMarker(k)}`} indent={indent}>
+                {children}
+              </OL>
+              ;
+            </>
+          );
         }}
       </ListContext.Consumer>
     </>
