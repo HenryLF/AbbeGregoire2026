@@ -49,6 +49,12 @@
 
   --table--header-color: #50505020;
   --table--cell-padding: 2px;
+
+  --color--blue: #202080;
+  --color--green: #84b800;
+  --color--orange: #cc7e00;
+  --color--yellow: #978613;
+
 }
 
 .table--cell {
@@ -69,19 +75,18 @@ body {
   --title--subsequent-margin: 0.3mm;
   --title--margin: 0.5mm;
   color: var(--color);
+  border-left: 0.6mm solid var(--color);
 }
 
 .title--h1 {
-  --color: #202080;
+  --color: var(--color--blue);
   font-size: 18px;
-  border-left: 0.6mm solid var(--color);
 }
 
 .title--h2 {
-  --color: #208020;
+  --color: var(--color--green);
   font-size: 16px;
 
-  border-left: 0.6mm solid var(--color);
   margin-left: 8mm;
   &::before {
     content: counter(count-h1, upper-roman) "." counter(count-h2, decimal) " -";
@@ -89,10 +94,9 @@ body {
 }
 
 .title--h3 {
-  --color: #808020;
+  --color: var(--color--orange);
   font-size: 14px;
 
-  border-left: 0.6mm solid var(--color);
   margin-left: 1.2cm;
   &::before {
     content: counter(count-h3, lower-alpha) ")";

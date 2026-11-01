@@ -59,7 +59,7 @@
 }
 
 .exercice {
-  --color: #808020;
+  --color: var(--color--yellow);
   --header-text: "Exercice ";
 
   --list--indent: 5mm;
@@ -73,7 +73,7 @@
 }
 
 .tp {
-  --color: #202080;
+  --color: var(--color--blue);
   --header-text: "Activité ";
 
   --list--indent: 5mm;
