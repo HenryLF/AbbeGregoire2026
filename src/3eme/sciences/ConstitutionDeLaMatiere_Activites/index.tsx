@@ -291,7 +291,7 @@ export default function ConstitutionDeLaMatiereActivitesDocument() {
         </Doc>
       </Flex>
       <IdTestTable />
-      <OL className="italic">
+      <OL className="questions">
         <LI>Prendre connaissance des documents et de la vidéo</LI>
         <LI>
           Regarder la vidéo suivante jusqu'à 1m20, remplir le tableau ci-dessous

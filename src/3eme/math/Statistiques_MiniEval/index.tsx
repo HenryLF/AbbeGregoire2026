@@ -2,8 +2,7 @@ import { P, S } from "@components/atoms/Texts";
 import { MiniEval } from "@components/doctype/MiniEval";
 import { DotLine, Options } from "zefpdf-lab/ui/Inputs";
 import { LaTeX } from "zefpdf-lab/ui/LaTeX";
-import { Flex } from "zefpdf-lab/ui/Layout";
-import { LI, OL } from "zefpdf-lab/ui/List";
+import { LI } from "zefpdf-lab/ui/List";
 import { Table, TEntry } from "zefpdf-lab/ui/Table";
 import "./index.css";
 

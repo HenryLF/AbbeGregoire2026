@@ -1,39 +1,17 @@
-import boite1 from "@assets/statistics/boite1.jpg";
-import boite2 from "@assets/statistics/boite2.jpg";
-import excelDiagramExemple from "@assets/statistics/excel-diagram-exemple.png";
-import excelDiagramIcon from "@assets/statistics/excel-diagram-icon.png";
-import exempleCalc from "@assets/statistics/exemple-calc.png";
-import exempleCalc2 from "@assets/statistics/exemple-calc2.png";
-import penteHuez from "@assets/statistics/pente-huez.png";
-import profilMonteeHuez from "@assets/statistics/profil-montee-huez.png";
-import pyramideSalaires from "@assets/statistics/pyramide-salaires.png";
-import routeLittoral from "@assets/statistics/route-littoral.jpg";
-import { Circle } from "@components/atoms/Decorator";
+import dispersion from "@assets/statistics/dispersion.svg";
+import quartiles from "@assets/statistics/quartiles.svg";
 import { Img } from "@components/atoms/Img";
-import { Qr } from "@components/atoms/Qr";
-import { Details, P, S } from "@components/atoms/Texts";
-import { Activites } from "@components/doctype/Activites";
-import { Doc } from "@components/section/Doc";
-import { Call, Exercice, SubQuestion, TP } from "@components/section/Exercice";
+import { Details, Important, Note, P, S } from "@components/atoms/Texts";
+import { Cours } from "@components/doctype/Cours";
+import { Problem } from "@components/section/Exercice";
 import { Chart, ChartObj } from "zefpdf-lab/ui/Chart";
-import { DotLine, Options } from "zefpdf-lab/ui/Inputs";
+import { DotLine } from "zefpdf-lab/ui/Inputs";
 import { LaTeX } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
-import { LI, OL, toLowerAlpha, UL } from "zefpdf-lab/ui/List";
+import { LI, UL } from "zefpdf-lab/ui/List";
 import { PageBreak } from "zefpdf-lab/ui/Pages";
 import { Table, TEntry, THeader } from "zefpdf-lab/ui/Table";
 import { H1, H2 } from "zefpdf-lab/ui/Titles";
-import {
-  c_plomb_labels,
-  c_plomb_values,
-  db_labels,
-  db_values,
-  h_pile_route_littoral,
-  serie1,
-  serie2,
-  serie3,
-  serie4,
-} from "./datasets";
 import "./index.css";
 
 // Chart.js defaults for this document.
@@ -55,11 +33,6 @@ ChartObj.defaults.backgroundColor = [
   "#f0c808",
   "#731dd8",
   "#dd1c1a",
-  "#2c497f",
-  "#ff01fb",
-  "#45cb85",
-  "#efd9ce",
-  "#dba8ac",
 ];
 ChartObj.defaults.elements.bar.borderColor = "#000";
 ChartObj.defaults.elements.bar.borderWidth = 2;
@@ -71,737 +44,433 @@ ChartObj.defaults.elements.line.borderColor = "#000";
 ChartObj.defaults.elements.line.borderWidth = 2;
 ChartObj.defaults.plugins.legend.display = false;
 
-const alphaDot = (n: number) => `${toLowerAlpha(n)}.)`;
+const dataSet = [1.62, 1.67, 1.71, 1.6, 1.78, 1.67, 1.74, 1.8, 1.69, 1.76];
+const bins = [
+  { label: "[1,60 ; 1,65[", low: 1.6, high: 1.65 },
+  { label: "[1,65 ; 1,70[", low: 1.65, high: 1.7 },
+  { label: "[1,70 ; 1,75[", low: 1.7, high: 1.75 },
+  { label: "[1,75 ; 1,80[", low: 1.75, high: 1.8 },
+  { label: "[1,80 ; 1,85[", low: 1.8, high: 1.85 },
+];
 
-// 12 values per row (old AutoTable itemPerRow={12})
-const pileRows = Array.from(
-  { length: Math.ceil(h_pile_route_littoral.length / 12) },
-  (_, k) => h_pile_route_littoral.slice(k * 12, (k + 1) * 12),
+const dataSetFreq = bins.map(
+  (bin) => dataSet.filter((val) => val >= bin.low && val < bin.high).length,
 );
 
-export default function Stat1VarActivitesDocument() {
+const graphTypes: { t: "bar" | "pie" | "line"; lgd: string }[] = [
+  { t: "bar", lgd: "Diagramme en bâton" },
+  { t: "pie", lgd: "Diagramme circulaire" },
+  { t: "line", lgd: "Diagramme à ligne brisée" },
+];
+
+const classLabel = (k: number) =>
+  `[${(1.6 + k * 0.05).toFixed(2)};\\: ${(1.6 + (k + 1) * 0.05).toFixed(2)}[`;
+
+export default function Stat1VarDocument() {
   return (
-    <Activites title="Statistique à une variable" lang="fr">
-      <TP title="Universités Parisiennes">
-        <Qr
-          href="https://drive.monlycee.net/s/aWRmMg-mnko56d7"
-          size={60}
-          className="float-right m-2"
-        >
-          Tableau Excel
-        </Qr>
-        <P>
-          On fournit le tableau Excel "UniversitésParis.xlsx" qui contient les
-          (vraies) données issues de ParcourSup pour les années 2021 et 2025.
-        </P>
-        <LI>
-          Décrire le contenu du tableau. Quelles informations nous donne-t-il ?
-        </LI>
-        <DotLine count={3} />
-        <LI>
-          Dans la cellule "B11", taper la formule "=SOMME(B3:B10)", propager
-          cette formule aux cellules "C11" , "D11" et "E11".
-        </LI>
-        <LI>
-          Comment a évolué le nombre de candidats entre 2021 et 2025 ? Calculer
-          le nombre de candidats supplémentaires ou en moins entre les deux
-          années.
-        </LI>
-        <DotLine count={3} />
-        <LI>
-          On souhaite savoir comment se répartissent les candidatures parmi les
-          différentes universités. Pour cela entrer dans la cellule "C3" la
-          formule "=100*B3/B$11" (attention au signe $ !!). Propager cette
-          cellule sur la plage "C3:C10".
-        </LI>
-        <LI>
-          Copier (Ctrl + C) coller (Ctrl + V) la formule de la cellule "C3" dans
-          la cellule "E3". Puis propager la formule de la cellule "E3" à la
-          plage "E3:E10".
-        </LI>
-        <LI>
-          À l'aide de la fiche disponible en page 9 et de recherches internet,
-          tracer les graphiques suivants :
-        </LI>
-        <SubQuestion count={6}>
+    <Cours title="Statistique à une variable" lang="fr">
+      <P>
+        La <S>statistique</S> est la science qui <em>recueille</em>,{" "}
+        <em>traite</em> et <em>analyse</em> des données pour tirer des
+        conclusions générales. Cette année nous étudions les{" "}
+        <S>statistiques à une variable</S> c'est-à-dire les séries de données
+        où un seul paramètre change.
+      </P>
+      <Note title="Exemple :">
+        <UL>
           <LI>
-            Un diagramme en barres, représentant le nombre de candidats pour
-            toutes les universités en 2021 et 2025.
+            La liste des tailles des élèves d'une classe est une série
+            statistique à une variable.
           </LI>
           <LI>
-            Un diagramme circulaire, représentant la répartition des candidats
-            parmi les universités en 2021.
+            La liste des tailles et du genre des élèves d'une classe est une
+            série statistique à deux variables.
           </LI>
           <LI>
-            Un diagramme circulaire, représentant la répartition des candidats
-            parmi les universités en 2025.
+            La liste des poids, vitesses maximales et années de production de
+            voitures est une série statistique à trois variables.
           </LI>
-        </SubQuestion>
-        <LI>
-          Observer le diagramme en barres. Les observations sont-elles
-          cohérentes avec la réponse à la question 3 ?
-        </LI>
-        <DotLine count={3} />
-        <LI>Comparer les deux diagrammes circulaires. Que constate-t-on ?</LI>
-        <DotLine count={3} />
-        <LI>Analyser les données et conclure.</LI>
-        <DotLine count={4} />
-      </TP>
+        </UL>
+      </Note>
 
-      <PageBreak />
       <H1>Représentation des séries statistiques</H1>
-      <Exercice title="Quelles représentations d’une série statistique ?">
-        <Flex gap="2.5cm">
-          <Flex
-            dir="column"
-            justify="space-around"
-            gap="2mm"
-            className="flex-1"
-          >
-            {[serie1, serie2, serie3, serie4].map((s) => (
-              <Flex align="center" gap="5mm">
-                <Table className="w-[6cm] mx-auto text-[8px]" cellPadding={"2"}>
-                  <THeader content={[s.label_txt, s.data_txt]} />
-                  {s.labels.map((label, k) => (
-                    <TEntry content={[label, s.data[k]]} />
-                  ))}
-                </Table>
-                <span>&bull;</span>
-              </Flex>
+      <H2>Organisation dans un tableau</H2>
+      <Flex gap="5mm" align="start" className="mb-2">
+        <div className="flex-1">
+          <P>
+            Une série statistique à une variable peut être organisée dans un{" "}
+            <S>tableau de fréquence</S> qui pour chaque valeur prise par le
+            paramètre étudié associe son <S>effectif</S>, le nombre de fois où
+            cette valeur a été rencontrée.
+          </P>
+        </div>
+        <div className="flex-1">
+          <Table className="mx-auto">
+            <THeader
+              content={[
+                <>
+                  Paramètre <LaTeX tex="X" />
+                </>,
+                <>
+                  Effectifs (<LaTeX tex="n_i" />)
+                </>,
+              ]}
+            />
+            {[1, 2, 3].map((k) => (
+              <TEntry
+                content={[<LaTeX tex={`X_${k}`} />, <LaTeX tex={`n_${k}`} />]}
+              />
             ))}
-          </Flex>
-          <Flex dir="column" gap="2mm" className="flex-1">
-            {[serie3, serie4, serie1, serie2].map((s) => (
-              <div>
-                <Flex align="center" gap="5mm">
-                  <span>&bull;</span>
-                  <Chart
-                    className="w-[6.5cm] h-auto"
-                    config={{
-                      type: s.type,
-                      data: {
-                        labels: s.labels,
-                        datasets: [{ data: s.data }],
-                      },
-                      options: {
-                        plugins: { legend: { display: s.type == "pie" } },
-                      },
-                    }}
-                  />
-                </Flex>
-                <DotLine lineHeight="1.5em" />
-              </div>
+            <TEntry
+              content={[<S>Total</S>, <LaTeX tex="N = n_1 + n_2 +n_3" />]}
+            />
+          </Table>
+        </div>
+      </Flex>
+      <Flex gap="5mm" align="start">
+        <div className="flex-[1.3]">
+          <Table>
+            <THeader
+              content={[
+                "Taille des élèves (en m)",
+                <>
+                  Centre des classes (<LaTeX tex="x_i" />)
+                </>,
+                <>
+                  Effectifs (<LaTeX tex="n_i" />)
+                </>,
+              ]}
+            />
+            {[0, 1, 2, 3, 4].map((k) => (
+              <TEntry
+                content={[
+                  <LaTeX tex={classLabel(k)} />,
+                  k === 0 ? <LaTeX tex="\frac{1-0}{2} = 0.5" /> : "",
+                  k === 0 ? "2" : "",
+                ]}
+              />
             ))}
-          </Flex>
-        </Flex>
-
-        <LI>
-          Associer les tableaux statistiques suivants et leur(s)
-          représentation(s) graphique(s) et attribuer leur type à chacun.
-        </LI>
-        <SubQuestion count={2}>
-          <LI>
-            Quelle est la signification de la notation mathématique{" "}
-            <LaTeX tex="[5 ; 10[" /> ?
-          </LI>
-          <Options columns={2}>
-            {"Entre 5 et 10"}
-            {"5 et 10 inclus"}
-            {"5 inclus et 10 exclus"}
-            {"5 et 10 exclus"}
-          </Options>
-          <LI>Quel nom porte cette notation ?</LI>
-          <Options columns={2}>
-            {"un couple"}
-            {"un ensemble"}
-            {"un intervalle"}
-            {"des coordonnées"}
-          </Options>
-        </SubQuestion>
-      </Exercice>
-      <PageBreak />
-
-      <Exercice title="Répartition des salariés des travaux publics">
+            <TEntry content={["", <S>Total :</S>, ""]} />
+          </Table>
+        </div>
+        <div className="flex-1">
+          <P>
+            Lorsque le paramètre est <S>mesurable de façon continue</S>{" "}
+            (c'est-à-dire <DotLine width="4cm" />{" "}
+            <DotLine width="7cm" />
+            ), on regroupe les données par <S>classes</S> : ce sont des
+            intervalles notés entre crochets <LaTeX tex="[a ; b[" />,{" "}
+            <LaTeX tex="a" /> étant <S>inclus</S> (
+            <DotLine width="3.5cm" />) dans l’intervalle et{" "}
+            <LaTeX tex="b" /> <S>exclu</S> (
+            <DotLine width="3.5cm" />) de l’intervalle.
+          </P>
+        </div>
+      </Flex>
+      <Problem>
         <P>
-          Le graphique ci-contre donne la répartition des salariés par catégorie
-          professionnelle dans le secteur des travaux publics (ETAM = Employés,
-          Techniciens et Agents de Maîtrise).
-        </P>
-        <Flex gap="3mm" align="center">
-          <div className="flex-[1.8]">
-            <LI marker="•">
-              Cocher les interprétations correctes de ce graphique
-            </LI>
-            <Options columns={1}>
-              <>Le nombre d’ouvriers a baissé</>
-              <>Les ouvriers représentent plus de la moitié des effectifs</>
+          Voici la liste des tailles mesurées pour des élèves :{" "}
+          {dataSet.map((k, i) => {
+            if (i == dataSet.length - 2)
+              return (
+                <>
+                  <LaTeX tex={`${k}m`} /> et{" "}
+                </>
+              );
+            if (i == dataSet.length - 1)
+              return (
+                <>
+                  <LaTeX tex={`${k}m`} />.
+                </>
+              );
+            return (
               <>
-                Les entreprises recherchent une montée en qualification de leur
-                personnel
+                <LaTeX tex={`${k}m`} />,{" "}
               </>
-              <>Le secteur des travaux publics a plus recruté en 2017</>
-            </Options>
-          </div>
+            );
+          })}{" "}
+          Compléter le tableau ci-dessus.
+        </P>
+      </Problem>
+
+      <H2>Représentation graphique</H2>
+      <P>
+        Une série statistique peut être représentée par différents types de
+        graphique :
+      </P>
+      <Flex gap="3mm" className="mt-2">
+        {graphTypes.map(({ t, lgd }) => (
           <div className="flex-1">
             <Chart
               className="w-full h-auto"
               config={{
-                type: "bar",
+                type: t,
                 data: {
-                  labels: ["Ouvriers", "ETAM", "Cadres"],
+                  labels: bins.map((b) => b.label),
                   datasets: [
                     {
-                      label: "2008",
-                      data: [60, 26, 14],
-                      backgroundColor: "orange",
-                    },
-                    {
-                      label: "2017",
-                      data: [54, 29, 17],
-                      backgroundColor: "blue",
+                      label: "Effectifs par groupe de taille",
+                      data: dataSetFreq,
                     },
                   ],
                 },
                 options: {
                   plugins: {
-                    legend: { display: true },
+                    legend: { display: t === "pie" },
                   },
                   scales: {
-                    y: { title: { text: "Proportion des salariés (%)" } },
+                    x: {
+                      display: t !== "pie",
+                      title: { text: "Groupes de taille" },
+                    },
+                    y: {
+                      display: t !== "pie",
+                      title: { text: "Effectif" },
+                    },
                   },
                 },
               }}
             />
+            <Details align="left">
+              <em>{lgd}</em>
+            </Details>
+            <DotLine count={3} lineHeight={"8mm"}/>
           </div>
-        </Flex>
-        <DotLine count={5} />
-      </Exercice>
-
-      <Exercice title="Performances de deux buteurs">
-        <P>
-          Durant la dernière coupe du monde deux joueurs se sont démarqués par
-          leur talent de buteur, voici le nombre de buts inscrits par chacun.
-        </P>
-        <Table className="w-9/10 mx-auto">
-          <THeader
-            content={[
-              "Match n°",
-              ...Array.from({ length: 10 }, (_, k) => k + 1),
-            ]}
-          />
-          <TEntry
-            header="Mionel Lessi"
-            content={[0, 3, 2, 0, 0, 4, 1, 5, 3, 0]}
-          />
-          <TEntry
-            header="Lilian M’Kappe"
-            content={[1, 2, 3, 3, 1, 3, 2, 2, 0, 1]}
-          />
-        </Table>
-        <LI>
-          Calculer le nombre moyen de buts par rencontre pour ces deux joueurs.
-        </LI>
-        <DotLine count={4} />
-        <LI>
-          Compléter le tableau et tracer le diagramme en bâtons correspondant.
-        </LI>
-        <Flex gap="3mm" align="center">
-          <div className="flex-1">
-            <Table className="w-full">
-              <THeader
-                content={[
-                  "Nombre de buts",
-                  ...Array.from({ length: 6 }, (_, k) => k),
-                ]}
-              />
-              {["Mionel Lessi", "Lilian M’Kappe"].map((name) => (
-                <TEntry
-                  header={name}
-                  content={Array.from({ length: 6 }, () => (
-                    <DotLine />
-                  ))}
-                />
-              ))}
-            </Table>
-          </div>
-          <div className="flex-[1.2]">
-            <Chart
-              className="w-full h-auto"
-              config={{
-                type: "bar",
-                data: {
-                  labels: Array.from({ length: 6 }, (_, k) => k.toString()),
-                  datasets: [
-                    {
-                      label: "none",
-                      data: [4],
-                      backgroundColor: "transparent",
-                      borderColor: "transparent",
-                    },
-                  ],
-                },
-              }}
-            />
-          </div>
-        </Flex>
-        <PageBreak />
-
-        <LI>
-          Conclure quant aux performances de ces deux joueurs, peut-on
-          distinguer un "meilleur buteur" ? En quoi ces deux joueurs
-          diffèrent-ils ?
-        </LI>
-        <DotLine count={5} />
-      </Exercice>
+        ))}
+      </Flex>
 
       <H1>Indicateurs de position</H1>
-      <TP title="La montée de l’Alpe d’Huez">
+      <P>
+        On peut utiliser plusieurs mesures appelées <S>indicateurs</S> pour
+        décrire une série statistique. Ils peuvent être calculés à la main mais
+        en pratique on utilise souvent les fonctions statistiques d'un tableur
+        ou de la calculatrice.
+      </P>
+      <H2>Mode</H2>
+      <P>
+        Le <S>mode</S> est{" "}
+        <em>
+          la valeur de la variable statistique qui a le plus grand effectif
+        </em>{" "}
+        (il peut y avoir plusieurs modes).
+      </P>
+      <Problem>
         <P>
-          Haut lieu du Tour de France cycliste, l’Alpe d’Huez et ses 21 virages
-          constituent l’étape incontournable du passage de la Grande Boucle. En
-          moyenne, près de 300 cyclistes gravissent chaque jour cette montée
-          mythique. Plus de 6 000 cyclotouristes participent chaque année à
-          l’épreuve de la Marmotte (début juillet) et 2 000 d’entre eux
-          reçoivent un diplôme officialisant leur temps de montée. L’Alpe
-          d’Huez, au cœur de l’Oisans, est vraiment le temple du vélo et c’est
-          surtout la course à réaliser au moins une fois dans sa vie !
+          Dans la série des tailles d'élèves, le mode est{" "}
+          <DotLine inline />
         </P>
-        <Flex gap="3mm">
-          <div className="flex-[0.9]">
-            <Doc caption="Profil de la montée de l’Alpe d’Huez" count={1}>
-              <Img src={profilMonteeHuez} />
-            </Doc>
-          </div>
-          <Flex dir="column" gap="2mm" className="flex-1">
-            <Doc caption="Notion de dénivelé">
-              <P>
-                Le <S>dénivelé</S> est la différence d’altitude entre deux
-                points. Il représente une hauteur.
-              </P>
-            </Doc>
-            <Doc caption="Notion de pente exprimée en pourcentage">
-              <LaTeX tex="\text{Pente} {\small(\text{en} \%)} = {\large \frac{\text{dénivelé}}{\text{distance}\,\text{parcourue}}} \times 100" />
-              <P>(où les distances sont exprimées dans la même unité)</P>
-            </Doc>
-            <Doc caption="Profil de la montée de l’Alpe d’Huez">
-              <Img src={penteHuez} />
-            </Doc>
-          </Flex>
-        </Flex>
-        <LI>
-          Avant de recevoir le précieux diplôme officialisant le temps de leur
-          montée, les cyclotouristes ont à leur disposition de nombreux
-          renseignements plus précis que les précédents pour préparer leur
-          ascension. Compléter les informations manquantes en t'appuyant sur les
-          documents <Circle>1</Circle>, <Circle>2</Circle> et <Circle>3</Circle>
-          .
-        </LI>
-        <UL marker="•" className="columns-2">
-          <LI>nombre de virages : 21 ;</LI>
-          <LI>altitude de départ (Bourg d’Oisans) : 717 m ;</LI>
-          <LI>
-            altitude d’arrivée (Alpe d’Huez) :
-            <DotLine width="5cm" lineHeight="1em" /> m ;
-          </LI>
-          <LI>
-            dénivelé :
-            <DotLine width="5cm" lineHeight="1em" /> ;
-          </LI>
-          <LI>distance à parcourir : 14 454 m ;</LI>
-          <LI>
-            pente moyenne :
-            <DotLine width="5cm" lineHeight="1em" /> ;
-          </LI>
-          <LI>pente maximale : 14 % ;</LI>
-          <LI>
-            record de la montée : 37 min 35 s (par Marco Pantani, en 1997) à une
-            vitesse moyenne de 23 km/h.
-          </LI>
-        </UL>
-        <DotLine count={4} />
-        <Call>Faire vérifier la pente moyenne en %</Call>
-        <LI>
-          Au long de la montée, 21 panneaux rythment l’effort du cycliste dans
-          un compte à rebours de plus de 14 km sur un dénivelé très important !
-          Expliquer les différences de couleur sur le document{" "}
-          <Circle>4</Circle> sur les tronçons de la montée en complétant la
-          phrase suivante :
-        </LI>
-        <P align="center" className="w-9/10 mx-auto">
-          « La couleur rouge correspond à des tronçons où les pentes sont{" "}
-          <DotLine width="5cm" lineHeight="1em" /> »
-        </P>
-        <Qr
-          href="https://drive.monlycee.net/s/aWRmMg-oJMynTsn"
-          size={60}
-          className="float-right m-2"
-        >
-          Tableau Excel
-        </Qr>
-        <LI>
-          On dispose du fichier « ALPE HUEZ.ods » où ont été saisis les
-          distances et altitudes des différents tronçons du versant Sud.
-        </LI>
-        <SubQuestion count={3}>
-          <LI>
-            Quelle formule faut-il saisir dans la cellule C3 pour calculer la
-            distance du 1er tronçon ?
-          </LI>
-          <Options>
-            {`"= B1 + C1"`}
-            {`"= B1 - C1"`}
-            {`"= C1 - B1"`}
-          </Options>
-          <LI>
-            Quelle formule faut-il saisir dans la cellule C4 pour calculer le
-            dénivelé du 1er tronçon ?
-          </LI>
-          <Options>
-            {`"= B2 + C2"`}
-            {`"= B2 - C2"`}
-            {`"= C2 - B2"`}
-          </Options>
-          <LI>
-            Effectuer les calculs des différentes distances et dénivelés de
-            chacun des tronçons.
-          </LI>
-          <LI>
-            Quelle formule faut-il saisir dans la cellule C5 pour calculer la
-            pente du 1er tronçon ?
-          </LI>
-          <Options>
-            {`"= C4*100/C2"`}
-            {`"= C2*100/C4"`}
-            {`"= C4*100/C3"`}
-            {`"= C3*100/C4"`}
-          </Options>
-          <LI>
-            Effectuer les calculs des différentes pentes moyennes de chacun des
-            tronçons.
-          </LI>
-          <Call>Faire vérifier les pentes moyennes</Call>
-          <LI>
-            Sur le document <Circle>4</Circle>, à quoi correspondent les valeurs
-            indiquées au pied de chaque barre ?
-          </LI>
-          <DotLine count={2} />
-          <LI>
-            La pente moyenne du versant Sud est de 7,79 %. Peut-on retrouver
-            dans le cas présent la pente moyenne de la montée à partir de la
-            pente moyenne de chaque tronçon ?
-            <Options columns={2} className="w-1/3">
-              {"OUI"}
-              {"NON"}
-            </Options>
-          </LI>
-          <DotLine count={4} />
-        </SubQuestion>
-      </TP>
-      <PageBreak/>
-
-      <Exercice title="Pyramide des salaires en France">
-        <Flex gap="3mm" align="center">
-          <div className="flex-2">
-            <P>
-              Le graphique ci-dessus donne la distribution des salaires NETS en
-              France métropolitaine pour l’année 2022.
-            </P>
-            <LI>
-              Quel pourcentage de salariés gagnent moins de 2 000 € NETS
-              mensuels ?
-            </LI>
-            <DotLine count={1} />
-            <LI>
-              Quel pourcentage de salariés gagnent plus de 4 000 € NETS mensuels
-              ?
-            </LI>
-            <DotLine count={1} />
-            <LI>
-              Le salaire médian est de 2 091 € NETS mensuels. Quelle est la
-              signification de ce montant ?
-            </LI>
-            <Options columns={1}>
-              <>le SMIC (Salaire Minimum de Croissance) est de 2 091 €</>
-              <>la moitié des Français gagnent plus de 2 091 €</>
-              <>un quart des salariés gagnent plus de 2 091 €</>
-              <>la moitié des salariés gagnent moins de 2 091 €</>
-              <>la retraite minimale est de 2 091 €</>
-            </Options>
-          </div>
-          <Img src={pyramideSalaires} className="flex-1" />
-        </Flex>
-        <LI>
-          En 2022, un salarié du secteur privé percevait en moyenne 2 630 € nets
-          par mois. Comment expliquer une moyenne significativement supérieure
-          au salaire médian de 2 091 € ?
-        </LI>
-        <DotLine count={4} />
-      </Exercice>
-
-      <H1>Indicateur de dispersion</H1>
-      <TP title="Nouvelle route du littoral">
+      </Problem>
+      <H2>Classe modale</H2>
+      <P>
+        Dans le cas où la distribution statistique est faite à l’aide de
+        classes, la <S>classe modale</S> est la classe qui contient le plus
+        grand effectif.
+      </P>
+      <Problem>
         <P>
-          Sur l’île de la Réunion, la nouvelle route du littoral est une voie en
-          pleine mer pour relier les villes de l’île en 2020.{" "}
-          <em>
-            L’architecte de ce projet souhaite, pour des raisons esthétiques,
-            que 75 % des piles aient une hauteur inférieure à 40 m et que
-            l’étendue associée à ces hauteurs ne dépasse pas 6 m
-          </em>
-          . On donne ci-dessous les hauteurs, en mètres, des piles constituant
-          une portion de cette route.
+          Dans la série des tailles d'élèves, la classe modale est{" "}
+          <DotLine inline/>
         </P>
-        <Flex gap="3mm" align="center">
-          <div className="flex-1">
-            <Doc
-              count={1}
-              caption="Hauteur des piles de la route du littoral (en m)"
-            >
-              <Table cellPadding="1mm">
-                {pileRows.map((row) => (
-                  <TEntry content={row} />
-                ))}
-              </Table>
-            </Doc>
-          </div>
-          <Img src={routeLittoral} align="right" className="flex-[0.5]">
-            Nouvelle Route du Littoral
-          </Img>
-        </Flex>
+      </Problem>
+      <H2>Moyenne</H2>
+      <P>
+        La <S>moyenne</S> <LaTeX tex="\overline{x}" /> est la valeur théorique
+        qui pourrait remplacer toutes les valeurs de la série sans changer la
+        somme totale. On la calcule à l'aide des formules suivantes :
+      </P>
+      <Important>
+        <LaTeX tex="\overline{x} = \frac{somme\: de\: toutes\: les\: valeurs}{nombre\: total\: de\: valeurs\: N} = \frac{X_1\times n_1 + X_2\times n_2  + ...}{N}" />
+      </Important>
+      <P>C'est-à-dire :</P>
+      <UL>
         <LI>
-          À partir du tableau, donner le nombre de piles sur cette portion de
-          route.
+          La somme de toutes les mesures divisée par le nombre de mesures.
+        </LI>
+        <LI>
+          La somme des valeurs des mesures multipliée par leurs effectifs,
+          divisée par le nombre total de mesures.
+        </LI>
+      </UL>
+      <P>
+        Dans le cas des séries où les caractères sont rangés par classes, on
+        convient par approximation que toutes les valeurs appartenant à une même
+        classe sont égales à la valeur du centre de classe <LaTeX tex="x_i" />.
+      </P>
+      <Problem>
+        <LI>
+          Calculer la taille moyenne des élèves en prenant en compte la série
+          totale :
         </LI>
         <DotLine count={2} />
         <LI>
-          Utiliser les fonctionnalités statistiques de la calculatrice pour
-          déterminer les indicateurs (arrondir à 0,01 près).
+          Calculer la taille moyenne des élèves en prenant en compte la série
+          répartie par classe :
         </LI>
+        <DotLine count={2} />
+      </Problem>
+      <H2>Médiane</H2>
+      <P>
+        La <S>médiane</S> <LaTeX tex="M_e" /> d’une série statistique est le
+        nombre qui partage cette série en deux séries de même effectif.{" "}
+        <em>
+          La moitié des effectifs (50 %) a donc une valeur du caractère en
+          dessous ou égale à la valeur médiane et l’autre moitié (50 %) au-dessus
+          ou égale.
+        </em>
+      </P>
+      <H2>Les quartiles</H2>
+      <P>
+        Le <S>premier quartile</S> <LaTeX tex="Q_1" />, la médiane{" "}
+        <LaTeX tex="M_e" /> et le <S>troisième quartile</S>{" "}
+        <LaTeX tex="Q_3" /> partagent les valeurs ordonnées de la série en
+        quatre parties égales.
+      </P>
+      <UL indent="5mm">
+        <LI>
+          Le <S>premier quartile</S> <LaTeX tex="Q_1" /> est{" "}
+          <em>la plus petite donnée</em> de la série pour laquelle{" "}
+          <em>au moins 25 %</em> des données (soit{" "}
+          <LaTeX tex="\frac{1}{4}" />) sont inférieures ou égales à{" "}
+          <LaTeX tex="Q_1" />.
+        </LI>
+        <LI>
+          Le <S>troisième quartile</S> <LaTeX tex="Q_3" /> est{" "}
+          <em>la plus petite donnée</em> de la série pour laquelle{" "}
+          <em>au moins 75 %</em> des données (soit{" "}
+          <LaTeX tex="\frac{3}{4}" />) sont inférieures ou égales à{" "}
+          <LaTeX tex="Q_3" />.
+        </LI>
+      </UL>
+      <Img src={quartiles} />
+      <Problem>
+        <P>
+          On donne le diagramme des effectifs cumulés pour les tailles des
+          élèves (attention ce n'est pas le même que les diagrammes en I.2). Sur
+          celui-ci indiquer la médiane <LaTeX tex="M_e" /> ainsi que les premier
+          et troisième quartiles <LaTeX tex="Q_1" /> et <LaTeX tex="Q_3" />.
+        </P>
+        <Chart
+          className="w-2/3 h-auto mx-auto block"
+          config={{
+            type: "line",
+            data: {
+              labels: dataSet.toSorted(),
+              datasets: [
+                {
+                  label: "Mesures",
+                  data: Array.from({ length: 10 }, (_, k) => k + 1),
+                },
+              ],
+            },
+            options: {
+              scales: {
+                x: {
+                  type: "linear",
+                  beginAtZero: false,
+                  title: { text: "Taille des élèves (en m)" },
+                },
+                y: {
+                  title: { text: "Effectif cumulé" },
+                },
+              },
+              elements: {
+                point: {
+                  pointStyle: "circle",
+                  backgroundColor: "#000",
+                  borderColor: "#000",
+                },
+              },
+            },
+          }}
+        />
         <Details align="right">
-          <em>
-            On saisira toutes les données des six colonnes suivantes dans la
-            première colonne de la calculatrice et on affectera l’effectif « 1 »
-            à toutes les valeurs dans la deuxième colonne de la calculatrice.
-          </em>
+          Diagramme des effectifs cumulés en fonction de la taille des élèves.
         </Details>
-        <OL marker={alphaDot} indent="1cm">
-          <LI>
-            la moyenne : <LaTeX tex="\overline{x} =" />
-            <DotLine width="3.8cm" lineHeight="1em" />;
-          </LI>
-          <LI>
-            la médiane : <LaTeX tex="Me =" />
-            <DotLine width="3.8cm" lineHeight="1em" />;
-          </LI>
-          <LI>
-            le 1er quartile : <LaTeX tex="Q_1 =" />
-            <DotLine width="3.8cm" lineHeight="1em" />;
-          </LI>
-          <LI>
-            le 3e quartile : <LaTeX tex="Q_3 =" />
-            <DotLine width="3.8cm" lineHeight="1em" />;
-          </LI>
-        </OL>
-        <LI>
-          Choisir la boîte à moustaches qui représente correctement cette série
-          statistique :
-        </LI>
-        <Options>
-          <Img src={boite1} className="w-full" />
-          <Img src={boite2} className="w-full" />
-        </Options>
-        <LI>
-          L’étude de cette portion de route répond-elle aux contraintes
-          architecturales ? On précisera la réponse.
-        </LI>
-        <DotLine count={4} />
-      </TP>
-
-      <Exercice title="Canalisation en plomb">
-        <P>
-          La consommation d’eau chargée en plomb venant d’anciennes
-          canalisations peut provoquer des troubles du système cérébral. On
-          étudie ici la concentration en plomb dans l’eau du robinet de
-          logements de la région parisienne.
-        </P>
-        <Flex gap="3mm" align="start">
-          <Table className="flex-1">
-            <THeader
-              content={[
-                <>
-                  Concentration <br />
-                  (en μg/L)
-                </>,
-                "Nombre de logements",
-                "Centre de classes",
-              ]}
-            />
-            {c_plomb_labels.map((label, k) => (
-              <TEntry content={[label, c_plomb_values[k], <DotLine />]} />
-            ))}
-          </Table>
-          <div className="flex-[0.8]">
-            <LI>Déterminer :</LI>
-            <OL marker={alphaDot} indent="1cm">
-              <LI>Le nombre total de logements étudiés.</LI>
-              <DotLine />
-              <LI>La concentration moyenne en plomb (arrondir à 0,1 près).</LI>
-            </OL>
-            <DotLine count={3} />
-          </div>
-        </Flex>
-        <LI>
-          Sachant que la concentration moyenne en France est de 10 μg/L,
-          indiquer si les canalisations des logements testés sont plutôt
-          rénovées ou encore vétustes.
-        </LI>
-        <DotLine count={2} />
-      </Exercice>
-
-      <Exercice title="Contrôle d’isolation acoustique d’une nouvelle construction">
-        <Flex gap="3mm" align="center">
-          <div className="flex-[1.2]">
-            <P>
-              Une fois la construction d’un immeuble terminée, on souhaite
-              vérifier la qualité de son isolement acoustique par rapport aux
-              bruits extérieurs (l’immeuble est situé près d’une route à forte
-              circulation). Pour cela, on effectue, à différentes heures, dans
-              chacune des 74 chambres et séjours, des mesures du niveau
-              d’intensité acoustique à l’aide d’un sonomètre. Les résultats
-              présentés dans le tableau ci-contre correspondent, pour chacune
-              des pièces, aux niveaux d'intensité acoustique maximum
-              enregistrés.
-            </P>
-          </div>
-          <Table className="flex-1">
-            <THeader
-              content={[
-                <>
-                  Niveau d’intensité <br /> acoustique (en dB)
-                </>,
-                "Centre de classes",
-                "Nombre de pièces",
-              ]}
-            />
-            {db_labels.map((label, k) => (
-              <TEntry
-                content={[label, <DotLine lineHeight="1.2em" />, db_values[k]]}
-              />
-            ))}
-          </Table>
-        </Flex>
-        <LI>
-          Quel est le pourcentage de pièces ayant un niveau d’intensité
-          acoustique strictement inférieur à 30 dB ?
-        </LI>
-        <DotLine count={3} />
-        <LI>
-          Calculer la moyenne <LaTeX tex="\overline{x}" /> et l’écart-type{" "}
-          <LaTeX tex="\sigma" /> de la série statistique obtenue en considérant
-          que chaque mesure est égale à la valeur centrale de la classe dans
-          laquelle elle est répertoriée (les résultats seront arrondis au dB).
-        </LI>
-        <LI>
-          L’isolement acoustique est jugé bon si les conditions suivantes sont
-          simultanément remplies :
-          <UL marker="•" className="columns-2">
-            <LI>
-              le niveau acoustique moyen <LaTeX tex="\overline{x}" /> est
-              inférieur à 30 dB ;
-            </LI>
-            <LI>
-              l’écart-type <LaTeX tex="\sigma" /> est inférieur à 9 dB.
-            </LI>
-          </UL>
-          L’isolement acoustique de l’immeuble peut-il être jugé bon ?
-        </LI>
-        <Options>
-          {"OUI"}
-          {"NON"}
-        </Options>
-      </Exercice>
+      </Problem>
 
       <PageBreak />
-      <H1 marker="">Utilisation de la calculatrice graphique</H1>
-      <H2 marker="">CASIO</H2>
-      <OL>
-        <LI>
-          <S>Pour saisir les données statistiques :</S>
-        </LI>
-        <UL marker="•" indent="2em">
-          <LI>
-            Choisir le menu « STAT », et saisir les données dans les deux
-            colonnes List1 et List2.
-          </LI>
-        </UL>
-        <LI>
-          <S>Pour afficher les indicateurs :</S>
-        </LI>
-        <UL marker="•" indent="2em">
-          <LI>Choisir le menu contextuel « CALC »</LI>
-          <LI>
-            Vérifier la configuration en choisissant « SET » : List1 doit être
-            choisie pour « 1Var XList » et List2 pour « 1Var Freq ».
-          </LI>
-          <LI>Choisir ensuite « 1VAR »</LI>
-        </UL>
-      </OL>
-      {/* <H2 marker="">Texas Instrument</H2>
-      <OL>
-        <LI><S>Pour saisir les données statistiques :</S></LI>
-        <UL marker="•" indent="2em">
-          <LI>
-            Appuyer sur stats, puis « EDIT » puis « 1 » et saisir les données
-            dans les colonnes L1 et L2.
-          </LI>
-        </UL>
-        <LI><S>Pour afficher les indicateurs :</S></LI>
-        <UL marker="•" indent="2em">
-          <LI>Appuyer sur la touche stats</LI>
-          <LI>Choisir « CALC » puis « Stats 1-Var »</LI>
-          <LI>
-            Affecter « L1 » à « List » puis « L2 » à « Freq ». « L2 » se
-            trouve en bleu au-dessus de la touche 2.
-          </LI>
-          <LI>Choisir « Calculs »</LI>
-        </UL>
-      </OL> */}
-      <H1 marker="">Utilisation du tableur</H1>
-      <H2 marker="">Pour créer une formule dans le tableur</H2>
+      <H1>Indicateurs de dispersion</H1>
       <P>
-        Commencer la formule par le signe égal « = », suivi des éléments à
-        calculer (opérandes), lesquels sont séparés par des opérateurs de calcul
-        (+ , - , * , / ...). Les opérandes peuvent être des constantes ou des
-        cellules (A1, B10…).
+        La dispersion d'une série statistique mesure à quel point la série est
+        étendue sur une grande plage de valeurs, ou au contraire centrée sur une
+        valeur particulière.
       </P>
-      <Img src={exempleCalc} className="mx-auto w-6/10" align="center">
-        La cellule C1 contient le résultat de la somme des cellules A1 et B1
-      </Img>
-      <H2 marker="">Pour recopier une formule</H2>
+      <Img src={dispersion} className="w-4/5 mx-auto" />
+      <H2>Étendue</H2>
       <P>
+        L’<S>étendue</S> d’une série statistique est la différence entre son{" "}
+        <S>maximum</S> (sa plus grande valeur) et son <S>minimum</S> (sa plus
+        petite valeur).
+      </P>
+      <H2>Écart-type</H2>
+      <P>
+        L’<S>écart-type</S> <LaTeX tex="\sigma" /> est un{" "}
+        <em>indicateur de dispersion associé à la moyenne</em>. Il traduit une
+        moyenne d’écarts autour de la valeur moyenne{" "}
+        <LaTeX tex="\overline{x}" />.{" "}
         <em>
-          Pour recopier une formule vers le bas par exemple de la cellule A2 à
-          la cellule A15
-        </em>{" "}
-        : Sélectionner la cellule A2 contenant la formule à recopier, placer la
-        souris dans le coin inférieur droit de cette cellule (sur le{" "}
-        <em>carré noir</em>). Cliquer et sans relâcher le clic, faire glisser la
-        souris jusqu’à la cellule A15. La formule contenue dans la cellule A2
-        est ainsi recopiée jusqu’à la cellule A15.
+          Plus l’écart-type est grand, plus la dispersion des données est
+          grande.
+        </em>
       </P>
-      <Img src={exempleCalc2} className="mx-auto w-6/10" align="center">
-        On peut "recopier" une formule de manière intelligente en faisant un
-        clic-glissé.
-      </Img>
-      <H2 marker="">Pour représenter un graphique</H2>
+      <H2>Écart interquartile</H2>
       <P>
-        Dans la colonne A du tableur saisir les valeurs de x. Dans la colonne B
-        du tableur saisir les valeurs de y. Sélectionner toutes les valeurs
-        saisies puis cliquer sur l’icône « diagramme » :{" "}
-        <Img src={excelDiagramIcon} className="inline-block w-8" /> Dans la
-        fenêtre qui s’affiche (voir ci-dessous), choisir le type de graphique.
+        L’écart interquartile <LaTeX tex="Q_3 - Q_1" /> est un{" "}
+        <em>indicateur de dispersion associé à la médiane</em>. C’est l’écart
+        maximal entre les valeurs de la moitié centrale de la série.{" "}
+        <em>
+          Plus l’écart interquartile Q3 - Q1 est grand, plus la dispersion des
+          données est grande
+        </em>
+        .
       </P>
-      <Img src={excelDiagramExemple} className="mx-auto w-7/10" />
-    </Activites>
+      <H2>Diagramme en boîte à moustaches</H2>
+      <P>
+        Le <S>diagramme en boîte à moustaches</S> représente certains
+        indicateurs d’une série.
+      </P>
+      <P>Il est composé :</P>
+      <UL>
+        <LI>
+          d'un rectangle, la « boîte » qui encadre les quartiles{" "}
+          <LaTeX tex="Q_1" /> et <LaTeX tex="Q_3" />, et contient la médiane.
+        </LI>
+        <LI>
+          de deux lignes, les « moustaches » qui donnent les valeurs extrêmes
+          (minimum et maximum).
+        </LI>
+      </UL>
+      <Problem>
+        <P>
+          Représenter la boîte à moustaches associée aux tailles des élèves.
+        </P>
+        <Chart
+          className="w-full h-auto"
+          height={200}
+          config={{
+            type: "line",
+            data: {
+              labels: Array.from({ length: 8 }, (_, n) => 1.55 + n * 0.05),
+              datasets: [{ data: Array(7) }],
+            },
+            options: {
+              scales: {
+                x: {
+                  type: "linear",
+                  beginAtZero: false,
+                  title: {
+                    text: " Taille des élèves (en m)",
+                    font: { size: 16 },
+                  },
+                },
+                y: {
+                  display: false,
+                },
+              },
+            },
+          }}
+        />
+      </Problem>
+    </Cours>
   );
 }
