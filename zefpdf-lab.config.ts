@@ -1,6 +1,6 @@
 import { defineConfig } from "zefpdf-lab";
 
-const target = "src/2nde/Stat1Var_MiniEval";
+const target = "src/2nde/Stat1Var_ActivitéNotée";
 
 // Paths are relative to this file. CLI flags (--engine, --out, --outdir,
 // --port) override these values.

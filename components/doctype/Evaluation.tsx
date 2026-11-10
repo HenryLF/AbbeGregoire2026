@@ -1,14 +1,6 @@
-import {
-    Exercice,
-    type ExerciceProps,
-} from "@components/section/Exercice";
+import { Exercice, type ExerciceProps } from "@components/section/Exercice";
 import "@styles/evaluation.css";
-import {
-    cloneElement,
-    createContext,
-    toChildArray,
-    type VNode,
-} from "preact";
+import { cloneElement, createContext, toChildArray, type VNode } from "preact";
 import { useContext } from "preact/hooks";
 import { Document, type DocumentProps } from "zefpdf-lab/ui/Document";
 import { DotLine } from "zefpdf-lab/ui/Inputs";
@@ -84,13 +76,25 @@ export function NoteBox({
   return <PointsBox points={points} {...props} />;
 }
 
-/** Rendered after the exercise's NoteBoxes, so it can check their sum. */
-function TotalBox({ title, points }: { title?: string; points: number }) {
+/**
+ * Rendered after the exercise's NoteBoxes, so it can check their sum.
+ * The check still runs when the box is hidden.
+ */
+function TotalBox({
+  title,
+  points,
+  hidden,
+}: {
+  title?: string;
+  points: number;
+  hidden?: boolean;
+}) {
   const exercice = useContext(ExerciceContext);
   if (exercice && Math.abs(exercice.points - points) > 1e-9)
     throw new Error(
       `Exercice "${title}": its NoteBoxes add up to ${exercice.points} but the barème gives ${points}`,
     );
+  if (hidden) return null;
   return <PointsBox points={points} label="Total Exercice" total />;
 }
 
@@ -99,6 +103,8 @@ export interface EvalExerciceProps extends ExerciceProps {
   bonus?: boolean;
   /** set by <Evaluation> from its `barem` */
   points?: number;
+  /** show the "Total Exercice" box at the end (default true) */
+  totalBox?: boolean;
 }
 
 /** `Exercice` with its points in the title and a total box at the end. */
@@ -106,6 +112,7 @@ export function EvalExercice({
   title,
   bonus,
   points = 0,
+  totalBox = true,
   children,
   ...props
 }: EvalExerciceProps) {
@@ -116,7 +123,7 @@ export function EvalExercice({
     >
       <ExerciceContext.Provider value={{ points: 0 }}>
         {children}
-        <TotalBox title={title} points={points} />
+        <TotalBox title={title} points={points} hidden={!totalBox} />
       </ExerciceContext.Provider>
     </Exercice>
   );
@@ -137,7 +144,18 @@ export function Summary({ className, ...props }: ComponentProps) {
   );
 }
 
-function Synthesis({ total }: { total: number }) {
+function Synthesis({
+  total,
+  redressed,
+}: {
+  total: number;
+  redressed: boolean;
+}) {
+  const blank = (max: number) => (
+    <>
+      <span className="evaluation--blank" />/ {formatPoints(max)}
+    </>
+  );
   return (
     <>
       <div className="evaluation--identity">
@@ -149,17 +167,13 @@ function Synthesis({ total }: { total: number }) {
         </span>
       </div>
       <Table className="evaluation--synthesis">
-        <THeader content={["Note brute", "Note redressée", "Note finale"]} />
+        <THeader
+          content={
+            redressed ? ["Note brute", "Base notation", "Note finale"] : ["Note"]
+          }
+        />
         <TEntry
-          content={[
-            <>
-              <span className="evaluation--blank" />/ {formatPoints(total)}
-            </>,
-            null,
-            <>
-              <span className="evaluation--blank" />/ 20
-            </>,
-          ]}
+          content={redressed ? [blank(total), null, blank(20)] : [blank(total)]}
         />
       </Table>
     </>
@@ -169,11 +183,17 @@ function Synthesis({ total }: { total: number }) {
 interface EvaluationProps extends DocumentProps {
   /** points of each <EvalExercice>, in order */
   barem: number[];
+  /**
+   * the raw score is rescaled (default true): the synthesis table shows
+   * "Note brute", "Base notation" and "Note finale"; otherwise only "Note", out of the barème total
+   */
+  redressed?: boolean;
 }
 
 export function Evaluation({
   children,
   barem,
+  redressed = true,
   title,
   ...props
 }: EvaluationProps) {
@@ -193,14 +213,11 @@ export function Evaluation({
     throw new Error(
       `Evaluation "${title}": barem has ${barem.length} entries for ${exercices.length} exercices`,
     );
-  const total = exercices.reduce(
-    (acc, e) => acc + (e.bonus ? 0 : e.points),
-    0,
-  );
+  const total = exercices.reduce((acc, e) => acc + (e.bonus ? 0 : e.points), 0);
   return (
     <Document title={`${title} - Évaluation`} {...props}>
       <SummaryContext.Provider value={exercices}>
-        <Synthesis total={total} />
+        <Synthesis total={total} redressed={redressed} />
         {content}
       </SummaryContext.Provider>
     </Document>

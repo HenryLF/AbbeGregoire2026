@@ -140,7 +140,6 @@ export function SubQuestion({
               <OL marker={(k) => `${marker}${subMarker(k)}`} indent={indent}>
                 {children}
               </OL>
-              ;
             </>
           );
         }}
