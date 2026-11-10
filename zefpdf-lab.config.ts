@@ -1,7 +1,6 @@
 import { defineConfig } from "zefpdf-lab";
 
 const target = "src/2nde/Stat1Var_ActivitéNotée";
-
 // Paths are relative to this file. CLI flags (--engine, --out, --outdir,
 // --port) override these values.
 //
@@ -12,8 +11,8 @@ const target = "src/2nde/Stat1Var_ActivitéNotée";
 export default defineConfig({
   // entry .tsx whose default export is the document component
   input: `${target}/index.tsx`,
-  // where the pdf is written
-  output: `${target}.pdf`,
+  // pdf directory (a path ending in .pdf writes that single file instead)
+  output: "pdf",
   // bundle and index.html; wiped on every build (build:all uses dist/<doc>)
   outdir: "dist",
   // "weasyprint" or "chromium", must be installed
@@ -21,7 +20,7 @@ export default defineConfig({
   // dev server port (`bun run dev`)
   port: 3000,
   // engine binaries, if not on PATH under these names
-  // paths: { weasyprint: "/home/zub/src/weasyprint-env/bin/weasyprint" },
+  // paths: { weasyprint: "weasyprint", chromium: "chromium" },
   // dev rebuild settings
   // watch: { debounceMs: 100, ignore: ["node_modules", "dist", ".git"] },
 });
