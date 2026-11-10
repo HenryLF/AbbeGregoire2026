@@ -24,10 +24,9 @@ export default function () {
   return (
     <Evaluation
       title="Activité notée - Saut à la perche"
-      barem={[10]}
-      redressed={false}
+      hideNoteCorrection
     >
-      <EvalExercice totalBox={false}>
+      <EvalExercice hideNoteBox>
         <Flex align="center">
           <P>
             Le tableau excel "Saut_Perche_JO_2024.xls" donne les résultats de

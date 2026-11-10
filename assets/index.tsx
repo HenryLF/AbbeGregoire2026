@@ -70,6 +70,7 @@ export { default as geometrySandCastle } from "./geometry/sand-castle.png";
 export { default as geometrySlantedRect } from "./geometry/slanted-rect.png";
 export { default as geometrySphere } from "./geometry/sphere.png";
 export { default as geometryThalesOrbit } from "./geometry/thales-orbit.png";
+export { default as geometryThalesPyramide } from "./geometry/thales-pyramide.svg";
 export { default as geometryThales } from "./geometry/thales.png";
 export { default as geometryTriangleAng } from "./geometry/triangle-ang.png";
 export { default as geometryTriangle } from "./geometry/triangle.svg";

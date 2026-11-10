@@ -9,7 +9,6 @@ import {
     Evaluation,
     NoteBox,
     Summary,
-    sumPoints,
 } from "@components/doctype/Evaluation";
 import { Doc } from "@components/section/Doc";
 import { SubQuestion } from "@components/section/Exercice";
@@ -79,7 +78,6 @@ export default function () {
     <Evaluation
       title="Distances et Angles & Statistiques"
       lang="fr"
-      barem={Object.values(bareme).map(sumPoints)}
     >
       <P>Ce contrôle contient 4 exercices.</P>
       <Summary />

@@ -1,32 +1,53 @@
 import { Exercice, type ExerciceProps } from "@components/section/Exercice";
 import "@styles/evaluation.css";
-import { cloneElement, createContext, toChildArray, type VNode } from "preact";
+import { createContext, isValidElement, type VNode } from "preact";
 import { useContext } from "preact/hooks";
 import { Document, type DocumentProps } from "zefpdf-lab/ui/Document";
 import { DotLine } from "zefpdf-lab/ui/Inputs";
+import { Flex } from "zefpdf-lab/ui/Layout";
 import { LI, OL } from "zefpdf-lab/ui/List";
 import { Table, TEntry, THeader } from "zefpdf-lab/ui/Table";
 import { cx, type ComponentProps } from "zefpdf-lab/ui/utils";
 
-// The document keeps its barème in an object, each <NoteBox> reads its entry,
-// and <Evaluation> gets one total per <EvalExercice>, in order. They must be
-// direct children of <Evaluation>: their title, bonus flag and points are read
-// from there, so the header table and <Summary> know them up front.
+// Points are written once, on the <NoteBox>es. Before rendering, each
+// <EvalExercice> walks its JSX tree to add up its NoteBoxes (title and total
+// box), and <Evaluation> walks its own to find the <EvalExercice>s (header
+// table and <Summary>). The walk sees every NoteBox written in the JSX,
+// including those in props such as `mainLI` or table `content`. A NoteBox
+// created inside another component's render is not visible to it (except in
+// <NoteLines>, which is looked for too): the exercise then throws, as the boxes
+// it renders no longer match the ones it found.
 
 /** French decimal formatting: 1.5 → "1,5". */
 export const formatPoints = (n: number) => n.toLocaleString("fr-FR");
 export const pts = (n: number) => `${formatPoints(n)} ${n < 2 ? "pt" : "pts"}`;
 
-export type Bareme = number | { [key: string | number]: Bareme };
-
-/** Sum of every number in a (possibly nested) barème. */
-export function sumPoints(bareme: Bareme): number {
-  if (typeof bareme === "number") return bareme;
-  return Object.values(bareme).reduce<number>(
-    (acc, v) => acc + sumPoints(v),
-    0,
-  );
+/** Every vnode of one of `types` in a JSX tree, without looking inside the matches. */
+function findElements<P>(
+  node: unknown,
+  types: unknown[],
+  found: VNode<P>[] = [],
+) {
+  if (Array.isArray(node)) {
+    for (const child of node) findElements(child, types, found);
+  } else if (isValidElement(node)) {
+    if (types.includes(node.type)) found.push(node as VNode<P>);
+    else
+      for (const value of Object.values(node.props as object))
+        findElements(value, types, found);
+  }
+  return found;
 }
+
+const sum = (values: number[]) => values.reduce((acc, v) => acc + v, 0);
+
+/** Points of the NoteBoxes (and NoteLines) written in a JSX tree. */
+const notePoints = (node: unknown) =>
+  sum(
+    findElements<NoteBoxProps>(node, [NoteBox, NoteLines]).map(
+      ({ props }) => props.points,
+    ),
+  );
 
 interface ExerciceScale {
   title?: string;
@@ -66,19 +87,43 @@ function PointsBox({
   );
 }
 
-/** Grading box for one question. */
-export function NoteBox({
-  points,
-  ...props
-}: ComponentProps & { points: number }) {
+export interface NoteBoxProps extends ComponentProps {
+  points: number;
+}
+
+/** Grading box for one question. Its points count in the exercise total. */
+export function NoteBox({ points, ...props }: NoteBoxProps) {
   const exercice = useContext(ExerciceContext);
   if (exercice) exercice.points += points;
   return <PointsBox points={points} {...props} />;
 }
 
+export interface NoteLinesProps extends NoteBoxProps {
+  /** number of answer lines, the NoteBox sits at the end of the last one (default 1) */
+  lines?: number;
+}
+
+/** Dotted answer lines ending with a NoteBox on the last line. */
+export function NoteLines({
+  points,
+  lines = 1,
+  className,
+  style,
+}: NoteLinesProps) {
+  return (
+    <div className={className} style={style}>
+      {lines > 1 && <DotLine count={lines - 1} />}
+      <Flex>
+        <DotLine className="flex-1" />
+        <NoteBox points={points} />
+      </Flex>
+    </div>
+  );
+}
+
 /**
- * Rendered after the exercise's NoteBoxes, so it can check their sum.
- * The check still runs when the box is hidden.
+ * Rendered after the exercise's NoteBoxes: checks that the boxes rendered
+ * match the ones found in the JSX. The check still runs when the box is hidden.
  */
 function TotalBox({
   title,
@@ -92,7 +137,8 @@ function TotalBox({
   const exercice = useContext(ExerciceContext);
   if (exercice && Math.abs(exercice.points - points) > 1e-9)
     throw new Error(
-      `Exercice "${title}": its NoteBoxes add up to ${exercice.points} but the barème gives ${points}`,
+      `Exercice "${title}": its NoteBoxes render ${exercice.points} pts but ${points} pts were found in its JSX. ` +
+        `Write the NoteBoxes in the exercise's JSX, not inside another component.`,
     );
   if (hidden) return null;
   return <PointsBox points={points} label="Total Exercice" total />;
@@ -101,21 +147,25 @@ function TotalBox({
 export interface EvalExerciceProps extends ExerciceProps {
   /** not counted in the total of the evaluation */
   bonus?: boolean;
-  /** set by <Evaluation> from its `barem` */
-  points?: number;
-  /** show the "Total Exercice" box at the end (default true) */
-  totalBox?: boolean;
+  /** hide the "Total Exercice" box at the end */
+  hideNoteBox?: boolean;
 }
 
-/** `Exercice` with its points in the title and a total box at the end. */
+const exerciceScale = ({ title, bonus, children }: EvalExerciceProps) => ({
+  title,
+  bonus: !!bonus,
+  points: notePoints(children),
+});
+
+/** `Exercice` with the sum of its NoteBoxes in the title and a total box at the end. */
 export function EvalExercice({
   title,
   bonus,
-  points = 0,
-  totalBox = true,
+  hideNoteBox,
   children,
   ...props
 }: EvalExerciceProps) {
+  const points = notePoints(children);
   return (
     <Exercice
       title={`${title ?? ""} (${bonus ? "bonus : " : ""}${pts(points)})`}
@@ -123,7 +173,7 @@ export function EvalExercice({
     >
       <ExerciceContext.Provider value={{ points: 0 }}>
         {children}
-        <TotalBox title={title} points={points} hidden={!totalBox} />
+        <TotalBox title={title} points={points} hidden={hideNoteBox} />
       </ExerciceContext.Provider>
     </Exercice>
   );
@@ -146,10 +196,10 @@ export function Summary({ className, ...props }: ComponentProps) {
 
 function Synthesis({
   total,
-  redressed,
+  hideNoteCorrection,
 }: {
   total: number;
-  redressed: boolean;
+  hideNoteCorrection?: boolean;
 }) {
   const blank = (max: number) => (
     <>
@@ -169,11 +219,15 @@ function Synthesis({
       <Table className="evaluation--synthesis">
         <THeader
           content={
-            redressed ? ["Note brute", "Base notation", "Note finale"] : ["Note"]
+            hideNoteCorrection
+              ? ["Note"]
+              : ["Note brute", "Base notation", "Note finale"]
           }
         />
         <TEntry
-          content={redressed ? [blank(total), null, blank(20)] : [blank(total)]}
+          content={
+            hideNoteCorrection ? [blank(total)] : [blank(total), null, blank(20)]
+          }
         />
       </Table>
     </>
@@ -181,44 +235,29 @@ function Synthesis({
 }
 
 interface EvaluationProps extends DocumentProps {
-  /** points of each <EvalExercice>, in order */
-  barem: number[];
   /**
-   * the raw score is rescaled (default true): the synthesis table shows
-   * "Note brute", "Base notation" and "Note finale"; otherwise only "Note", out of the barème total
+   * the raw score is not rescaled: the synthesis table shows only "Note",
+   * out of the total, instead of "Note brute", "Base notation" and "Note finale"
    */
-  redressed?: boolean;
+  hideNoteCorrection?: boolean;
 }
 
+/** Total = sum of the NoteBoxes of every non-bonus <EvalExercice> it contains. */
 export function Evaluation({
   children,
-  barem,
-  redressed = true,
+  hideNoteCorrection,
   title,
   ...props
 }: EvaluationProps) {
-  const exercices: ExerciceScale[] = [];
-  const content = toChildArray(children).map((child) => {
-    if ((child as VNode)?.type != EvalExercice) return child;
-    const exercice = child as VNode<EvalExerciceProps>;
-    const points = barem[exercices.length] ?? 0;
-    exercices.push({
-      title: exercice.props.title,
-      bonus: !!exercice.props.bonus,
-      points,
-    });
-    return cloneElement(exercice, { points });
-  });
-  if (exercices.length != barem.length)
-    throw new Error(
-      `Evaluation "${title}": barem has ${barem.length} entries for ${exercices.length} exercices`,
-    );
-  const total = exercices.reduce((acc, e) => acc + (e.bonus ? 0 : e.points), 0);
+  const exercices = findElements<EvalExerciceProps>(children, [EvalExercice]).map(
+    ({ props }) => exerciceScale(props),
+  );
+  const total = sum(exercices.filter((e) => !e.bonus).map((e) => e.points));
   return (
     <Document title={`${title} - Évaluation`} {...props}>
       <SummaryContext.Provider value={exercices}>
-        <Synthesis total={total} redressed={redressed} />
-        {content}
+        <Synthesis total={total} hideNoteCorrection={hideNoteCorrection} />
+        {children}
       </SummaryContext.Provider>
     </Document>
   );
