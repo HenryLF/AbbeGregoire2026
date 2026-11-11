@@ -105,7 +105,7 @@ export default function () {
 
         <LI>
           Calculer la probabilité <LaTeX tex="p(G)" /> qu'une personne ait reçu
-          le vaccin <em>Grippavax</em>
+          le vaccin <em>Grippavax</em>.
         </LI>
         <NoteLines lines={3} points={1} />
         <PageBreak />

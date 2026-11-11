@@ -30,13 +30,12 @@ p {
   padding: 1mm 2mm;
 
   margin: 1mm 0;
-
-  .strong {
-    border-bottom: 2px solid var(--strong--color);
-    margin-right: 5px;
-  }
 }
 
+.noteTitle {
+  border-bottom: 2px solid var(--strong--color);
+  margin-right: 5px;
+}
 .important {
   display: table;
   margin: 1mm auto;

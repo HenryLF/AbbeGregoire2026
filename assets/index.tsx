@@ -84,6 +84,7 @@ export { default as measurementIncertitude } from "./measurement/incertitude.svg
 export { default as measurementSignificatif } from "./measurement/significatif.svg";
 export { default as probabilityBallbox } from "./probability/ballbox.svg";
 export { default as probabilityBalls } from "./probability/balls.svg";
+export { default as probabilityDice } from "./probability/dice.jpg";
 export { default as probabilityVennIntersection } from "./probability/venn-intersection.svg";
 export { default as statisticsBoiteMoustacheEx } from "./statistics/boite-moustache-ex.svg";
 export { default as statisticsBoite1 } from "./statistics/boite1.jpg";

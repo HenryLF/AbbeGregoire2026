@@ -7,7 +7,7 @@ import { DotLine } from "zefpdf-lab/ui/Inputs";
 import { Flex } from "zefpdf-lab/ui/Layout";
 import { LI, OL } from "zefpdf-lab/ui/List";
 import { Table, TEntry, THeader } from "zefpdf-lab/ui/Table";
-import { cx, type ComponentProps } from "zefpdf-lab/ui/utils";
+import { cx, mergeStyle, type ComponentProps } from "zefpdf-lab/ui/utils";
 
 // Points are written once, on the <NoteBox>es. Before rendering, each
 // <EvalExercice> walks its JSX tree to add up its NoteBoxes (title and total
@@ -89,13 +89,14 @@ function PointsBox({
 
 export interface NoteBoxProps extends ComponentProps {
   points: number;
+  hidden?: boolean
 }
 
 /** Grading box for one question. Its points count in the exercise total. */
-export function NoteBox({ points, ...props }: NoteBoxProps) {
+export function NoteBox({ points, hidden, style, ...props }: NoteBoxProps) {
   const exercice = useContext(ExerciceContext);
   if (exercice) exercice.points += points;
-  return <PointsBox points={points} {...props} />;
+  return <PointsBox points={points} style={mergeStyle(style, { display: hidden ? "none" : undefined })} {...props} />;
 }
 
 export interface NoteLinesProps extends NoteBoxProps {

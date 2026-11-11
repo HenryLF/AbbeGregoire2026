@@ -81,7 +81,7 @@ export default function () {
         <PageBreak />
         <SubQuestion mainLI={`Réalisation d'un diagramme "boite à moustache"`}>
           <LI>
-            Sur le graphique vide en ci-dessous, pour chacune des phases de la
+            Sur le graphique vide ci-dessous, pour chacune des phases de la
             compétition, indiquer le maximum et le minimum par une croix, relier
             ces croix par une ligne horizontale.
           </LI>
@@ -98,7 +98,7 @@ export default function () {
         </SubQuestion>
 
         <Flex gap={"1mm"}>
-          <P>Voici à quoi doit ressembler le résultat final:</P>
+          <P>Voici à quoi doit ressembler le résultat final :</P>
           <Img src={statisticsBoiteMoustacheEx} className={"w-5/9 mx-auto"} />
         </Flex>
 

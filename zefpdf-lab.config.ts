@@ -1,6 +1,6 @@
 import { defineConfig } from "zefpdf-lab";
 
-const target = "src/1ere/Eval_Probabilites&Rappel";
+const target = "src/3eme/sciences/Eval_ConstitutionDeLaMatiere";
 // Paths are relative to this file. CLI flags (--engine, --out, --outdir,
 // --port) override these values.
 //

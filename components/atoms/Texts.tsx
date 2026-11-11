@@ -60,7 +60,7 @@ export function Note({
         "--strong--color": color,
       })}
     >
-      <S color={color}>{title}</S>
+      <S color={color} className={s.noteTitle}>{title}</S>
       {children}
     </div>
   );
