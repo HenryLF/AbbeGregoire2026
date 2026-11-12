@@ -73,7 +73,7 @@ body {
   line-height: 1.6;
   padding-left: 2mm;
   --title--subsequent-margin: 0.3mm;
-  --title--margin: 0.5mm;
+  --title--margin: 0.75mm;
   color: var(--color);
   border-left: 0.6mm solid var(--color);
 }
