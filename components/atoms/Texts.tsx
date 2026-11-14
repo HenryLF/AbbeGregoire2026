@@ -4,29 +4,46 @@ import s from "./Texts.module.css";
 export interface TextProps extends ComponentProps {
   align?: "center" | "justify" | "left" | "right";
   color?: string;
+  indent?: string | number;
+  size?: string | number;
 }
 
-export function P({
-  className,
-  align = "justify",
-  style,
-  ...props
-}: TextProps) {
+function mergeTextStyle(textProps: TextProps) {
+  const { style, align, size, color, indent } = textProps;
+  return mergeStyle(style, {
+    color,
+    textAlign: align,
+    "--text-indent": indent,
+    "--text-fontsize": size,
+  });
+}
+
+export function P({ className, ...props }: TextProps) {
   return (
     <div
-      className={cx(className, s.text)}
-      style={mergeStyle(style, { textAlign: align })}
       {...props}
+      className={cx(className, s.text)}
+      style={mergeTextStyle(props)}
     />
   );
 }
 
-export function S({ className, color, style, ...props }: TextProps) {
+export function S({ className, ...props }: TextProps) {
   return (
     <strong
-      className={cx(className, s.strong)}
-      style={mergeStyle(style, { "--strong--color": color })}
       {...props}
+      className={cx(className, s.strong)}
+      style={mergeTextStyle(props)}
+    />
+  );
+}
+
+export function It({ className, ...props }: TextProps) {
+  return (
+    <span
+      {...props}
+      style={mergeTextStyle(props)}
+      className={cx(className, s.italic)}
     />
   );
 }
@@ -60,7 +77,9 @@ export function Note({
         "--strong--color": color,
       })}
     >
-      <S color={color} className={s.noteTitle}>{title}</S>
+      <S color={color} className={s.noteTitle}>
+        {title}
+      </S>
       {children}
     </div>
   );

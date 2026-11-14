@@ -1,5 +1,7 @@
 :root {
   --strong--color: #802020;
+  --text--fontsize: 12px;
+  --text--indent: 5mm;
 }
 .details {
   font-size: 10px;
@@ -8,8 +10,8 @@
 
 .text,
 p {
-  text-indent: 5mm;
-  font-size: 12px;
+  text-indent: var(--text--indent);
+  font-size: var(--text--fontsize);
   line-height: 1.8;
 
   --dotline--lineheight: 8mm;
@@ -20,6 +22,9 @@ p {
   color: var(--strong--color);
 }
 
+.italic {
+  font-style: italic;
+}
 .note {
   border-left: 1px solid var(--strong--color);
   border-top: 1px solid var(--strong--color);

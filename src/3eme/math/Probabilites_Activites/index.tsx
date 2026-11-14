@@ -1,7 +1,13 @@
-import { P, S } from "@components/atoms/Texts";
+import {
+  probabilityTicket2e,
+  probabilityTicket3e,
+  probabilityTicket5e,
+} from "@assets/index";
+import { Img } from "@components/atoms/Img";
+import { Important, It, Note, P, S } from "@components/atoms/Texts";
 import { Activites } from "@components/doctype/Activites";
-import { Exercice, SubQuestion } from "@components/section/Exercice";
-import { DotLine } from "zefpdf-lab/ui";
+import { Exercice, SubQuestion, TP } from "@components/section/Exercice";
+import { DotLine, H4, Options } from "zefpdf-lab/ui";
 import { LaTeX } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
 import { LI } from "zefpdf-lab/ui/List";
@@ -42,7 +48,7 @@ function De() {
         mainLI={
           <>
             On considère l’événement <LaTeX tex="A" /> : « obtenir un nombre
-            impair".
+            impair ».
           </>
         }
       >
@@ -56,7 +62,7 @@ function De() {
         mainLI={
           <>
             On considère l’événement <LaTeX tex="B" /> : « obtenir un nombre
-            plus grand que 4".
+            plus grand que 4 ».
           </>
         }
       >
@@ -103,7 +109,7 @@ function Cartes() {
         <Flex>
           {evenements.map(({ nom, texte }) => (
             <LI>
-              <LaTeX tex={nom} />: "{texte}".
+              <LaTeX tex={nom} /> : "{texte}".
             </LI>
           ))}
         </Flex>
@@ -114,7 +120,7 @@ function Cartes() {
       <LI>Écrire le nombre d’issues possibles lors de cette expérience.</LI>
       <LI>
         Calculer la probabilité de l’événement : « la carte choisie est une
-        figure : valet, dame ou roi". Arrondir à 0,01.
+        figure : valet, dame ou roi ». Arrondir à 0,01.
       </LI>
     </Exercice>
   );
@@ -176,12 +182,130 @@ function Classe() {
   );
 }
 
+function JeuxAGratter() {
+  return (
+    <TP title="Jeux à gratter">
+      <Note title="Rappel :">
+        Les jeux d'argent <S>ne sont pas des jeux</S>, jouez avec modération ou
+        mieux : ne jouez pas (voir conclusion de l'activité).
+      </Note>
+      <H4>
+        Le jeu à 5 € <It>(à réaliser avec le professeur)</It>{" "}
+      </H4>
+      <Flex>
+        <div className="flex-2/3">
+          <P>
+            On donne la photo du verso d'un ticket à gratter vendu dans le
+            commerce à 5€.
+          </P>
+          <LI>
+            Décrire cette expérience aléatoire, quels sont les événements
+            élémentaires ?
+          </LI>
+          <LI>
+            À partir des informations disponibles au dos du ticket remplir le
+            tableau suivant :
+          </LI>
+          <Table className={"w-9/10 mx-auto table-fixed"}>
+            <TEntry
+              header="Lots"
+              content={["Perdant", "10€", "200€", <S color="black">Total</S>]}
+            />
+            <TEntry
+              header="Nombre de tickets"
+              content={Array(4).fill(<DotLine />)}
+            />
+          </Table>
+          <LI>Calculer le nombre de tickets perdants.</LI>
+          <LI>Donner la probabilité d'obtenir un ticket perdant.</LI>
+          <LI>En déduire la probabilité d'obtenir un ticket gagnant.</LI>
+          <LI>
+            Calculer la probabilité de gagner 5€, puis celle de gagner 200€.
+          </LI>
+          <LI>
+            Expliquer comment calculer l'espérance, puis effectuer le calcul
+            pour le ticket à 5€.
+          </LI>
+          <LI>Conclure sur les gains attendus pour ce jeu à gratter.</LI>
+
+          <Important
+            className={"w-19/20 mx-auto"}
+            style={{ "--text--fontsize": "9px" }}
+          >
+            <P>
+              L'<S>espérance</S> est une grandeur mathématique qui nous permet
+              de calculer le résultat moyen pour une expérience aléatoire où
+              chaque événement élémentaire est associé à un score. Par exemple
+              pour l'expérience suivante : "
+              <It>
+                Je tire un dé à 6 faces, si j'obtiens 3 je gagne 10€ sinon je
+                gagne 2€
+              </It>
+              " l'espérance sera égale à :{" "}
+              <LaTeX tex="\frac{1}{6} \times 10 + \frac{5}{6} \times 2 \approx 3.33 €" />
+              , où <LaTeX tex="\frac{1}{6}" /> est la probabilité de gagner 10€
+              et <LaTeX tex="\frac{5}{6}" /> est la probabilité de gagner 2€.
+            </P>
+          </Important>
+        </div>
+        <Img src={probabilityTicket5e} className={"flex-1/3"} />
+      </Flex>
+      <H4>
+        Un autre ticket <It>(travail en groupe)</It>
+      </H4>
+      <Flex align="center" justify="space-evenly">
+        <Img src={probabilityTicket3e} width="42%">
+          Ticket à 3€
+        </Img>
+        <Img src={probabilityTicket2e} width="42%">
+          Ticket à 2€
+        </Img>
+      </Flex>
+      <P>
+        Mon groupe travaille sur :{" "}
+        <Options className="inline-block columns-2">
+          <>Le ticket à 3€</>
+          <>Le ticket à 5€</>
+        </Options>
+      </P>
+      <LI>
+        Avec les informations au dos de votre ticket, remplir le tableau suivant
+        et réaliser les calculs de probabilité.
+      </LI>
+      <Table className={"w-39/40 mx-auto table-fixed"}>
+        <TEntry
+          header="Lots"
+          content={[
+            "Perdant",
+            ...Array(8).fill(<DotLine />),
+            <S color="black">Total</S>,
+          ]}
+        />
+        <TEntry
+          header="Nombre de tickets"
+          content={Array(10).fill(<DotLine />)}
+        />
+        <TEntry header="Probabilité" content={Array(10).fill(<DotLine />)} />
+      </Table>
+      <LI>Calculer l'espérance et comparer au prix du ticket.</LI>
+      <H4>
+        Conclusion <It>(mise en commun)</It>
+      </H4>
+      <LI>
+        Faire la synthèse des résultats obtenus pour les 3 tickets,
+        qu'observe-t-on ?
+      </LI>
+    </TP>
+  );
+}
+
 export default function ProbabilitesActivites() {
   return (
     <Activites title="Probabilités" lang="fr">
       <De />
       <Cartes />
       <Classe />
+      <JeuxAGratter />
     </Activites>
   );
 }
