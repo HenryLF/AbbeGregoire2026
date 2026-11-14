@@ -7,6 +7,8 @@ export interface NumberLineProps extends ComponentProps {
   min?: number;
   max?: number;
   step?: number;
+  /** explicit tick values; overrides `step` (min/max still set the scale) */
+  ticks?: number[];
   tickLabel?: (value: number) => ComponentChildren;
   /** axis name, right of the arrow */
   label?: ComponentChildren;
@@ -21,6 +23,7 @@ export function NumberLine({
   min = 0,
   max = 10,
   step = 1,
+  ticks,
   tickLabel = (value) => value.toLocaleString("fr"),
   label,
   strokeWidth = 1.5,
@@ -64,8 +67,8 @@ export function NumberLine({
           points={`${arrowTip},${cy} ${arrowTip - headLength},${cy - headHalf} ${arrowTip - headLength},${cy + headHalf}`}
           fill="black"
         />
-        {range(min, max, step).map((value) => (
-          <g key={value}>
+        {(ticks ?? range(min, max, step)).map((value, i) => (
+          <g key={i}>
             <line
               x1={x(value)}
               y1={cy - tickHalf}
