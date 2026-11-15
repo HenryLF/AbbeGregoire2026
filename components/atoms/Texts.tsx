@@ -13,8 +13,8 @@ function mergeTextStyle(textProps: TextProps) {
   return mergeStyle(style, {
     color,
     textAlign: align,
-    "--text-indent": indent,
-    "--text-fontsize": size,
+    "--text--indent": indent,
+    "--text--fontsize": size,
   });
 }
 
@@ -48,16 +48,11 @@ export function It({ className, ...props }: TextProps) {
   );
 }
 
-export function Details({
-  className,
-  align = "center",
-  style,
-  ...props
-}: TextProps) {
+export function Details({ className, align = "center", ...props }: TextProps) {
   return (
     <div
       className={cx(className, s.details)}
-      style={mergeStyle(style, { textAlign: align })}
+      style={mergeTextStyle(props)}
       {...props}
     />
   );
@@ -68,15 +63,10 @@ export function Note({
   children,
   color,
   className,
-  style,
+  ...props
 }: TextProps & { title?: ComponentChild }) {
   return (
-    <div
-      className={cx(className, s.note)}
-      style={mergeStyle(style, {
-        "--strong--color": color,
-      })}
-    >
+    <div className={cx(className, s.note)} style={mergeTextStyle(props)}>
       <S color={color} className={s.noteTitle}>
         {title}
       </S>

@@ -51,7 +51,7 @@ export default function () {
         <LI>
           Décrire par une phrase l'événement <LaTeX tex="\overline{M}" />
         </LI>
-        <DotLine />
+        <NoteLines points={1} />
         <SubQuestion mainLI="Remplir le tableau croisé">
           <Table className="table-fixed w-8/9 mx-auto">
             <THeader
@@ -80,10 +80,7 @@ export default function () {
             />
           </Table>
           <Flex>
-            <LI>
-              Remplir le tableau ci-dessus avec les résultats de la première
-              étude.
-            </LI>
+            <LI>Remplir le tableau ci-dessus avec les résultats de l'étude.</LI>
             <NoteBox points={1} />
           </Flex>
           <Flex>
@@ -152,12 +149,12 @@ export default function () {
           <LaTeX tex="p(M\cap G)" /> et affirme que <em>Vaccinox</em> est le
           moins efficace des deux vaccins. A-t-il raison ? Justifier.
         </LI>
-        <NoteLines lines={4} points={1} />
+        <NoteLines lines={4} points={1.5} />
         <LI>
           Conclure : quel est le vaccin le plus efficace ? Que peut-on dire du
           vaccin <em>Grippavax</em> ?
         </LI>
-        <NoteLines lines={4} points={1} />
+        <NoteLines lines={4} points={2} />
       </EvalExercice>
 
       <EvalExercice title="Théorème de Thalès">
@@ -317,14 +314,14 @@ export default function () {
             Lire les coordonnées du point d'intersection des deux droites. Que
             représentent-elles ?
           </LI>
-          <NoteLines lines={2} points={1} />
+          <NoteLines lines={2} points={1.5} />
         </SubQuestion>
 
         <LI>
           Conclure : selon le nombre de cartouches achetées, quel vendeur Léa
           doit-elle choisir ?
         </LI>
-        <NoteLines lines={2} points={1} />
+        <NoteLines lines={2} points={1.5} />
       </EvalExercice>
 
       <EvalExercice title="Calcul algébrique">
@@ -374,18 +371,18 @@ export default function () {
         <SubQuestion mainLI="Développer et réduire :">
           <Flex className={"flex-wrap"} justify="space-evenly">
             {[
-              { tex: "D = 3(x + 4)", points: 1 },
-              { tex: "E = 5(2x - 3)", points: 1 },
-              { tex: "F = -2(3x - 1)", points: 1 },
-              { tex: "G = 2(x + 1) + 3x", points: 1 },
+              "D = 3(x + 4)",
+              "E = 5(2x - 3)",
+              "F = -2(3x - 1)",
+              "G = 2(x + 1) + 3x",
               // { tex: "H = 3(2x + 1) - 4x", points: 1 },
               // { tex: "I = 2(x + 3) + 5(x - 1)", points: 1 },
-            ].map(({ tex, points }) => (
+            ].map((tex) => (
               <div className="w-19/40">
                 <LI>
                   <LaTeX tex={tex} />
                 </LI>
-                <NoteLines lines={4} points={points} />
+                <NoteLines lines={4} points={0.75} />
               </div>
             ))}
           </Flex>
@@ -397,13 +394,13 @@ export default function () {
               <LI>
                 <LaTeX tex="3x + 5 = 20" />
               </LI>
-              <NoteLines lines={4} points={1.5} />
+              <NoteLines lines={4} points={1} />
             </div>
             <div className={"flex-1"}>
               <LI>
                 <LaTeX tex="2x - 4 = x + 3" />
               </LI>
-              <NoteLines lines={4} points={1.5} />
+              <NoteLines lines={4} points={1} />
             </div>
           </Flex>
         </SubQuestion>

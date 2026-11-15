@@ -14,7 +14,6 @@ import {
   Flex,
   LaTeX,
   LI,
-  PageBreak,
   Table,
   TEntry,
   UL,
@@ -88,7 +87,7 @@ export const Doc3 = () => (
         En déduire la relation entre degrés Celsius et Kelvin et remplir le
         tableau.
       </LI>
-      <DotLine />
+      <DotLine count={2} />
     </SubQuestion>
     <LI>
       Compléter l'échelle de température ci-dessous avec les températures en °C.
@@ -130,8 +129,8 @@ export const Doc4 = () => (
       {[
         "amorphe (qui n'a pas de forme)",
         "compact (pas/peu d'espace entre particules)",
-        "ordonné (les particules sont bien rangées)",
-        "désordonné",
+        "particules mobiles (elles bougent les unes par rapport aux autres)",
+        "particules immobiles",
         "compressible (son volume peut changer)",
         "incompressible (son volume ne peut pas changer)",
       ].map((l) => (
@@ -141,7 +140,7 @@ export const Doc4 = () => (
     <Note>
       Il existe d'autres états de la matière comme les{" "}
       <S>fluides supercritiques</S> ou les <S>plasmas</S>, mais ils sont moins
-      courants et le plus souvent rencontrés dans un laboratoire.
+      courants.
     </Note>
   </Problem>
 );
@@ -161,7 +160,6 @@ export default function () {
         <div className="border-b border-dashed" />
         <Doc3 />
       </Flex>
-      <PageBreak />
       <Flex dir="column" gap={"5mm"}>
         <Doc4 />
         <div className="border-b border-dashed" />

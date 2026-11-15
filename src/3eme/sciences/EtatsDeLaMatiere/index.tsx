@@ -11,7 +11,7 @@ export default function () {
       <H1>Température</H1>
       <P>
         La <S>température</S> est une mesure de l'agitation des atomes et
-        molécules qui constituent la matière, plus la température est élevée
+        molécules qui constituent la matière, plus la température est élevée,
         plus les constituants de la matière bougent vite et plus un objet est
         dit chaud.
       </P>
@@ -48,9 +48,8 @@ export default function () {
       <H1>Changements d'états</H1>
 
       <P>
-        On appelle <S>corps pur</S> un matériau constitué d'un seul type
-        d'atome ou de molécule, un <S>mélange</S> est constitué de plusieurs
-        corps purs.
+        On appelle <S>corps pur</S> un matériau constitué d'un seul type d'atome
+        ou de molécule, un <S>mélange</S> est constitué de plusieurs corps purs.
       </P>
 
       <P>
@@ -58,6 +57,10 @@ export default function () {
         s'agitent plus va changer le comportement de la matière. En effet, plus
         les particules vont vite, plus elles vont se cogner les unes aux autres
         et avoir tendance à s'éloigner.
+      </P>
+      <P>
+        Au-delà d'une certaine température on assiste à un{" "}
+        <S>changement d'état</S>.
       </P>
 
       <Doc5 className={"my-1"} />

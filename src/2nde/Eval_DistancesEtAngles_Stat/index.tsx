@@ -5,10 +5,10 @@ import { AnswerBox } from "@components/atoms/AnswerBox";
 import { Img } from "@components/atoms/Img";
 import { Details, P } from "@components/atoms/Texts";
 import {
-    EvalExercice,
-    Evaluation,
-    NoteBox,
-    Summary,
+  EvalExercice,
+  Evaluation,
+  NoteBox,
+  Summary,
 } from "@components/doctype/Evaluation";
 import { Doc } from "@components/section/Doc";
 import { SubQuestion } from "@components/section/Exercice";

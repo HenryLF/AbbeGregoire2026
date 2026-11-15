@@ -31,7 +31,7 @@ p {
   border-bottom: 3px solid var(--strong--color);
   border-right: 3px solid var(--strong--color);
   border-radius: 2px;
-
+  font-size: var(--text--fontsize);
   padding: 1mm 2mm;
 
   margin: 1mm 0;
