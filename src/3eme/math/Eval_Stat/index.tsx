@@ -53,9 +53,9 @@ function TourDeFrance() {
         de France 2008 :
       </P>
       <P indent={0} className="text-center">
-        {etapesTDF2008.join(" – ")}
+        {etapesTDF2008.toSorted((a, b) => a - b).join(" – ")}
       </P>
-      <SubQuestion>
+      <SubQuestion indent={"5mm"}>
         <LI>Quel est la distance minimum pour une étape ?</LI>
         <NoteLines lines={1} points={b.min} />
         <LI>Quel est la distance maximum pour une étape ?</LI>
