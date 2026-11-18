@@ -113,4 +113,6 @@ export { default as statisticsPyramideSalaires } from "./statistics/pyramide-sal
 export { default as statisticsQuartiles } from "./statistics/quartiles.svg";
 export { default as statisticsRouteLittoral } from "./statistics/route-littoral.jpg";
 export { default as suitesPipes } from "./suites/Pipes.png";
+export { default as suitesAct1GeoGebra } from "./suites/act1GeoGebra.png";
+export { default as suitesEx1Stairs } from "./suites/ex1Stairs.png";
 export { default as suitesExArithmetique } from "./suites/exArithmetique.svg";
