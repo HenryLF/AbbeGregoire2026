@@ -112,3 +112,5 @@ export { default as statisticsProtractorFullCircle } from "./statistics/protract
 export { default as statisticsPyramideSalaires } from "./statistics/pyramide-salaires.png";
 export { default as statisticsQuartiles } from "./statistics/quartiles.svg";
 export { default as statisticsRouteLittoral } from "./statistics/route-littoral.jpg";
+export { default as suitesPipes } from "./suites/Pipes.png";
+export { default as suitesExArithmetique } from "./suites/exArithmetique.svg";
