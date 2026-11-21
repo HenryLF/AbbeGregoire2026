@@ -1,6 +1,6 @@
 import { defineConfig } from "zefpdf-lab";
 
-const target = "src/1ere/SuiteArithmetiques_Activites";
+const target = "src/2nde/1erDegre_Activites";
 // Paths are relative to this file. CLI flags (--engine, --out, --outdir,
 // --port) override these values.
 //

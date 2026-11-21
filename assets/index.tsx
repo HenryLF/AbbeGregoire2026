@@ -4,6 +4,7 @@ export { default as algebraEnsembleNombre } from "./algebra/ensemble-nombre.png"
 export { default as algebraExA22abB2 } from "./algebra/ex-a2-2ab-b2.svg";
 export { default as algebraExIntervalle } from "./algebra/ex-intervalle.png";
 export { default as algebraExParcelle } from "./algebra/ex-parcelle.svg";
+export { default as algebraEx5plan } from "./algebra/ex5plan.png";
 export { default as algebraHammer } from "./algebra/hammer.png";
 export { default as algebraNumberLine } from "./algebra/number-line.png";
 export { default as algebraPaint } from "./algebra/paint.png";

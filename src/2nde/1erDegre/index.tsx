@@ -1,6 +1,6 @@
 import exIntervalle from "@assets/algebra/ex-intervalle.png";
-import { AnswerBox } from "@components/atoms/AnswerBox";
 import numberLine from "@assets/algebra/number-line.png";
+import { AnswerBox } from "@components/atoms/AnswerBox";
 import { Img } from "@components/atoms/Img";
 import { Important, P, S } from "@components/atoms/Texts";
 import { Cours } from "@components/doctype/Cours";
@@ -63,10 +63,10 @@ export default function PremierDegreDocument() {
         la puissance 1 (ici <LaTeX tex="x^1 = x" />
         ).
       </P>
-      <Important>
-        Résoudre une équation du premier degré, d’inconnue x, c’est trouver{" "}
-        <DotLine width="4cm" /> de x pour laquelle{" "}
-        <DotLine width="8cm" />.
+      <Important className={"w-9/10 mx-auto p-2"}>
+        Résoudre une équation du premier degré, d’inconnue <LaTeX tex="x" />,
+        c’est trouver <DotLine inline /> de <LaTeX tex="x" /> pour laquelle{" "}
+        <DotLine inline />
       </Important>
       <Problem>
         <em>
@@ -74,9 +74,8 @@ export default function PremierDegreDocument() {
           10, qu'observe-t-on ?
         </em>
         <DotLine count={4} />
-        On dira alors que <LaTeX tex="x = 10" /> est une{" "}
-        <DotLine width="4cm" /> de l'équation{" "}
-        <LaTeX tex="250 + 85 x = 200 + 90 x" />
+        On dira alors que <LaTeX tex="x = 10" /> est une <DotLine width="4cm" />{" "}
+        de l'équation <LaTeX tex="250 + 85 x = 200 + 90 x" />
       </Problem>
       <P>
         Pour résoudre une équation simple on cherche à isoler l'inconnue d'un
@@ -88,11 +87,11 @@ export default function PremierDegreDocument() {
       </P>
       <AnswerBoxes
         items={["3+x=4", "x-8 = 6", "2x=8", "{\\large \\frac{x}{2}} = 3"]}
-        height="2.5cm"
+        height="5cm"
       />
       <AnswerBoxes
         items={["5x + 2 = 17", "7x + 4 - 2x = x - 5"]}
-        height="4.5cm"
+        height="5cm"
       />
       <PageBreak />
       <H1>Inéquation du premier degré</H1>
@@ -102,10 +101,10 @@ export default function PremierDegreDocument() {
         : {ineqEx} sont des inéquations où <LaTeX tex="x" /> est l'
         <S>inconnue</S>.
       </P>
-      <Important>
-        Résoudre une inéquation du premier degré, d’inconnue x, c’est trouver{" "}
-        <DotLine width="5cm" /> de x pour lesquelles{" "}
-        <DotLine width="7cm" />.
+      <Important className={"w-9/10 mx-auto p-2"}>
+        Résoudre une inéquation du premier degré, d’inconnue <LaTeX tex="x" />,
+        c’est trouver <DotLine inline /> de <LaTeX tex="x" /> pour lesquelles{" "}
+        <DotLine inline />
       </Important>
       <H2>Solution d'une inéquation : les intervalles</H2>
       <P>
@@ -127,7 +126,7 @@ export default function PremierDegreDocument() {
             entre a et b <S>mais pas a ni b</S>; il est dit <em>ouvert</em> car
             a et b sont exclus de l'intervalle. On note :{" "}
             <LaTeX tex="a \notin ]a;b[" /> et <LaTeX tex="b \notin ]a;b[" /> (
-            <LaTeX tex="\notin" /> = "n'appartient pas") .
+            <LaTeX tex="\notin" /> = "n'appartient pas").
           </LI>
         </UL>
         <Img src={exIntervalle} className="flex-1" />
@@ -159,15 +158,15 @@ export default function PremierDegreDocument() {
         Une inéquation se résout avec les mêmes règles que pour les équations,{" "}
         <S>avec une différence :</S>
       </P>
-      <Important>
+      <Important className="w-9/10 mx-auto p-2">
         Lorsque je multiplie (ou divise) des deux côtés d'une inéquation par un
-        nombre <DotLine width="3cm" />, l'inéquation va
-        changer de sens (<LaTeX tex=">" /> ou <LaTeX tex="\le" /> deviennent{" "}
-        <LaTeX tex="<" /> ou <LaTeX tex="\ge" />, et inversement )
+        nombre <DotLine width="5cm" />, l'inéquation va changer de sens (
+        <LaTeX tex=">" /> ou <LaTeX tex="\le" /> deviennent <LaTeX tex="<" /> ou{" "}
+        <LaTeX tex="\ge" />, et inversement )
       </Important>
       <AnswerBoxes
-        items={["8 + x \\le 4", "5x + 3 > 4", "-3 x -1 <11 ", "-4x +7 \\le 0"]}
-        height="4cm"
+        items={["8 + x \\le 4", "5x + 3 > 4", "-3 x -1 < 11 ", "-4x +7 \\le 0"]}
+        height="6cm"
       />
       <Problem>
         Un camion pesant à vide 4 tonnes doit passer sur un pont limité à 12
@@ -185,7 +184,7 @@ export default function PremierDegreDocument() {
         </LI>
         <Chart
           width={1000}
-          height={200}
+          height={400}
           className="mx-auto"
           config={{
             type: "line",

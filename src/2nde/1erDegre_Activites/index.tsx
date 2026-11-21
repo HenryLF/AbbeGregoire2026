@@ -1,5 +1,4 @@
 import brush from "@assets/algebra/brush.png";
-import { AnswerBox } from "@components/atoms/AnswerBox";
 import hammer from "@assets/algebra/hammer.png";
 import paint from "@assets/algebra/paint.png";
 import parpaing from "@assets/algebra/parpaing.png";
@@ -9,13 +8,17 @@ import shoes3 from "@assets/algebra/shoes3.png";
 import truck1 from "@assets/algebra/truck1.png";
 import truck2 from "@assets/algebra/truck2.png";
 import truck3 from "@assets/algebra/truck3.png";
+import { algebraEx5plan } from "@assets/index";
+import { AnswerBox } from "@components/atoms/AnswerBox";
 import { Circle } from "@components/atoms/Decorator";
 import { Img } from "@components/atoms/Img";
 import { Interval } from "@components/atoms/Interval";
+import { Qr } from "@components/atoms/Qr";
 import { P, S } from "@components/atoms/Texts";
 import { Activites } from "@components/doctype/Activites";
 import { Call, Exercice, SubQuestion, TP } from "@components/section/Exercice";
 import type { ComponentChildren } from "preact";
+import { PageBreak } from "zefpdf-lab/ui";
 import { DotLine, Options } from "zefpdf-lab/ui/Inputs";
 import { LaTeX } from "zefpdf-lab/ui/LaTeX";
 import { Flex } from "zefpdf-lab/ui/Layout";
@@ -171,7 +174,7 @@ export default function PremierDegreActivitesDocument() {
       <Exercice title="Équations de base">
         <AnswerBoxes
           columns={3}
-          height="2.5cm"
+          height="3.7cm"
           items={[
             "3=6+x",
             "42 = 6x",
@@ -213,7 +216,7 @@ export default function PremierDegreActivitesDocument() {
           <em>quatre fois plus de chênes que de châtaigniers</em> et{" "}
           <em>500 autres arbres</em> différents.{" "}
           <S>
-            Le propriétaire veut connaitre le nombre de chênes et le nombre de
+            Le propriétaire veut connaître le nombre de chênes et le nombre de
             châtaigniers.
           </S>
         </P>
@@ -252,7 +255,7 @@ export default function PremierDegreActivitesDocument() {
           Répondre au problème en déduisant le nombre de chênes et de
           châtaigniers.
         </LI>
-        <DotLine count={2} />
+        <DotLine count={3} />
       </Exercice>
 
       <Exercice title="Consommations à un bar">
@@ -291,15 +294,60 @@ export default function PremierDegreActivitesDocument() {
         <DotLine count={5} />
       </Exercice>
 
+      <Exercice title="Achat de plinthes">
+        <Img src={algebraEx5plan} className="float-right w-[5cm]" />
+        <P>
+          Thibault vient de rénover sa chambre de forme carrée. Il souhaite
+          placer des plinthes contre le mur au niveau du sol. Ces plinthes ont
+          une longueur de 20 cm. Les dimensions en cm de la chambre sont données
+          sur le croquis ci-contre. Thibault se demande combien de plinthes il
+          devra acheter. Il affirme qu’il faut résoudre l’équation :{" "}
+          <LaTeX tex="20x +190 = 1200" />.
+        </P>
+        <LI>Que représente l’inconnue x du problème ?</LI>
+        <DotLine />
+        <LI>Que représente 20x ?</LI>
+        <DotLine count={2} />
+
+        <LI>À quelle valeur correspond le nombre 1 200 ?</LI>
+        <DotLine />
+
+        <LI>À quelle valeur correspond le nombre 190 ?</LI>
+        <DotLine />
+
+        <LI>
+          L’équation proposée est-elle correcte ?
+          <Options className={"inline-block"}>
+            <>OUI</>
+            <>NON</>
+          </Options>
+        </LI>
+        <LI>Résoudre l’équation.</LI>
+        <DotLine count={3} />
+        <LI>
+          Les plinthes étant vendues à l’unité, combien Thibault devra-t-il en
+          acheter ?
+        </LI>
+        <DotLine count={2} />
+      </Exercice>
+
       <TP title="Ventes de chaussures de sécurité">
         <Flex gap="3mm" align="center">
-          <P className="flex-[2]">
-            Un magasin de chaussures de sécurité propose trois types de modèles
-            S1, S2 et S3. À la fin de la journée,{" "}
-            <em>27 ventes ont été réalisées</em>. Il y a eu{" "}
-            <em>2 fois plus de modèles S3 que de S1 </em> et{" "}
-            <em> une paire de plus du modèle S1 que du modèle S2</em>.
-          </P>
+          <div className="flex-2">
+            <P>
+              Un magasin de chaussures de sécurité propose trois types de
+              modèles S1, S2 et S3. À la fin de la journée,{" "}
+              <em>27 ventes ont été réalisées</em>. Il y a eu{" "}
+              <em>2 fois plus de modèles S3 que de S1 </em> et{" "}
+              <em> une paire de plus du modèle S1 que du modèle S2</em>.
+            </P>
+            <P align="center">
+              <S>
+                On cherche à déterminer combien de chaque type de modèles ont
+                été vendus.
+              </S>
+            </P>
+          </div>
           <Flex gap="3mm" align="end" className="flex-1">
             {[shoes1, shoes2, shoes3].map((img, k) => (
               <Img src={img} align="center" className="w-1/3">
@@ -308,12 +356,6 @@ export default function PremierDegreActivitesDocument() {
             ))}
           </Flex>
         </Flex>
-        <P align="center">
-          <S>
-            On cherche à déterminer combien de chaque type de modèles ont été
-            vendus.
-          </S>
-        </P>
         <LI>
           Soit <X /> le nombre de paires de chaussures de sécurité de modèle S1
           vendues.
@@ -343,7 +385,13 @@ export default function PremierDegreActivitesDocument() {
           <DotLine count={2} />
         </SubQuestion>
         <Call>Faire vérifier la mise en équation du problème</Call>
-        <LI>On dispose du fichier Libre Office CALC « CHAUSSURES.ods ».</LI>
+        <Qr
+          href="https://drive.monlycee.net/s/aWRmMg-9omqApYF"
+          className={"float-right"}
+        >
+          Chaussure.xlsx
+        </Qr>
+        <LI>On dispose du fichier Exel « Chaussures.xlsx ».</LI>
         <SubQuestion count={2}>
           <LI>
             Numéroter de 1 à 27 le nombre de paires de chaussures de modèle S1
@@ -373,7 +421,7 @@ export default function PremierDegreActivitesDocument() {
           Déterminer la solution de l’équation à l’aide du tableau obtenu. <X />{" "}
           = <DotLine width="3cm" />
         </LI>
-        <LI>Répondez à la question du problème.</LI>
+        <LI>Répondre à la question du problème.</LI>
         <DotLine count={3} />
       </TP>
 
@@ -399,7 +447,11 @@ export default function PremierDegreActivitesDocument() {
           {intervals.map((arr) => (
             <LI>
               Dans l'intervalle <LaTeX tex={arr.join("")} /> :
-              <UL indent={0} className="columns-2 ml-2">
+              <UL
+                indent={0}
+                className="columns-2 ml-2"
+                style={{ "--strong--color": "black" }}
+              >
                 <LI>
                   {arr[1].toLocaleString("fr")} est-il{" "}
                   <S>compris / non compris</S>,
@@ -451,12 +503,7 @@ export default function PremierDegreActivitesDocument() {
         </Flex>
         <Table className="w-8/10 mx-auto">
           <THeader content={["Représentation graphique", "Intervalle"]} />
-          <TEntry
-            content={[
-              <Interval from={0} to={3} />,
-              <DotLine />,
-            ]}
-          />
+          <TEntry content={[<Interval from={0} to={3} />, <DotLine />]} />
           <TEntry
             content={[
               <Interval min={-6} max={2} from={-5} to={-3.5} />,
@@ -467,6 +514,7 @@ export default function PremierDegreActivitesDocument() {
             content={[<Interval min={-4} max={4} />, <LaTeX tex="]-2;1]" />]}
           />
         </Table>
+        <PageBreak />
         <LI>
           La notation <LaTeX tex="\infty" /> se lit « infini ». L’infini du côté
           des nombres négatifs se note <LaTeX tex="-\infty" /> et l’infini côté
@@ -479,16 +527,10 @@ export default function PremierDegreActivitesDocument() {
         <Table className="w-8/10 mx-auto my-2">
           <THeader content={["Représentation graphique", "Intervalle"]} />
           <TEntry
-            content={[
-              <Interval from={0} to={Infinity} />,
-              <DotLine />,
-            ]}
+            content={[<Interval from={0} to={Infinity} />, <DotLine />]}
           />
           <TEntry
-            content={[
-              <Interval from={-Infinity} to={3} />,
-              <DotLine />,
-            ]}
+            content={[<Interval from={-Infinity} to={3} />, <DotLine />]}
           />
           <TEntry
             content={[
@@ -515,8 +557,8 @@ export default function PremierDegreActivitesDocument() {
               L’inéquation <LaTeX tex="x > 2" /> a pour solution l’intervalle{" "}
               <LaTeX tex="]2 ; +\infty[" /> dont la représentation graphique est
               donnée ci-contre :<br />
-              Traduire les résultats d’inéquations suivants, en intervalle, puis
-              en représentation graphique :
+              Traduire les résultats d’inéquations suivantes, en intervalle,
+              puis en représentation graphique :
             </LI>
           </div>
           <Interval className="flex-1" from={2} to={Infinity} />
@@ -600,15 +642,15 @@ export default function PremierDegreActivitesDocument() {
           </LI>
           <UL marker="• Option" indent={0}>
             <LI>
-              <Circle>A</Circle> <DotLine width="12cm" />
+              <Circle>A</Circle> <DotLine inline />
             </LI>
             <LI>
-              <Circle>B</Circle> <DotLine width="12cm" />
+              <Circle>B</Circle> <DotLine inline />
             </LI>
           </UL>
           <LI>
             Quelle est dans ce cas l'option la plus rentable pour le chef de
-            chantier.
+            chantier ?
           </LI>
           <DotLine />
         </SubQuestion>
@@ -620,15 +662,16 @@ export default function PremierDegreActivitesDocument() {
           </LI>
           <UL marker="• Option" indent={0}>
             <LI>
-              <Circle>A</Circle> <DotLine width="12cm" />
+              <Circle>A</Circle> <DotLine inline />
             </LI>
             <LI>
-              <Circle>B</Circle> <DotLine width="12cm" />
+              <Circle>B</Circle> <DotLine inline />
             </LI>
           </UL>
+          <PageBreak />
           <LI>
             Quelle est dans ce cas l'option la plus rentable pour le chef de
-            chantier.
+            chantier ?
           </LI>
           <DotLine />
         </SubQuestion>
@@ -643,15 +686,16 @@ export default function PremierDegreActivitesDocument() {
             <LaTeX tex="F_A" /> en fonction de <X /> dans l'option{" "}
             <Circle>A</Circle>.
           </LI>
-          <DotLine />
+          <DotLine count={2} />
           <LI>
             Donner la relation permettant de calculer les frais remboursés{" "}
             <LaTeX tex="F_B" /> en fonction de <X /> dans l'option{" "}
             <Circle>B</Circle>.
           </LI>
-          <DotLine />
-          <LI>Donner une inéquation traduisant la problématique.</LI>
           <DotLine count={2} />
+
+          <LI>Donner une inéquation traduisant la problématique.</LI>
+          <DotLine count={3} />
         </SubQuestion>
 
         <LI>Résoudre l'inéquation et répondre à la problématique.</LI>
